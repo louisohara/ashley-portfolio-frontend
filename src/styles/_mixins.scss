@@ -1,0 +1,60 @@
+@use "./variables.scss" as *;
+
+@mixin mobile-only {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+@mixin underline($bottom) {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    bottom: $bottom;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    background-color: transparent;
+    transition: background-color 1s, width 1s, font-weight 1s ease-in-out;
+    width: 0%;
+  }
+  &:hover::after {
+    font-weight: 800;
+    width: 100%;
+    background-color: $white;
+  }
+}
+
+@mixin pulse($r, $g, $b) {
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba($r, $g, $b, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba($r, $g, $b, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba($r, $g, $b, 0);
+    }
+  }
+}
