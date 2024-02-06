@@ -1,0 +1,36 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.footer {
+  background-color: $darkest-colour;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  &__container {
+    @include screenWidth;
+  }
+
+  &__list {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    width: fit-content;
+    @include tablet {
+      width: 40%;
+    }
+    margin: auto;
+    padding-left: 0;
+  }
+  &__list-item {
+    list-style-type: none;
+  }
+  &__icon {
+    height: 2rem;
+    width: auto;
+    &--alt {
+      filter: invert(1);
+    }
+  }
+}

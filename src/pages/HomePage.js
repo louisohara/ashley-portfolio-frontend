@@ -25,7 +25,7 @@ export default function HomePage({ isLoggedIn, setLoginFalse }) {
   }, []);
 
   return (
-    <main>
+    <>
       <section className="home app__section app__section--home active">
         <p>This is the homepage</p>
         {isLoggedIn ? (
@@ -49,6 +49,6 @@ export default function HomePage({ isLoggedIn, setLoginFalse }) {
       <section id="contact" className="app__section app__section--contact">
         <ContactPage isLoggedIn={isLoggedIn} />
       </section>
-    </main>
+    </>
   );
 }

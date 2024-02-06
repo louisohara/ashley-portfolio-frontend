@@ -1,9 +1,12 @@
 @use "./styles/variables" as *;
+@use "./styles/mixins" as *;
 
 .app {
   background-color: $bg-light;
-  // color: $darkest-colour;
   height: 100vh;
+  &__main {
+    @include screenWidth;
+  }
 
   &__section {
     display: none;

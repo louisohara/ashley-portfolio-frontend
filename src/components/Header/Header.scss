@@ -4,13 +4,17 @@
 .header {
   background-color: white;
   //   border-bottom: 2px solid $darkest-colour;
+  &__container {
+    padding-top: 1rem;
+    @include screenWidth;
+  }
   &__navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    // padding: 0 1.5rem;
     @include mobile-only {
-      padding: 1rem 2.5rem;
+      padding: 1rem calc(5%);
     }
   }
   &__secondary-menu {
@@ -83,7 +87,8 @@
     width: fit-content;
 
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: $size-sub;
+
     font-weight: 400;
     color: $darkest-colour;
     transition: color 0.5s;
@@ -99,7 +104,7 @@
     &--alt {
       width: fit-content;
       text-decoration: none;
-      font-size: 1.6rem;
+      font-size: $size-sub;
       font-weight: 400;
       color: $darkest-colour;
       transition: color 0.5s;
@@ -113,7 +118,7 @@
     }
   }
   &__logo {
-    height: 3.5rem;
+    height: 4rem;
     width: auto;
     position: relative;
     z-index: 5;

@@ -59,74 +59,76 @@ export default function Header() {
   };
   return (
     <header className="header">
-      <nav className="header__navbar">
-        <a className="header__left" href="/">
-          <img
-            src={logo}
-            alt="Ashley Francis Roy logo"
-            className="header__logo"
-          />
-        </a>
+      <div className="header__container">
+        <nav className="header__navbar">
+          <a className="header__left" href="/">
+            <img
+              src={logo}
+              alt="Ashley Francis Roy logo"
+              className="header__logo"
+            />
+          </a>
 
-        <ul className="header__menu">
-          <li className="header__item">
-            <p
-              className="header__link header__link--about"
-              onClick={() => {
-                closeMenu("about");
-              }}
+          <ul className="header__menu">
+            <li className="header__item">
+              <p
+                className="header__link header__link--about"
+                onClick={() => {
+                  closeMenu("about");
+                }}
+              >
+                About
+              </p>
+            </li>
+
+            <li
+              className="header__item header__item--alt"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              About
-            </p>
-          </li>
+              <p className="header__link--alt">Films</p>
 
-          <li
-            className="header__item header__item--alt"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <p className="header__link--alt">Films</p>
+              <ul className="header__secondary-menu">
+                <li className="header__item">
+                  <p
+                    className="header__link header__link--directing"
+                    onClick={() => {
+                      closeMenu("directing");
+                      activateHeaderLink("alt");
+                    }}
+                  >
+                    Directing
+                  </p>
+                </li>
 
-            <ul className="header__secondary-menu">
-              <li className="header__item">
-                <p
-                  className="header__link header__link--directing"
-                  onClick={() => {
-                    closeMenu("directing");
-                    activateHeaderLink("alt");
-                  }}
-                >
-                  Directing
-                </p>
-              </li>
+                <li className="header__item">
+                  <p
+                    className="header__link header__link--producing"
+                    onClick={() => {
+                      closeMenu("producing");
+                      activateHeaderLink("alt");
+                    }}
+                  >
+                    Producing
+                  </p>
+                </li>
+              </ul>
+            </li>
 
-              <li className="header__item">
-                <p
-                  className="header__link header__link--producing"
-                  onClick={() => {
-                    closeMenu("producing");
-                    activateHeaderLink("alt");
-                  }}
-                >
-                  Producing
-                </p>
-              </li>
-            </ul>
-          </li>
-
-          <li className="header__item">
-            <p
-              className="header__link header__link--contact"
-              onClick={() => {
-                closeMenu("contact");
-              }}
-            >
-              Contact
-            </p>
-          </li>
-        </ul>
-        <Hamburger />
-      </nav>
+            <li className="header__item">
+              <p
+                className="header__link header__link--contact"
+                onClick={() => {
+                  closeMenu("contact");
+                }}
+              >
+                Contact
+              </p>
+            </li>
+          </ul>
+          <Hamburger />
+        </nav>
+      </div>
     </header>
   );
 }

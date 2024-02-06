@@ -5,11 +5,11 @@ import HomePage from "../src/pages/HomePage.js";
 import AdminPage from "./pages/AdminPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import ContactPage from "./pages/ContactPage";
-import AboutPage from "./pages/AboutPage";
-import FilmPage from "./pages/FilmPage";
-import DirectingPage from "./pages/DirectingPage";
-import ProducingPage from "./pages/ProducingPage";
+// import ContactPage from "./pages/ContactPage";
+// import AboutPage from "./pages/AboutPage";
+// import FilmPage from "./pages/FilmPage";
+// import DirectingPage from "./pages/DirectingPage";
+// import ProducingPage from "./pages/ProducingPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,30 +25,37 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage isLoggedIn={isLoggedIn} setLoginFalse={setLoginFalse} />
-            }
-          />
-          <Route
-            path="/:section"
-            element={
-              <HomePage isLoggedIn={isLoggedIn} setLoginFalse={setLoginFalse} />
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <AdminPage
-                isLoggedIn={isLoggedIn}
-                setLoginTrue={setLoginTrue}
-                setLoginFalse={setLoginFalse}
-              />
-            }
-          />
-          {/* <Route
+        <main className="app__main">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  isLoggedIn={isLoggedIn}
+                  setLoginFalse={setLoginFalse}
+                />
+              }
+            />
+            <Route
+              path="/:section"
+              element={
+                <HomePage
+                  isLoggedIn={isLoggedIn}
+                  setLoginFalse={setLoginFalse}
+                />
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <AdminPage
+                  isLoggedIn={isLoggedIn}
+                  setLoginTrue={setLoginTrue}
+                  setLoginFalse={setLoginFalse}
+                />
+              }
+            />
+            {/* <Route
             path="/admin"
             element={
               <AdminPage
@@ -72,8 +79,8 @@ function App() {
             path="/producing"
             element={<ProducingPage isLoggedIn={isLoggedIn} />}
           /> */}
-        </Routes>
-
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </div>

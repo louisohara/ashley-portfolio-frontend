@@ -18,6 +18,17 @@
   }
 }
 
+@mixin screenWidth {
+  width: 95%;
+  margin: auto;
+  @include tablet {
+    width: 90%;
+  }
+  @include desktop {
+    width: 85%;
+  }
+}
+
 @mixin line($bottom) {
   position: relative;
   text-decoration: none;
