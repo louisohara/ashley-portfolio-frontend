@@ -33,6 +33,22 @@ function App() {
             }
           />
           <Route
+            path="/:section"
+            element={
+              <HomePage isLoggedIn={isLoggedIn} setLoginFalse={setLoginFalse} />
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <AdminPage
+                isLoggedIn={isLoggedIn}
+                setLoginTrue={setLoginTrue}
+                setLoginFalse={setLoginFalse}
+              />
+            }
+          />
+          {/* <Route
             path="/admin"
             element={
               <AdminPage
@@ -55,8 +71,9 @@ function App() {
           <Route
             path="/producing"
             element={<ProducingPage isLoggedIn={isLoggedIn} />}
-          />
+          /> */}
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </div>

@@ -1,4 +1,5 @@
 @use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
 
 .hamburger {
   display: none;
@@ -13,9 +14,15 @@
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: white;
+    background-color: $button-colour;
+    &:hover {
+      background-color: $hover-colour;
+    }
   }
   &.active {
+    .hamburger__bar:nth-child(n) {
+      background-color: $hover-colour;
+    }
     .hamburger__bar:nth-child(2) {
       opacity: 0;
     }

@@ -1,35 +1,68 @@
 @use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .header {
-  border: 2px solid red;
+  background-color: white;
+  //   border-bottom: 2px solid $darkest-colour;
   &__navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
+    @include mobile-only {
+      padding: 1rem 2.5rem;
+    }
   }
-  &__menu-hover {
+  &__secondary-menu {
     @include tablet {
       display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: unset;
+        margin: unset;
+        @include modal;
+
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        width: 50%;
+        opacity: 0;
+        animation: fadeIn 0.25s ease-in both;
+        background-color: white;
+        // border: 2px solid $darkest-colour;
+        // border-top: 0;
+        // border-top: 2px solid $darkest-colour;
+        @keyframes fadeIn {
+          from {
+            transform: translate(50%, 45%);
+            opacity: 0;
+          }
+          to {
+            transform: translate(50%, 50%);
+            opacity: 1;
+          }
+        }
+      }
     }
   }
   &__menu {
     padding-left: 0;
+    margin: 0;
     display: flex;
+    width: 30%;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     @include mobile-only {
       display: block;
       position: fixed;
       top: -100%;
       left: 0;
       margin: 0;
-      //   flex-direction: column;
-      //   background-color: #fff;
-      background-color: red;
-      border: red 2px solid;
+      background-color: $bg-dark;
       width: 100%;
-      border-radius: 10px;
-      //   text-align: center;
       transition: 0.3s;
       box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
       height: calc(100% - 5.5rem);
@@ -41,22 +74,41 @@
   }
   &__item {
     list-style-type: none;
-    margin-left: 5rem;
+
     @include mobile-only {
       margin: 2.5rem;
     }
   }
   &__link {
+    width: fit-content;
+
     text-decoration: none;
     font-size: 1.6rem;
     font-weight: 400;
-    color: white;
-    &:hover {
-      color: #482ff7;
+    color: $darkest-colour;
+    transition: color 0.5s;
+    cursor: pointer;
+    @include underline(-0.5rem);
+    &:hover,
+    &.active {
+      color: $hover-colour;
+    }
+    &.active {
+      @include line(-0.5rem);
     }
     &--alt {
+      width: fit-content;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: $darkest-colour;
+      transition: color 0.5s;
       &:hover {
+        cursor: unset;
         color: unset;
+      }
+      &.active {
+        @include line(-0.5rem);
       }
     }
   }

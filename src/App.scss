@@ -1,5 +1,15 @@
+@use "./styles/variables" as *;
+
 .app {
-  background-color: black;
-  color: white;
+  background-color: $bg-light;
+  // color: $darkest-colour;
   height: 100vh;
+
+  &__section {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
 }
