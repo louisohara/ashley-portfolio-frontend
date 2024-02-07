@@ -1,37 +1,10 @@
 import logo from "../../assets/icons/logo192.png";
 import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
-import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Header() {
-  const activateHeaderLink = (section) => {
-    if (section !== "alt") {
-      const activeLinkEl = document.querySelector(".header__link.active");
-      if (activeLinkEl) {
-        activeLinkEl.classList.remove("active");
-      }
-    }
-    const filmLinkEl = document.querySelector(".header__link--alt.active");
-    if (filmLinkEl) {
-      filmLinkEl.classList.remove("active");
-    }
-    const headerEl = document.querySelector(`.header__link--${section}`);
-    headerEl.classList.add("active");
-  };
-
-  const activateSection = (section) => {
-    const activeEl = document.querySelector(".app__section.active");
-    if (activeEl) {
-      activeEl.classList.remove("active");
-    }
-    const sectionEl = document.querySelector(`.app__section--${section}`);
-    sectionEl.classList.add("active");
-  };
-
-  //   const [isDropdownVisible, setDropdownVisible] = useState(false);
-
   const handleMouseEnter = () => {
-    // setDropdownVisible(true);
     const secondaryMenu = document.querySelector(".header__secondary-menu");
     if (secondaryMenu) {
       secondaryMenu.classList.add("active");
@@ -39,46 +12,55 @@ export default function Header() {
   };
 
   const handleMouseLeave = () => {
-    // setDropdownVisible(false);
     const secondaryMenu = document.querySelector(".header__secondary-menu");
     if (secondaryMenu) {
       secondaryMenu.classList.remove("active");
     }
   };
 
-  const closeMenu = (section) => {
+  const closeMenu = () => {
     handleMouseLeave();
     const hamburger = document.querySelector(".hamburger");
     const headerMenu = document.querySelector(".header__menu");
-    if (section) {
-      activateSection(section);
-      activateHeaderLink(section);
-    }
     hamburger.classList.remove("active");
     headerMenu.classList.remove("active");
   };
+
+  useEffect(() => {
+    const menuLinks = document.getElementsByClassName("header__link");
+    for (let i = 0; i < menuLinks.length; i++) {
+      if (menuLinks[i].href === window.location.href) {
+        menuLinks[i].className += " active";
+        if (
+          /directing/.test(window.location.href) ||
+          /producing/.test(window.location.href)
+        ) {
+          const filmLinkEl = document.querySelector(".header__link--alt");
+          if (filmLinkEl) {
+            filmLinkEl.classList.add("active");
+          }
+        }
+      }
+    }
+    closeMenu();
+  }, []);
   return (
     <header className="header">
       <div className="header__container">
         <nav className="header__navbar">
-          <a className="header__left" href="/">
+          <div className="header__left">
             <img
               src={logo}
               alt="Ashley Francis Roy logo"
               className="header__logo"
             />
-          </a>
+          </div>
 
-          <ul className="header__menu">
+          <ul className="header__menu active">
             <li className="header__item">
-              <p
-                className="header__link header__link--about"
-                onClick={() => {
-                  closeMenu("about");
-                }}
-              >
+              <a className="header__link header__link--about" href="/about">
                 About
-              </p>
+              </a>
             </li>
 
             <li
@@ -86,44 +68,39 @@ export default function Header() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <p className="header__link--alt">Films</p>
+              <a href="/" className="header__link header__link--alt">
+                Films
+              </a>
 
               <ul className="header__secondary-menu">
                 <li className="header__item">
-                  <p
-                    className="header__link header__link--directing"
-                    onClick={() => {
-                      closeMenu("directing");
-                      activateHeaderLink("alt");
-                    }}
-                  >
-                    Directing
+                  <p>
+                    <a
+                      href="/directing"
+                      className="header__link header__link--directing"
+                    >
+                      Directing
+                    </a>
                   </p>
                 </li>
 
                 <li className="header__item">
-                  <p
-                    className="header__link header__link--producing"
-                    onClick={() => {
-                      closeMenu("producing");
-                      activateHeaderLink("alt");
-                    }}
-                  >
-                    Producing
+                  <p>
+                    <a
+                      href="/producing"
+                      className="header__link header__link--producing"
+                    >
+                      Producing
+                    </a>
                   </p>
                 </li>
               </ul>
             </li>
 
             <li className="header__item">
-              <p
-                className="header__link header__link--contact"
-                onClick={() => {
-                  closeMenu("contact");
-                }}
-              >
+              <a className="header__link header__link--contact" href="/contact">
                 Contact
-              </p>
+              </a>
             </li>
           </ul>
           <Hamburger />

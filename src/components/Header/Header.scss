@@ -29,7 +29,6 @@
         padding: unset;
         margin: unset;
         @include modal;
-
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         width: 50%;
         opacity: 0;
@@ -51,6 +50,7 @@
       }
     }
   }
+
   &__menu {
     padding-left: 0;
     margin: 0;
@@ -109,10 +109,10 @@
       font-weight: 400;
       color: $darkest-colour;
       transition: color 0.5s;
-      &:hover {
-        cursor: unset;
-        color: unset;
-      }
+      //   &:hover {
+      //     // cursor: unset;
+      //     // color: unset;
+      //   }
       &.active {
         @include line(-0.5rem);
       }

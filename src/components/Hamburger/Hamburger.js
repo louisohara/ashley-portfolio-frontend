@@ -9,7 +9,7 @@ export default function Hamburger() {
     headerMenu.classList.toggle("active");
   };
   return (
-    <div className="hamburger" onClick={mobileMenu}>
+    <div className="hamburger active" onClick={mobileMenu}>
       <span className="hamburger__bar"></span>
       <span className="hamburger__bar"></span>
       <span className="hamburger__bar"></span>
