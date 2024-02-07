@@ -6,6 +6,7 @@
   @include mobile-only {
     display: block;
     cursor: pointer;
+    z-index: 2;
   }
   &__bar {
     display: block;

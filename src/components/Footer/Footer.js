@@ -1,39 +1,39 @@
 import "./Footer.scss";
-import twitter from "../../assets/twitter.svg";
-import instagram from "../../assets/instagram.svg";
-import linkedin from "../../assets/linkedin.svg";
-import vimeo from "../../assets/vimeo.svg";
-import resume from "../../assets/resume.svg";
-import representation from "../../assets/representation.png";
+import twitter from "../../assets/icons/twitter.svg";
+import instagram from "../../assets/icons/instagram.svg";
+import linkedin from "../../assets/icons/linkedin.svg";
+import vimeo from "../../assets/icons/vimeo.svg";
+import resume from "../../assets/icons/resume.svg";
+import CV from "../../assets/files/resume.pdf";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 // import logo from "../../assets/logo192.png";
 
 export default function Footer() {
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
 
-  const getResume = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/files/resume.pdf"
-        // {
-        //   responseType: "blob",
-        // }
-      );
-      if (response) {
-        // const file = new Blob([response.data], { type: "application/pdf" });
+  // const getResume = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "http://localhost:8080/files/resume.pdf"
+  //       // {
+  //       //   responseType: "blob",
+  //       // }
+  //     );
+  //     if (response) {
+  //       // const file = new Blob([response.data], { type: "application/pdf" });
 
-        setFile(response.data.blob());
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //       setFile(response.data.blob());
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getResume();
-  }, []);
+  // useEffect(() => {
+  //   getResume();
+  // }, []);
 
   return (
     <footer className="footer">
@@ -83,7 +83,7 @@ export default function Footer() {
               />
             </a>
           </li>
-          <li className="footer__list-item">
+          {/* <li className="footer__list-item">
             <a
               href="https://www.thetalentmanager.com/talent/32103"
               className="footer__link"
@@ -95,17 +95,14 @@ export default function Footer() {
                 className="footer__icon footer__icon--alt"
               />
             </a>
-          </li>
+          </li> */}
           <li className="footer__list-item">
-            <a href={file} className="footer__link" title="Resume">
-              <img
-                src={resume}
-                alt="Resume icon"
-                className="footer__icon footer__icon--alt"
-              />
+            <a href={CV} className="footer__link" title="Resume">
+              <img src={resume} alt="Resume icon" className="footer__icon" />
             </a>
           </li>
         </ul>
+        <p className="footer__branding">© 2024 ASHLEY FRANCIS-ROY</p>
       </div>
     </footer>
   );

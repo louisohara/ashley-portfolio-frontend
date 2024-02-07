@@ -61,6 +61,7 @@
     position: relative;
     @include mobile-only {
       display: block;
+      z-index: 1;
       position: fixed;
       top: -100%;
       left: 0;

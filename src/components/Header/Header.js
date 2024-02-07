@@ -1,4 +1,4 @@
-import logo from "../../assets/logo192.png";
+import logo from "../../assets/icons/logo192.png";
 import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useState } from "react";
