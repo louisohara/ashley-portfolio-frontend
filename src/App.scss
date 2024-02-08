@@ -27,3 +27,11 @@
     background-color: $bg-light;
   }
 }
+
+// fixedscroll animation
+.header.fixedToTop + .app__main {
+  @include mobile-only {
+    margin-top: 7.2rem;
+  }
+  margin-top: 5.5rem;
+}

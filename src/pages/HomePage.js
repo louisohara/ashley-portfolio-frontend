@@ -1,30 +1,13 @@
-import { useEffect } from "react";
 import Films from "../components/Films/Films";
-import axios from "axios";
-import { useState } from "react";
 
-export default function HomePage({ isLoggedIn, setLoginFalse }) {
-  const [films, setFilms] = useState(null);
+export default function HomePage({ isLoggedIn, setLoginFalse, films }) {
+  // const handleClick = () => {
+  //   setLoginFalse();
+  // };
 
-  const handleClick = () => {
-    setLoginFalse();
-  };
-
-  const getFilms = async () => {
-    try {
-      const response = await axios.get("http://localhost:8080/api/films/");
-      if (response) {
-        console.log(response);
-        setFilms(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    getFilms();
-  }, []);
+  if (!films) {
+    return <p>loading...</p>;
+  }
 
   return (
     <section className="home app__section app__section--home active">

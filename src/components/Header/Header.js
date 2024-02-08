@@ -3,27 +3,27 @@ import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useEffect } from "react";
 
-export default function Header() {
+export default function Header({ closeMenu }) {
   const handleMouseEnter = () => {
+    const arrow = document.querySelector(".header__arrow");
     const secondaryMenu = document.querySelector(".header__secondary-menu");
     if (secondaryMenu) {
       secondaryMenu.classList.add("active");
     }
+    if (arrow) {
+      arrow.classList.remove("hide-toggle");
+    }
   };
 
   const handleMouseLeave = () => {
+    const arrow = document.querySelector(".header__arrow");
     const secondaryMenu = document.querySelector(".header__secondary-menu");
     if (secondaryMenu) {
       secondaryMenu.classList.remove("active");
     }
-  };
-
-  const closeMenu = () => {
-    handleMouseLeave();
-    const hamburger = document.querySelector(".hamburger");
-    const headerMenu = document.querySelector(".header__menu");
-    hamburger.classList.remove("active");
-    headerMenu.classList.remove("active");
+    if (arrow) {
+      arrow.classList.add("hide-toggle");
+    }
   };
 
   useEffect(() => {
@@ -33,7 +33,8 @@ export default function Header() {
         menuLinks[i].className += " active";
         if (
           /directing/.test(window.location.href) ||
-          /producing/.test(window.location.href)
+          /producing/.test(window.location.href) ||
+          /films/.test(window.location.href)
         ) {
           const filmLinkEl = document.querySelector(".header__link--alt");
           if (filmLinkEl) {
@@ -68,11 +69,24 @@ export default function Header() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="/" className="header__link header__link--alt">
+              <div
+                className="
+              header__link--alt"
+              >
                 Films
-              </a>
+                <div className="header__arrow hide-toggle clearfix">
+                  <div className="header__arrow-open-close"></div>
+                </div>
+              </div>
 
               <ul className="header__secondary-menu">
+                <li className="header__item">
+                  <p>
+                    <a href="/films" className="header__link header__link--all">
+                      All
+                    </a>
+                  </p>
+                </li>
                 <li className="header__item">
                   <p>
                     <a

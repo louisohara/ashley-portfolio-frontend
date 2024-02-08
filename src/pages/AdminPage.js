@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Login from "../components/Login/Login";
 import { useEffect } from "react";
 
+// ADD FIREBASE FOR CV AND IMAGES STORAGE AND CONNECT WITH EDIT FUNCTIONS
+
 export default function AdminPage({ isLoggedIn, setLoginTrue, setLoginFalse }) {
   const nav = useNavigate();
 

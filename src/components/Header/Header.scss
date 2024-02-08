@@ -3,7 +3,18 @@
 
 .header {
   background-color: white;
-  //   border-bottom: 2px solid $darkest-colour;
+  border-bottom: 2px solid $darkest-colour;
+
+  //   fixedscroll animation start
+  z-index: 10;
+  transition: all 0.5s ease-in-out;
+  &.fixedToTop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  // fixed scroll animation end
   &__container {
     padding-top: 1rem;
     @include screenWidth;
@@ -22,31 +33,26 @@
       display: none;
 
       &.active {
+        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         list-style: none;
         padding: unset;
-        margin: unset;
+        margin: 0;
         @include modal;
+        // positioned to align with header border-bottom
+        // RELATIVE TO header__link--alt margins
+        top: -0.875rem;
+        //
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         width: 50%;
         opacity: 0;
-        animation: fadeIn 0.25s ease-in both;
         background-color: white;
-        // border: 2px solid $darkest-colour;
+        border: 2px solid $darkest-colour;
         // border-top: 0;
         // border-top: 2px solid $darkest-colour;
-        @keyframes fadeIn {
-          from {
-            transform: translate(50%, 45%);
-            opacity: 0;
-          }
-          to {
-            transform: translate(50%, 50%);
-            opacity: 1;
-          }
-        }
+        @include fadeAndMove(0.5s, 50%, 45%, 50%, 50%);
       }
     }
   }
@@ -65,7 +71,7 @@
       position: fixed;
       top: -100%;
       left: 0;
-      margin: 0;
+
       background-color: $bg-dark;
       width: 100%;
       transition: 0.3s;
@@ -79,17 +85,17 @@
   }
   &__item {
     list-style-type: none;
-
+    margin: 0;
     @include mobile-only {
       margin: 2.5rem;
     }
   }
   &__link {
     width: fit-content;
-
+    text-align: center;
     text-decoration: none;
     font-size: $size-sub;
-
+    padding: 0;
     font-weight: 400;
     color: $darkest-colour;
     transition: color 0.5s;
@@ -109,6 +115,12 @@
       font-weight: 400;
       color: $darkest-colour;
       transition: color 0.5s;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      @include tablet {
+        margin: 1.5rem 2rem;
+      }
       //   &:hover {
       //     // cursor: unset;
       //     // color: unset;
@@ -123,5 +135,63 @@
     width: auto;
     position: relative;
     z-index: 5;
+  }
+}
+
+.header__arrow-open-close {
+  position: relative;
+  width: 15px;
+  height: 20px;
+
+  &:before,
+  &:after {
+    transition: 0.15s all ease-in-out;
+    position: absolute;
+    content: "";
+    width: 60%;
+    height: 2.5px;
+    background: $hover-colour;
+    top: 50%;
+    border-radius: 5px;
+  }
+
+  &:before {
+    transform: rotate(150deg);
+    left: 0;
+  }
+  &:after {
+    transform: rotate(-150deg);
+    right: 0;
+  }
+}
+
+.header__arrow {
+  @include mobile-only {
+    display: none;
+  }
+  position: absolute;
+  //   @include tablet-only {
+  //     right: -1.5rem;
+  //   }
+  right: -2rem;
+  top: 0.25rem;
+  width: 50%;
+  max-width: 80px;
+
+  .header__arrow-open-close {
+    float: left;
+  }
+
+  &.hide-toggle {
+    .header__arrow-open-close {
+      &:before {
+        transform: rotate(210deg);
+        left: 0;
+      }
+      &:after {
+        transform: rotate(-210deg);
+        right: 0;
+      }
+    }
   }
 }

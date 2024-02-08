@@ -14,7 +14,6 @@
     grid-gap: 10px;
   }
   &__item {
-    // background: grey;
     position: relative;
     display: flex;
     &:before {
@@ -62,22 +61,63 @@
     width: 100%;
     height: 100%;
   }
+  .inView .films__image-container {
+    @include fade(0.5s);
+  }
+
+  // fadein on scroll from left animation
+  &__grid li:nth-child(6n + 1).inView .films__image-container {
+    @include desktop {
+      animation: fromLeft 0.5s ease-in both;
+      @keyframes fromLeft {
+        from {
+          transform: translate(-2%, 0);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+  // fadein on scroll from right animation
+  &__grid li:nth-child(6n + 5).inView .films__image-container {
+    @include desktop {
+      animation: fromRight 0.5s ease-in both;
+      @keyframes fromRight {
+        from {
+          transform: translate(2%, 0);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   &__image-container {
     overflow: hidden;
+    position: relative;
   }
+
   &__image {
     object-fit: cover;
     object-position: center;
     display: block;
-    // filter: grayscale(1);
-    // transition: filter 0.5s;
-    // &:hover {
-    //   filter: grayscale(0);
-    // }
+    filter: grayscale(1);
+    @include tablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
   &__overlay {
-    display: none;
     position: absolute;
+    top: 0;
+    left: 0;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -91,9 +131,9 @@
       background-color: $transparent-colour;
       color: white;
     }
-    &__title {
-      font-size: $size-sub;
-      text-align: center;
-    }
+  }
+  &__title {
+    font-size: $size-sub;
+    text-align: center;
   }
 }
