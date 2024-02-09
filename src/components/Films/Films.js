@@ -5,7 +5,7 @@ export default function Films({ children }) {
   const fadeInScroll = () => {
     let elements = document.querySelectorAll(".films__item");
     elements.forEach((element, i) => {
-      if (i > 3) {
+      if (i > 2) {
         let distInView =
           element.getBoundingClientRect().top - window.innerHeight + 20;
         if (distInView < 0) {
@@ -41,9 +41,12 @@ export default function Films({ children }) {
   }, []);
   const renderFilms = () => {
     if (children) {
-      return children.map((child) => {
+      return children.map((child, i) => {
         return (
-          <li className="films__item" key={child.id}>
+          <li
+            className={i <= 5 ? "films__item films__item--alt" : "films__item"}
+            key={child.id}
+          >
             <a href={`/films/${child.id}`} className="films__link">
               <div className="films__image-container">
                 <img

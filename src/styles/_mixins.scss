@@ -100,6 +100,7 @@
 @mixin fade($duration) {
   opacity: 0;
   animation: fade #{$duration} ease-in both;
+  animation-delay: 0.25s;
   @keyframes fade {
     from {
       opacity: 0;
@@ -134,4 +135,65 @@
     }
   }
   animation: move #{$duration} ease-in both;
+}
+
+@keyframes fromRight {
+  from {
+    transform: translate(2%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@mixin fadeRight {
+  animation: fromRight 0.5s ease-in both;
+  animation-delay: 0.25s;
+}
+
+@keyframes fromLeft {
+  from {
+    transform: translate(-2%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fromTop {
+  from {
+    transform: translate(0, -5%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fromBottom {
+  from {
+    transform: translate(0, 5%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@mixin fadeLeft {
+  animation: fromLeft 0.5s ease-in both;
+  animation-delay: 0.25s;
+}
+@mixin fadeBottom {
+  animation: fromBottom 0.5s ease-in both;
+}
+@mixin fadeTop {
+  animation: fromTop 0.5s ease-in both;
+}
+
+@mixin filterWhiteToColour {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(76%) saturate(4578%)
+    hue-rotate(333deg) brightness(86%) contrast(91%);
 }

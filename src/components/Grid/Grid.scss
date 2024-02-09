@@ -1,0 +1,157 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.grid {
+  width: 100%;
+  height: 100%;
+  border: red 2px solid;
+
+  &__list {
+    border: red 2px solid;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc((100% / 10) - 10px), 1fr)
+    );
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+  }
+  &__list--about {
+    grid-template-rows: repeat(auto-fit, minmax(calc((100% / 10) - 10px), 1fr));
+  }
+  //   padding bottom controls the vertical stretch of the item
+  &__item {
+    position: relative;
+    display: flex;
+    &:before {
+      content: "";
+      display: block;
+      height: 0;
+      width: 0;
+      padding-bottom: calc(5 / 16 * 100%);
+    }
+    &--film:before,
+    &--about:before {
+      padding-bottom: calc(9 / 16 * 100%);
+    }
+    &--carousel:before {
+      @include mobile-only {
+        padding-bottom: calc(12 / 16 * 100%);
+      }
+    }
+  }
+  &__list li:nth-child(n) {
+    @include mobile-only {
+      @include fade(0.5s);
+    }
+  }
+  &__list li:nth-child(1) {
+    grid-column: span 10;
+    border: green 2px solid;
+    @include tablet {
+      @include fadeLeft;
+      grid-column: span 6;
+      grid-row: span 1;
+    }
+  }
+
+  &__list li:nth-child(2) {
+    grid-column: span 10;
+    border: pink 2px solid;
+    @include mobile-only {
+      order: 4;
+    }
+    @include tablet {
+      @include fadeTop;
+      animation-delay: 1.25s;
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+  }
+  &__list li:nth-child(3),
+  &__list li:nth-child(4) {
+    @include mobile-only {
+      width: 80%;
+    }
+  }
+  &__list li:nth-child(3) {
+    grid-column: span 10;
+    border: blue 2px solid;
+
+    @include mobile-only {
+      @include fadeLeft;
+      animation-delay: 0.75s;
+      margin-left: auto;
+    }
+    @include tablet {
+      @include fadeBottom;
+      animation-delay: 1.25s;
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+  }
+
+  &__list li:nth-child(4) {
+    grid-column: span 10;
+
+    @include fadeRight;
+    animation-delay: 1s;
+    border: red 2px solid;
+    @include tablet {
+      @include fadeRight;
+      grid-column: span 6;
+      grid-row: span 1;
+    }
+  }
+  &__list--about li:nth-child(n) {
+    background-color: yellow;
+    @include tablet {
+      grid-column: span 5;
+    }
+  }
+  &__list--about li:nth-child(1) {
+    border: yellow 2px solid;
+    @include tablet {
+      order: 3;
+      //   padding-bottom: calc(6 / 16 * 100%);
+      @include fadeBottom;
+      animation-delay: 0.5s;
+      grid-row: span 6;
+    }
+  }
+  &__list--about li:nth-child(2) {
+    border: yellow 2px solid;
+    @include tablet {
+      order: 2;
+      animation-delay: 0.5s;
+      //   padding-bottom: calc(6 / 16 * 100%);
+      //   @include fadeTop;
+      grid-row: span 6;
+    }
+  }
+
+  &__list--about li:nth-child(3) {
+    border: yellow 2px solid;
+    @include fadeLeft;
+    animation-delay: 0.5s;
+
+    @include tablet {
+      animation-delay: 1.25s;
+
+      order: 1;
+      grid-row: span 4;
+    }
+  }
+  &__list--about li:nth-child(4) {
+    // @include fadeRight;
+    // animation-delay: 0.75s;
+    border: yellow 2px solid;
+    @include tablet {
+      animation-delay: 1.25s;
+
+      order: 4;
+      grid-row: span 4;
+    }
+  }
+}

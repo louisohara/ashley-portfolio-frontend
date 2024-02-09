@@ -24,6 +24,7 @@
       padding-bottom: calc(9 / 16 * 100%);
     }
   }
+
   &__grid li:nth-child(3n + 2),
   &__grid li:nth-child(3n + 3) {
     @include tablet {
@@ -61,40 +62,58 @@
     width: 100%;
     height: 100%;
   }
-  .inView .films__image-container {
-    @include fade(0.5s);
+
+  // fade in delay start
+  &__grid li:nth-child(n).films__item--alt .films__image-container {
+    @include tablet {
+      @include fade(0.5s);
+    }
+  }
+  &__grid li:nth-child(1).films__item--alt .films__image-container {
+    @include desktop {
+      @include fadeLeft;
+    }
   }
 
+  &__grid li:nth-child(2).films__item--alt .films__image-container {
+    animation-delay: 0.5s;
+  }
+  &__grid li:nth-child(3).films__item--alt .films__image-container {
+    @include tablet {
+      animation-delay: 0.75s;
+    }
+  }
+  &__grid li:nth-child(4).films__item--alt .films__image-container {
+    @include tablet {
+      animation-delay: 1s;
+    }
+  }
+  &__grid li:nth-child(5).films__item--alt .films__image-container {
+    @include desktop {
+      @include fadeRight;
+    }
+  }
+  // fade in delay end
+
+  &__grid li:nth-child(n).inView .films__image-container {
+    @include fade(0.5s);
+    animation-delay: 0.25s;
+  }
   // fadein on scroll from left animation
   &__grid li:nth-child(6n + 1).inView .films__image-container {
     @include desktop {
-      animation: fromLeft 0.5s ease-in both;
-      @keyframes fromLeft {
-        from {
-          transform: translate(-2%, 0);
-          opacity: 0;
-        }
-        to {
-          transform: translate(0, 0);
-          opacity: 1;
-        }
-      }
+      @include fadeLeft;
     }
   }
   // fadein on scroll from right animation
   &__grid li:nth-child(6n + 5).inView .films__image-container {
     @include desktop {
-      animation: fromRight 0.5s ease-in both;
-      @keyframes fromRight {
-        from {
-          transform: translate(2%, 0);
-          opacity: 0;
-        }
-        to {
-          transform: translate(0, 0);
-          opacity: 1;
-        }
-      }
+      @include fadeRight;
+    }
+  }
+  &__grid li:nth-child(5).films__item--alt .films__image-container {
+    @include tablet {
+      animation-delay: 1.25s;
     }
   }
 

@@ -1,3 +1,9 @@
+import Grid from "../components/Grid/Grid";
+
 export default function AboutPage({ isLoggedIn }) {
-  return <section className="about">This is the about page</section>;
+  return (
+    <section className="about">
+      <Grid alt1="about" alt2="carousel" />
+    </section>
+  );
 }
