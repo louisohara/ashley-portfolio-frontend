@@ -1,6 +1,6 @@
 import "./Hamburger.scss";
 
-export default function Hamburger() {
+export default function Hamburger({ menuClosed }) {
   const mobileMenu = () => {
     const hamburger = document.querySelector(".hamburger");
     const headerMenu = document.querySelector(".header__menu");
@@ -9,7 +9,10 @@ export default function Hamburger() {
     headerMenu.classList.toggle("active");
   };
   return (
-    <div className="hamburger active" onClick={mobileMenu}>
+    <div
+      className={menuClosed ? "hamburger" : "hamburger active"}
+      onClick={mobileMenu}
+    >
       <span className="hamburger__bar"></span>
       <span className="hamburger__bar"></span>
       <span className="hamburger__bar"></span>

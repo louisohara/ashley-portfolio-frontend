@@ -75,59 +75,113 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Header closeMenu={closeMenu} />
-        <main className="app__main">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  isLoggedIn={isLoggedIn}
-                  setLoginFalse={setLoginFalse}
-                  films={films}
-                />
-              }
-            />
-            <Route
-              path="/films"
-              element={
-                <HomePage
-                  isLoggedIn={isLoggedIn}
-                  setLoginFalse={setLoginFalse}
-                  films={films}
-                />
-              }
-            />
+        {/* <Header closeMenu={closeMenu} /> */}
+        {/* <main className="app__main"> */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={true} />
+                <main className="app__main">
+                  <HomePage
+                    isLoggedIn={isLoggedIn}
+                    setLoginFalse={setLoginFalse}
+                    films={films}
+                  />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/films"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <HomePage
+                    isLoggedIn={isLoggedIn}
+                    setLoginFalse={setLoginFalse}
+                    films={films}
+                  />
+                </main>
+              </>
+            }
+          />
 
-            <Route
-              path="/admin"
-              element={
-                <AdminPage
-                  isLoggedIn={isLoggedIn}
-                  setLoginTrue={setLoginTrue}
-                  setLoginFalse={setLoginFalse}
-                />
-              }
-            />
-            <Route
-              path="/about"
-              element={<AboutPage isLoggedIn={isLoggedIn} />}
-            />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route
-              path="/films/:id"
-              element={<FilmPage isLoggedIn={isLoggedIn} />}
-            />
-            <Route
-              path="/directing"
-              element={<DirectingPage isLoggedIn={isLoggedIn} films={films} />}
-            />
-            <Route
-              path="/producing"
-              element={<ProducingPage isLoggedIn={isLoggedIn} films={films} />}
-            />
-          </Routes>
-        </main>
+          <Route
+            path="/admin"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <AdminPage
+                    isLoggedIn={isLoggedIn}
+                    setLoginTrue={setLoginTrue}
+                    setLoginFalse={setLoginFalse}
+                  />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <AboutPage isLoggedIn={isLoggedIn} />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <ContactPage />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/films/:id"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={true} />
+                <main className="app__main">
+                  <FilmPage isLoggedIn={isLoggedIn} />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/directing"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <DirectingPage isLoggedIn={isLoggedIn} films={films} />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/producing"
+            element={
+              <>
+                <Header closeMenu={closeMenu} menuClosed={false} />
+                <main className="app__main">
+                  <ProducingPage isLoggedIn={isLoggedIn} films={films} />
+                </main>
+              </>
+            }
+          />
+        </Routes>
+        {/* </main> */}
         <div className="app__undercolour"></div>
         <Footer />
       </BrowserRouter>

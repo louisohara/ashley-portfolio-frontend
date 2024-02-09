@@ -16,6 +16,21 @@ export default function Films({ children }) {
       }
     });
   };
+  const handleMouseEnter = (child) => {
+    const image = document.querySelector(`.films__image--${child.id}`);
+
+    if (image) {
+      image.classList.add("active");
+    }
+  };
+
+  const handleMouseLeave = (child) => {
+    const image = document.querySelector(`.films__image--${child.id}`);
+
+    if (image) {
+      image.classList.remove("active");
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", fadeInScroll);
@@ -23,7 +38,7 @@ export default function Films({ children }) {
     return () => {
       window.removeEventListener("scroll", fadeInScroll);
     };
-  });
+  }, []);
   const renderFilms = () => {
     if (children) {
       return children.map((child) => {
@@ -34,10 +49,18 @@ export default function Films({ children }) {
                 <img
                   src={child.image}
                   alt={`${child.title}`}
-                  className="films__image"
+                  className={`films__image films__image--${child.id}`}
                 />
               </div>
-              <span className="films__overlay">
+              <span
+                className="films__overlay"
+                onMouseEnter={() => {
+                  handleMouseEnter(child);
+                }}
+                onMouseLeave={() => {
+                  handleMouseLeave(child);
+                }}
+              >
                 <p className="films__title">{child.title}</p>
               </span>
             </a>

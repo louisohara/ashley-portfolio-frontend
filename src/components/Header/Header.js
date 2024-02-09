@@ -3,7 +3,7 @@ import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useEffect } from "react";
 
-export default function Header({ closeMenu }) {
+export default function Header({ closeMenu, menuClosed }) {
   const handleMouseEnter = () => {
     const arrow = document.querySelector(".header__arrow");
     const secondaryMenu = document.querySelector(".header__secondary-menu");
@@ -56,8 +56,7 @@ export default function Header({ closeMenu }) {
               className="header__logo"
             />
           </div>
-
-          <ul className="header__menu active">
+          <ul className={menuClosed ? "header__menu" : "header__menu active"}>
             <li className="header__item">
               <a className="header__link header__link--about" href="/about">
                 About
@@ -117,7 +116,7 @@ export default function Header({ closeMenu }) {
               </a>
             </li>
           </ul>
-          <Hamburger />
+          <Hamburger menuClosed={menuClosed} />
         </nav>
       </div>
     </header>

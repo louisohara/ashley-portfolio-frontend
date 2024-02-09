@@ -108,10 +108,14 @@
     object-position: center;
     display: block;
     filter: grayscale(1);
+    transition: transform 0.5s;
     @include tablet {
       position: absolute;
       top: 0;
       left: 0;
+    }
+    &.active {
+      transform: scale(1.1);
     }
   }
   &__overlay {
