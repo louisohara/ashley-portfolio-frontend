@@ -2,9 +2,12 @@ $bg-light: #fff0f3;
 $bg-dark: #ffccd5;
 $button-colour: #ff8fa3;
 $hover-colour: #c9184a;
-$transparent-colour: #c9184a81;
+$transparent-colour: #ff8fa484;
 $darkest-colour: #590d22;
 
 $size-text: 0.8rem;
 $size-header: 1.6rem;
 $size-sub: 1.25rem;
+
+$shadow: 0 2px 4px $darkest-colour;
+$shadow-2: 0px 0px 10px 0px $darkest-colour;

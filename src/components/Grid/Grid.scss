@@ -4,10 +4,10 @@
 .grid {
   width: 100%;
   height: 100%;
-  border: red 2px solid;
+  // border: red 2px solid;
 
   &__list {
-    border: red 2px solid;
+    // border: red 2px solid;
     padding-left: 0;
     display: grid;
     grid-template-columns: repeat(
@@ -36,55 +36,55 @@
       padding-bottom: calc(9 / 16 * 100%);
     }
     &--carousel:before {
-      @include mobile-only {
+      @include mobile-and-tablet {
         padding-bottom: calc(12 / 16 * 100%);
       }
     }
   }
-  &__list li:nth-child(n) {
-    @include mobile-only {
+  &__list .grid__item:nth-child(n) {
+    @include mobile-and-tablet {
       @include fade(0.5s);
     }
   }
-  &__list li:nth-child(1) {
+  &__list .grid__item:nth-child(1) {
     grid-column: span 10;
     border: green 2px solid;
-    @include tablet {
+    @include desktop {
       @include fadeLeft;
       grid-column: span 6;
       grid-row: span 1;
     }
   }
 
-  &__list li:nth-child(2) {
+  &__list .grid__item:nth-child(2) {
     grid-column: span 10;
     border: pink 2px solid;
-    @include mobile-only {
+    @include mobile-and-tablet {
       order: 4;
     }
-    @include tablet {
+    @include desktop {
       @include fadeTop;
       animation-delay: 1.25s;
       grid-column: span 4;
       grid-row: span 1;
     }
   }
-  &__list li:nth-child(3),
-  &__list li:nth-child(4) {
-    @include mobile-only {
+  &__list .grid__item:nth-child(3),
+  &__list .grid__item:nth-child(4) {
+    @include mobile-and-tablet {
       width: 80%;
     }
   }
-  &__list li:nth-child(3) {
+  &__list .grid__item:nth-child(3) {
     grid-column: span 10;
     border: blue 2px solid;
 
-    @include mobile-only {
+    @include mobile-and-tablet {
       @include fadeLeft;
       animation-delay: 0.75s;
       margin-left: auto;
     }
-    @include tablet {
+    @include desktop {
       @include fadeBottom;
       animation-delay: 1.25s;
       grid-column: span 4;
@@ -92,27 +92,27 @@
     }
   }
 
-  &__list li:nth-child(4) {
+  &__list .grid__item:nth-child(4) {
     grid-column: span 10;
 
     @include fadeRight;
     animation-delay: 1s;
     border: red 2px solid;
-    @include tablet {
+    @include desktop {
       @include fadeRight;
       grid-column: span 6;
       grid-row: span 1;
     }
   }
-  &__list--about li:nth-child(n) {
+  &__list--about .grid__item:nth-child(n) {
     background-color: yellow;
-    @include tablet {
+    @include desktop {
       grid-column: span 5;
     }
   }
-  &__list--about li:nth-child(1) {
+  &__list--about .grid__item:nth-child(1) {
     border: yellow 2px solid;
-    @include tablet {
+    @include desktop {
       order: 3;
       //   padding-bottom: calc(6 / 16 * 100%);
       @include fadeBottom;
@@ -120,9 +120,9 @@
       grid-row: span 6;
     }
   }
-  &__list--about li:nth-child(2) {
+  &__list--about .grid__item:nth-child(2) {
     border: yellow 2px solid;
-    @include tablet {
+    @include desktop {
       order: 2;
       animation-delay: 0.5s;
       //   padding-bottom: calc(6 / 16 * 100%);
@@ -131,23 +131,23 @@
     }
   }
 
-  &__list--about li:nth-child(3) {
+  &__list--about .grid__item:nth-child(3) {
     border: yellow 2px solid;
     @include fadeLeft;
     animation-delay: 0.5s;
 
-    @include tablet {
+    @include desktop {
       animation-delay: 1.25s;
 
       order: 1;
       grid-row: span 4;
     }
   }
-  &__list--about li:nth-child(4) {
+  &__list--about .grid__item:nth-child(4) {
     // @include fadeRight;
     // animation-delay: 0.75s;
     border: yellow 2px solid;
-    @include tablet {
+    @include desktop {
       animation-delay: 1.25s;
 
       order: 4;

@@ -12,7 +12,15 @@
   }
 }
 
+@mixin mobile-and-tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
 @mixin tablet-only {
+  @media (min-width: 768px) {
+    @content;
+  }
   @media (max-width: 1024px) {
     @content;
   }
@@ -20,6 +28,11 @@
 
 @mixin desktop {
   @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin desktopLarge {
+  @media (min-width: 1440px) {
     @content;
   }
 }

@@ -41,7 +41,7 @@
     }
   }
   &__grid li:nth-child(4n + 1) {
-    @include tablet-only {
+    @include mobile-and-tablet {
       //   border: green 2px solid;
       grid-column: span 3;
       grid-row: span 3;
