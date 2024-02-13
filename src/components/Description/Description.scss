@@ -1,0 +1,26 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.description {
+  text-align: center;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  &__title {
+    @include carouselTitle;
+  }
+  &--long {
+    margin-top: 0;
+    font-size: 1rem;
+    @include mobile-and-tablet {
+      font-size: 0.8rem;
+    }
+
+    &:first-child {
+      color: $darkest-colour;
+    }
+  }
+
+  @include tablet-only {
+    font-size: calc(1rem + 5%);
+  }
+}

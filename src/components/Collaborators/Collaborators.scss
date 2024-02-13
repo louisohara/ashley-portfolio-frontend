@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.collaborator {
+  text-align: center;
+  margin: 0.5rem 0;
+  &--long {
+    margin: 0.1rem 0;
+  }
+  &__credits {
+    @include carouselTitle;
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__name {
+    &:hover {
+      color: $hover-colour;
+    }
+  }
+}

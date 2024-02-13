@@ -5,16 +5,15 @@
   width: 100%;
   overflow: hidden;
 
-  // background-color: $darkest-colour;
   &__slide {
     height: 100%;
   }
   &__content {
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     height: calc(100% - 5rem);
   }
   &__content--nomination {
-    padding: 2rem 1rem 0.5rem 1rem;
+    padding: 2rem 1rem 0rem 1rem;
   }
   &__content--nomination,
   &__content--collaborators,
@@ -29,6 +28,7 @@
     margin: 1rem;
   }
   &__content--review {
+    padding: 1rem;
     margin: 1rem;
   }
   &__nomination {
@@ -50,6 +50,7 @@
     }
   }
 }
+
 .slick {
   &-arrow,
   &-dots {
@@ -77,196 +78,6 @@
   &-slide.slick-active.slick-current > div:first-child,
   &-slide > div:first-child {
     height: 100% !important;
-  }
-}
-
-.review {
-  &__title {
-    @extend .collaborator__credits;
-    width: calc(100% - 2rem);
-  }
-  &__wrapper {
-    padding: 0rem 0.5rem;
-    @include mobile-and-tablet {
-      padding: 1rem;
-    }
-    margin: 0.25rem 0;
-    // background: $transparent-colour;
-    // overflow: hidden;
-    &--last {
-      @include mobile-and-tablet {
-        padding: 1rem 1.75rem;
-      }
-    }
-  }
-  &__rating,
-  &__quotation {
-    color: $hover-colour;
-    text-align: center;
-  }
-  &__rating {
-    font-size: 2rem;
-
-    &--first {
-      height: 2rem;
-      @include mobile-and-tablet {
-        font-size: 1.5rem;
-        height: 1.5rem;
-      }
-      @include tablet-only {
-        font-size: 2rem;
-        height: 2.25rem;
-        margin: 0.25rem;
-      }
-    }
-    &--second {
-      font-size: 1.5rem;
-      @include tablet-only {
-        font-size: 2rem;
-      }
-    }
-  }
-  &__quotation {
-    font-size: 3rem;
-    font-style: italic;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-    position: relative;
-    &--last {
-      line-height: calc(1.5rem + 10%);
-    }
-    @include mobile-only {
-      line-height: 1.75rem;
-    }
-    @include tablet-only {
-      line-height: calc(1.75rem + 10%);
-    }
-  }
-  &__quote {
-    font-size: calc(0.9rem + 2.5%);
-    padding: 0.25rem;
-    color: $darkest-colour;
-    text-align: center;
-
-    &--second {
-      font-size: 0.9rem;
-      @include mobile-and-tablet {
-        font-size: calc(0.9rem + 5%);
-        margin-bottom: 0.5rem;
-      }
-    }
-    &--last {
-      font-size: calc(0.9rem + 5%);
-      @include mobile-only {
-        font-weight: 500;
-      }
-      // @include tablet {
-      margin-bottom: 0.5rem;
-      // }
-      // @include desktop {
-      //   margin-bottom: 0.5rem;
-      // }
-    }
-    @include mobile-only {
-      font-size: calc(0.7rem + 5%);
-    }
-  }
-  &__image {
-    max-height: 2.5rem;
-    max-width: 9rem;
-    display: block;
-    &--second {
-      max-height: 1.5rem;
-      width: auto;
-    }
-    @include mobile-and-tablet {
-      max-height: 1.25rem;
-    }
-  }
-
-  &__image-container,
-  &__author {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-  }
-  &__author {
-    font-size: 1.25rem;
-    text-align: center;
-    font-weight: 400;
-    color: $hover-colour;
-    &--second {
-      font-size: 1.1rem;
-    }
-    @include mobile-and-tablet {
-      font-size: calc(1rem + 5%);
-    }
-  }
-}
-
-// quotation marks
-q::before {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  content: open-quote;
-  position: absolute;
-  top: 0.5rem;
-  left: -1rem;
-}
-q::after {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  content: close-quote;
-  position: absolute;
-  bottom: -0.5rem;
-  right: -1rem;
-}
-
-.collaborator {
-  text-align: center;
-  margin: 0.5rem 0;
-  &--long {
-    margin: 0;
-  }
-  &__credits {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 1.5em;
-    position: absolute;
-    top: -2rem;
-    text-align: center;
-    color: $hover-colour;
-  }
-  &__title {
-    font-weight: 500;
-  }
-  &__name {
-    &:hover {
-      color: $hover-colour;
-    }
-  }
-}
-
-.description {
-  text-align: center;
-  line-height: 1.5rem;
-  &__title {
-    @extend .collaborator__credits;
-  }
-  &--long {
-    font-size: 1rem;
-    @include mobile-and-tablet {
-      font-size: 0.8rem;
-    }
-
-    &:first-child {
-      color: $darkest-colour;
-    }
-  }
-
-  @include tablet-only {
-    font-size: calc(1rem + 5%);
   }
 }
 
@@ -384,91 +195,5 @@ q::after {
   &:hover div::after {
     width: calc(50% / 2);
     height: calc(50% / 2);
-  }
-}
-
-.nomination {
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  &__awards {
-    @extend .collaborator__credits;
-    top: -1rem;
-    width: calc(100% - 2rem);
-    text-align: center;
-  }
-
-  // &:hover {
-  //   // filter: none;
-  //   // background: linear-gradient(
-  //   //     217deg,
-  //   //     $button-colour,
-  //   //     rgba(255, 0, 0, 0) 70.71%
-  //   //   ),
-  //   //   linear-gradient(127deg, $bg-light, rgba(0, 255, 0, 0) 80%),
-  //   //   linear-gradient(336deg, $hover-colour, rgba(0, 0, 255, 0) 50%);
-  // }
-  &__image-container,
-  &__subtext {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-  }
-  &__image {
-    max-height: 3.75rem;
-    max-width: calc(5rem + 5%);
-    transition: transform 0.5s;
-    display: block;
-    @include mobile-and-tablet {
-      max-width: calc(6rem + 5%);
-      max-width: calc(6rem + 5%);
-      max-height: calc(4.5rem + 5%);
-    }
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  &__wrapper {
-    padding: 1rem 0;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    text-align: center;
-
-    &--alt {
-      width: 100%;
-      padding: 0 0.5rem;
-    }
-  }
-  &__subtext {
-    margin: 0.5rem 0;
-  }
-  &__category {
-    font-size: 0.8rem;
-    margin: 0;
-    font-weight: 500;
-    @include mobile-and-tablet {
-      font-size: calc(0.9rem + 5%);
-    }
-  }
-  &__result {
-    margin: 0.5rem 0;
-    text-transform: capitalize;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  }
-  &__text {
-    justify-content: center;
-    max-width: 95%;
-    flex: 1;
-    font-size: calc($size-text + 1%);
-    // @include mobile-and-tablet {
-    //   font-size: 0.5rem;
-    // }
   }
 }

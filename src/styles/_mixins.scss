@@ -210,3 +210,12 @@
   filter: brightness(0) saturate(100%) invert(15%) sepia(76%) saturate(4578%)
     hue-rotate(333deg) brightness(86%) contrast(91%);
 }
+
+@mixin carouselTitle {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.5em;
+  position: absolute;
+  top: -2rem;
+  text-align: center;
+  color: $hover-colour;
+}
