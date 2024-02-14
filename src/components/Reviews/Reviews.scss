@@ -106,6 +106,9 @@
     @include mobile-and-tablet {
       max-height: 1.25rem;
     }
+    &--TV {
+      filter: invert(1);
+    }
   }
 
   &__image-container,

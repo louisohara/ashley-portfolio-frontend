@@ -47,7 +47,7 @@ export default function Reviews({ reviews, x, y, alt }) {
                   <img
                     src={review.logo}
                     alt={review.author}
-                    className={`review__image review__image--${alt}`}
+                    className={`review__image review__image--${alt} review__image--${review.author}`}
                   />
                 </div>
               ) : (

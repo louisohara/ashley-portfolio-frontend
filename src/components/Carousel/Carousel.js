@@ -19,7 +19,7 @@ export default function Carousel({
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    autoplay: true,
+    // autoplay: true,
     // controls slide scroll duration
     speed: 2000,
     // controls slide stay duration
