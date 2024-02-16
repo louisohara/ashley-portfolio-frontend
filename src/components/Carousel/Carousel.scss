@@ -4,11 +4,28 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-
+  @include mobile-and-tablet {
+    border: 5px solid $hover-colour;
+    background-color: $transparent-colour;
+  }
+  &--user {
+    position: relative;
+    z-index: 2;
+    @include desktop {
+      background-color: $transparent-colour;
+      @include slantedBorder(-100%, 5px, $hover-colour);
+      // border-top: 2px solid $hover-colour;
+      // border-left: 2px solid $hover-colour;
+    }
+  }
   &__slide {
     height: 100%;
   }
   &__content {
+    @include mobile-and-tablet {
+      color: $darkest-colour !important;
+      font-weight: 500 !important;
+    }
     padding: 1rem;
     height: calc(100% - 5rem);
   }
@@ -27,6 +44,9 @@
     justify-content: center;
     margin: 1rem;
   }
+  // &__content--collaborators {
+  //  //WRITE CODE
+  // }
   &__content--review {
     padding: 1rem;
     margin: 1rem;
@@ -54,7 +74,10 @@
 .slick {
   &-arrow,
   &-dots {
+    // @include desktop {
     @include filterWhiteToColour;
+    // }
+    // filter: invert(1);
   }
   &-arrow {
     display: none !important;

@@ -2,6 +2,7 @@
 @use "../../styles/variables" as *;
 
 .footer {
+  position: relative;
   z-index: 0;
   background-color: $darkest-colour;
   color: white;

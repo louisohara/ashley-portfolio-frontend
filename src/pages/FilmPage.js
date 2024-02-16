@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Grid from "../components/Grid/Grid";
-import Carousel from "../components/Carousel/Carousel";
+import "./Film.scss";
 
 export default function FilmPage({ isLoggedIn }) {
   const [film, setFilm] = useState(null);

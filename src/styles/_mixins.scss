@@ -18,10 +18,7 @@
   }
 }
 @mixin tablet-only {
-  @media (min-width: 768px) {
-    @content;
-  }
-  @media (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     @content;
   }
 }
@@ -218,4 +215,32 @@
   top: -2rem;
   text-align: center;
   color: $hover-colour;
+}
+
+@mixin slantedBorder($percent, $px, $colour) {
+  position: relative;
+  border: $px solid $colour;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+
+    width: 40px;
+    height: 40px;
+    transform: rotate(45deg);
+    background-color: white;
+    z-index: 0;
+  }
+  &:after {
+    content: "";
+
+    left: calc($percent - calc($px / 2));
+    bottom: calc($percent - $px);
+  }
+  &:before {
+    content: "";
+
+    right: calc($percent - calc($px / 2));
+    top: calc($percent - $px);
+  }
 }

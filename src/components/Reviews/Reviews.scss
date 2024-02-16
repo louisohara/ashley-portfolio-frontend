@@ -22,6 +22,7 @@
   &__rating,
   &__quotation {
     color: $hover-colour;
+
     text-align: center;
   }
   &__rating {
@@ -69,7 +70,10 @@
   &__quote {
     font-size: calc(0.9rem + 2.5%);
     padding: 0.25rem;
-    color: $darkest-colour;
+    // color: $darkest-colour;
+    // @include mobile-and-tablet {
+    //   color: white;
+    // }
     text-align: center;
 
     &--second {
@@ -103,11 +107,11 @@
       max-height: 1.5rem;
       width: auto;
     }
-    @include mobile-and-tablet {
-      max-height: 1.25rem;
-    }
     &--TV {
       filter: invert(1);
+    }
+    @include mobile-and-tablet {
+      max-height: 1.25rem;
     }
   }
 
@@ -118,12 +122,13 @@
     margin: 0;
   }
   &__author {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
-    font-weight: 400;
-    color: $hover-colour;
+    font-weight: 500;
+    color: black;
+
     &--second {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     @include mobile-and-tablet {
       font-size: calc(1rem + 5%);

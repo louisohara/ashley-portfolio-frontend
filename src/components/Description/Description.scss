@@ -9,8 +9,14 @@
     @include carouselTitle;
   }
   &--long {
-    margin-top: 0;
+    // margin-top: 0;
     font-size: 1rem;
+    &--user {
+      @include desktop {
+        font-size: calc(1.2vw + 1%);
+        line-height: calc(1.75vw + 1%);
+      }
+    }
     @include mobile-and-tablet {
       font-size: 0.8rem;
     }

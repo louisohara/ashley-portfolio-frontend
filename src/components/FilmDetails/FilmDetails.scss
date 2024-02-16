@@ -1,0 +1,151 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.details {
+  //   @include filterWhiteToColour;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  &--film {
+    @include desktop {
+      @include slantedBorder(100%, 6px, $hover-colour);
+      border-top: 2px solid $hover-colour;
+      border-left: 2px solid $hover-colour;
+      background-color: $transparent-colour;
+      // color: $hover-colour;
+    }
+  }
+  &--user {
+    @include desktop {
+      // border: none;
+      // @include slantedBorder(100%, 6px, $hover-colour);
+      // border: 2px solid $hover-colour;
+      // border-left: 2px solid $hover-colour;
+      // color: $darkest-colour;
+      font-weight: 500;
+      justify-content: flex-start;
+      padding: 0.5rem;
+    }
+  }
+
+  &--user {
+    @include mobile-and-tablet {
+      padding: 0.5rem;
+    }
+  }
+
+  &__top {
+    @include filterWhiteToColour;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    // @include mobile-and-tablet {
+    //   flex-direction: row-reverse;
+
+    //   text-align: right;
+    // }
+    margin: 0;
+    & li {
+      text-decoration: none;
+      margin: 0;
+    }
+  }
+  &__role {
+    font-weight: 500;
+    color: $hover-colour;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  &__production {
+    text-align: right;
+  }
+  &__length {
+    @include mobile-only {
+      display: none;
+    }
+  }
+  &__image {
+    max-height: 2rem;
+    max-width: calc(5rem + 5%);
+    transition: transform 0.5s;
+    display: block;
+    @include tablet-only {
+      max-width: calc(3rem + 5%);
+      max-height: 3rem;
+    }
+    &:hover {
+      transform: scale(1.1);
+      filter: none;
+    }
+  }
+  &__bio {
+    margin: 0.5rem 0;
+    &--user {
+      margin: 0;
+      // text-align: right;
+      @include mobile-and-tablet {
+        // color: $hover-colour;
+      }
+    }
+
+    @include mobile-and-tablet {
+      font-size: 2.5vw;
+      @include mobile-only {
+        font-size: 2.8vw;
+      }
+    }
+    @include desktop {
+      font-size: 1.75vw;
+    }
+    &--extra-short {
+      @include mobile-only {
+        font-size: 1.5rem;
+      }
+      @include tablet-only {
+        font-size: 2.25rem;
+      }
+      @include desktop {
+        font-size: 2.5rem;
+      }
+      @include desktopLarge {
+        font-size: 3rem;
+      }
+    }
+    &--short {
+      @include mobile-only {
+        font-size: 1.5rem;
+      }
+      @include tablet-only {
+        font-size: 1.75rem;
+      }
+      @include desktop {
+        font-size: 2rem;
+      }
+      @include desktopLarge {
+        font-size: 2.5rem;
+      }
+    }
+    &--extra-long {
+      @include tablet-only {
+        font-size: 1rem;
+        &--user {
+          font-size: 2.5vw;
+        }
+      }
+      @include desktop {
+        font-size: 1.25rem;
+      }
+      @include desktopLarge {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}

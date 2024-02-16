@@ -12,6 +12,8 @@ export default function Carousel({
   film,
   collaborators,
   reviews,
+  alt,
+  limit,
 }) {
   const settings = {
     dots: true,
@@ -19,7 +21,7 @@ export default function Carousel({
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    // autoplay: true,
+    autoplay: true,
     // controls slide scroll duration
     speed: 2000,
     // controls slide stay duration
@@ -29,62 +31,153 @@ export default function Carousel({
     swipeToSlide: true,
   };
 
-  // Split the description at the nearest paragraph break around the 450-character mark
-  const splitIndex = film.description.lastIndexOf(".", 450);
-  const firstPart = film.description.substring(0, splitIndex + 1);
-  const secondPart = film.description.substring(splitIndex + 1);
+  // Split the description at the nearest paragraph break around the limit mark
+  let firstPart = false;
+  let secondPart = false;
+  if (film.description) {
+    const splitIndex = film.description.lastIndexOf(".", limit);
+    firstPart = film.description.substring(0, splitIndex + 1);
+    secondPart = film.description.substring(splitIndex + 1);
+  }
+  function hasMultipleParams(...params) {
+    let count = 0;
+    params.forEach((param) => {
+      if (param && param.length > 0) {
+        count++;
+      }
+    });
+    return count > 1;
+  }
+  const moreThanOne = hasMultipleParams(
+    nominations,
+    film.description,
+    collaborators,
+    reviews
+  );
 
   return (
-    <div className="carousel">
-      <Slider {...settings}>
-        <Description
-          firstPart={firstPart}
-          secondPart={secondPart}
-          film={film}
-          part={firstPart}
-        />
-        {secondPart ? (
-          <Description
-            firstPart={firstPart}
-            secondPart={secondPart}
-            film={film}
-            part={secondPart}
-          />
-        ) : (
-          ""
-        )}
-        {reviews.length > 0 ? (
-          <Reviews reviews={reviews} x={0} y={3} alt="first" />
-        ) : (
-          ""
-        )}
-        {reviews.length > 3 ? (
-          <Reviews
-            reviews={reviews}
-            x={3}
-            y={reviews.length - 1}
-            alt="second"
-          />
-        ) : (
-          ""
-        )}
-        {reviews.length > 3 ? (
-          <Reviews
-            reviews={reviews}
-            x={reviews.length - 1}
-            y={reviews.length}
-            alt="last"
-          />
-        ) : (
-          ""
-        )}
-        <Collaborators collaborators={collaborators} />
-        {nominations.length > 0 ? (
-          <Nominations nominations={nominations} />
-        ) : (
-          ""
-        )}
-      </Slider>
+    <div className={`carousel carousel--${alt}`}>
+      {moreThanOne ? (
+        <Slider {...settings}>
+          {film.description ? (
+            <Description
+              firstPart={firstPart}
+              secondPart={secondPart}
+              film={film}
+              part={firstPart}
+              alt={alt}
+            />
+          ) : (
+            ""
+          )}
+          {film.description && secondPart ? (
+            <Description
+              firstPart={firstPart}
+              secondPart={secondPart}
+              film={film}
+              part={secondPart}
+              alt={alt}
+            />
+          ) : (
+            ""
+          )}
+          {reviews && reviews.length > 0 ? (
+            <Reviews reviews={reviews} x={0} y={3} alt="first" />
+          ) : (
+            ""
+          )}
+          {reviews && reviews.length > 3 ? (
+            <Reviews
+              reviews={reviews}
+              x={3}
+              y={reviews.length - 1}
+              alt="second"
+            />
+          ) : (
+            ""
+          )}
+          {reviews && reviews.length > 3 ? (
+            <Reviews
+              reviews={reviews}
+              x={reviews.length - 1}
+              y={reviews.length}
+              alt="last"
+            />
+          ) : (
+            ""
+          )}
+          {collaborators && collaborators.length > 0 ? (
+            <Collaborators collaborators={collaborators} />
+          ) : (
+            ""
+          )}
+          {nominations && nominations.length > 0 ? (
+            <Nominations nominations={nominations} alt={alt} />
+          ) : (
+            ""
+          )}
+        </Slider>
+      ) : (
+        <>
+          {film.description ? (
+            <Description
+              firstPart={firstPart}
+              secondPart={secondPart}
+              film={film}
+              part={firstPart}
+              alt={alt}
+            />
+          ) : (
+            ""
+          )}
+          {/* DO NOT DELETE */}
+          {/* {film.description && secondPart ? (
+            <Description
+              firstPart={firstPart}
+              secondPart={secondPart}
+              film={film}
+              part={secondPart}
+            />
+          ) : (
+            ""
+          )} */}
+          {reviews && reviews.length > 0 ? (
+            <Reviews reviews={reviews} x={0} y={3} alt="first" />
+          ) : (
+            ""
+          )}
+          {reviews && reviews.length > 3 ? (
+            <Reviews
+              reviews={reviews}
+              x={3}
+              y={reviews.length - 1}
+              alt="second"
+            />
+          ) : (
+            ""
+          )}
+          {reviews && reviews.length > 3 ? (
+            <Reviews
+              reviews={reviews}
+              x={reviews.length - 1}
+              y={reviews.length}
+              alt="last"
+            />
+          ) : (
+            ""
+          )}
+          {collaborators && collaborators.length > 0 ? (
+            <Collaborators collaborators={collaborators} />
+          ) : (
+            ""
+          )}
+          {nominations && nominations.length > 0 ? (
+            <Nominations nominations={nominations} />
+          ) : (
+            ""
+          )}
+        </>
+      )}
     </div>
   );
 }

@@ -38,7 +38,7 @@
     display: block;
     @include mobile-and-tablet {
       max-width: calc(6rem + 5%);
-      max-width: calc(6rem + 5%);
+
       max-height: calc(4.5rem + 5%);
     }
     &:hover {

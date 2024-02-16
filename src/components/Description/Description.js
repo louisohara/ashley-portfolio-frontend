@@ -1,7 +1,13 @@
 import { Fragment } from "react";
 import "./Description.scss";
 
-export default function Description({ film, part, firstPart, secondPart }) {
+export default function Description({
+  film,
+  part,
+  firstPart,
+  secondPart,
+  alt,
+}) {
   const renderDescriptionSliced = (text) => {
     return text.split("\n").map((paragraph, index) => (
       <Fragment key={index}>
@@ -22,7 +28,7 @@ export default function Description({ film, part, firstPart, secondPart }) {
         <div className="carousel__slide">
           <div className="carousel__content carousel__content--description">
             <h3 className="description__title">DESCRIPTION</h3>
-            <article className="description">
+            <article className={`description description--${alt}`}>
               {renderDescriptionSliced(film.description)}
             </article>
           </div>
@@ -36,8 +42,8 @@ export default function Description({ film, part, firstPart, secondPart }) {
             <article
               className={
                 part === secondPart
-                  ? "description description--long description--second"
-                  : "description description--long"
+                  ? `description description--${alt} description--long description--second description--second--${alt} description--long--${alt}`
+                  : `description description--${alt} description--long description--long--${alt}`
               }
             >
               {renderDescriptionSliced(part)}

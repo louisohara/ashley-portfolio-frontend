@@ -2,10 +2,18 @@
 @use "../../styles/variables" as *;
 
 .grid {
+  @include desktop {
+    padding-top: 0.5rem;
+  }
   width: 100%;
   height: 100%;
-  // border: red 2px solid;
+  margin-top: 1rem;
 
+  // @include desktop {
+
+  //   width: 90%;
+  //   margin: auto;
+  // }
   &__list {
     // border: red 2px solid;
     padding-left: 0;
@@ -22,8 +30,10 @@
   }
   //   padding bottom controls the vertical stretch of the item
   &__item {
+    background-color: white;
     position: relative;
     display: flex;
+
     &:before {
       content: "";
       display: block;
@@ -31,13 +41,22 @@
       width: 0;
       padding-bottom: calc(5 / 16 * 100%);
     }
-    &--film:before,
-    &--about:before {
+    &--film:before {
       padding-bottom: calc(9 / 16 * 100%);
     }
-    &--carousel:before {
-      @include mobile-and-tablet {
-        padding-bottom: calc(12 / 16 * 100%);
+
+    &--about:before {
+      padding-bottom: 80%;
+      @include tablet-only {
+        padding-bottom: calc(9 / 16 * 100%);
+      }
+    }
+    &--carousel {
+      z-index: 1;
+      &:before {
+        @include mobile-and-tablet {
+          padding-bottom: calc(12 / 16 * 100%);
+        }
       }
     }
   }
@@ -48,7 +67,7 @@
   }
   &__list .grid__item:nth-child(1) {
     grid-column: span 10;
-    border: green 2px solid;
+    // border: green 2px solid;
     @include desktop {
       @include fadeLeft;
       grid-column: span 6;
@@ -58,7 +77,7 @@
 
   &__list .grid__item:nth-child(2) {
     grid-column: span 10;
-    border: pink 2px solid;
+    // border: pink 2px solid;
     @include mobile-and-tablet {
       order: 4;
     }
@@ -72,19 +91,25 @@
   &__list .grid__item:nth-child(3),
   &__list .grid__item:nth-child(4) {
     @include mobile-and-tablet {
-      width: 80%;
+      // width: 80%;
+      width: 100%;
+      grid-column: span 5;
     }
   }
   &__list .grid__item:nth-child(3) {
-    grid-column: span 10;
-    border: blue 2px solid;
-
+    // grid-column: span 5;
+    // grid-column: span 10;
     @include mobile-and-tablet {
+      // border: 2px solid $darkest-colour;
+      // border-bottom: 5px solid $darkest-colour;
+      // border-left: 5px solid $darkest-colour;
       @include fadeLeft;
       animation-delay: 0.75s;
       margin-left: auto;
+      order: 1;
     }
     @include desktop {
+      border-right: 0;
       @include fadeBottom;
       animation-delay: 1.25s;
       grid-column: span 4;
@@ -93,65 +118,85 @@
   }
 
   &__list .grid__item:nth-child(4) {
-    grid-column: span 10;
-
+    // THE COMMENTED OUT CODE IS FOR THE WIDTH BEING 80% VS 50%
+    // grid-column: span 10;
+    // grid-column: span 5;
+    border: 2px solid $hover-colour;
+    // border-right: 5px solid $hover-colour;
+    // border-bottom: 5px solid $hover-colour;
+    // @include slantedBorder(100%, 5px, black);
+    // border-left: 2px solid $hover-colour;
     @include fadeRight;
     animation-delay: 1s;
-    border: red 2px solid;
+    // border-top: red 2px solid;
     @include desktop {
+      // border-left: $hover-colour 2px solid;
       @include fadeRight;
       grid-column: span 6;
       grid-row: span 1;
     }
   }
   &__list--about .grid__item:nth-child(n) {
-    background-color: yellow;
+    // background-color: yellow;
     @include desktop {
       grid-column: span 5;
     }
   }
   &__list--about .grid__item:nth-child(1) {
-    border: yellow 2px solid;
+    @include tablet-only {
+      &:after {
+        padding-bottom: 50%;
+      }
+    }
+    z-index: 1;
     @include desktop {
       order: 3;
-      //   padding-bottom: calc(6 / 16 * 100%);
+
       @include fadeBottom;
       animation-delay: 0.5s;
-      grid-row: span 6;
+      grid-row: span 8;
     }
   }
   &__list--about .grid__item:nth-child(2) {
-    border: yellow 2px solid;
+    // border: yellow 2px solid;
+    // z-index: 1;
     @include desktop {
       order: 2;
       animation-delay: 0.5s;
-      //   padding-bottom: calc(6 / 16 * 100%);
-      //   @include fadeTop;
-      grid-row: span 6;
+      grid-row: span 7;
     }
   }
-
+  &__list--about .grid__item:nth-child(3),
+  &__list--about .grid__item:nth-child(4) {
+    @include mobile-and-tablet {
+      // width: 80%;
+      width: 100%;
+      // grid-column: span 10;
+      // grid-row:
+    }
+  }
   &__list--about .grid__item:nth-child(3) {
-    border: yellow 2px solid;
+    // border: yellow 2px solid;
     @include fadeLeft;
-    animation-delay: 0.5s;
-
+    animation-delay: 1s;
+    order: 2;
     @include desktop {
       animation-delay: 1.25s;
 
       order: 1;
-      grid-row: span 4;
+      grid-row: span 2;
     }
   }
   &__list--about .grid__item:nth-child(4) {
     // @include fadeRight;
     // animation-delay: 0.75s;
-    border: yellow 2px solid;
+    // border: yellow 2px solid;
+    order: 1;
     @include desktop {
       animation-delay: 1.25s;
-
+      border: none;
       order: 4;
-      grid-row: span 4;
+      grid-row: span 3;
     }
   }
 }

@@ -1,0 +1,70 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.poster {
+  width: 100%;
+  border: black 3px solid;
+
+  //   @include desktop {
+  //     // @include slantedBorder("right-top", 100%, 6px, black);
+  //     // border-bottom: 2px solid black;
+  //     // border-right: 2px solid black;
+  //   }
+  &__wrapper {
+    // z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+  }
+  &__image,
+  &__video {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+  }
+  &__overlay {
+    @include fullscreenModal;
+    transform: translate(0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__button {
+    border-radius: 50%;
+    background-color: $transparent-colour;
+  }
+  &__icon {
+    @include filterWhiteToColour;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 2.5rem;
+    height: auto;
+    display: block;
+    transition: filter 0.5s ease;
+    &:hover {
+      filter: invert(1);
+      border: 2px solid;
+    }
+  }
+  &__button--alt {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+  }
+  &__icon--alt {
+    height: 1.5rem;
+    padding: 0.2rem;
+    width: auto;
+  }
+  &__video {
+    position: absolute;
+    z-index: 1;
+  }
+}
