@@ -13,9 +13,6 @@
     z-index: 2;
     @include desktop {
       background-color: $transparent-colour;
-      @include slantedBorder(-100%, 5px, $hover-colour);
-      // border-top: 2px solid $hover-colour;
-      // border-left: 2px solid $hover-colour;
     }
   }
   &__slide {
@@ -23,18 +20,23 @@
   }
   &__content {
     @include mobile-and-tablet {
-      color: $darkest-colour !important;
+      color: black !important;
       font-weight: 500 !important;
     }
     padding: 1rem;
     height: calc(100% - 5rem);
   }
-  &__content--nomination {
+  &__content--nomination,
+  &__content--insta {
     padding: 2rem 1rem 0rem 1rem;
+  }
+  &__content--nomination {
+    @include filterWhiteToColour;
   }
   &__content--nomination,
   &__content--collaborators,
-  &__content--description {
+  &__content--description,
+  &__content--insta {
     display: flex;
     align-items: center;
   }
@@ -52,7 +54,6 @@
     margin: 1rem;
   }
   &__nomination {
-    // padding: 1rem;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -74,10 +75,7 @@
 .slick {
   &-arrow,
   &-dots {
-    // @include desktop {
     @include filterWhiteToColour;
-    // }
-    // filter: invert(1);
   }
   &-arrow {
     display: none !important;
@@ -109,7 +107,7 @@
 .carousel__content--review,
 .carousel__content--collaborators {
   position: relative;
-  @include filterWhiteToColour;
+  // @include filterWhiteToColour;
   &:hover {
     filter: none;
   }
@@ -130,29 +128,29 @@
   &::before {
     top: -2px;
     left: -2px;
-    border-top: 2px solid $darkest-colour;
-    border-left: 2px solid $darkest-colour;
+    border-top: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   &::after {
     top: -2px;
     right: -2px;
-    border-top: 2px solid $darkest-colour;
-    border-right: 2px solid $darkest-colour;
+    border-top: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   article::before,
   div::before {
     bottom: -2px;
     left: -2px;
-    border-bottom: 2px solid $darkest-colour;
-    border-left: 2px solid $darkest-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   article::after,
   div::after {
     bottom: -2px;
     right: -2px;
-    border-bottom: 2px solid $darkest-colour;
-    border-right: 2px solid $darkest-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   &:hover::before,
@@ -166,9 +164,10 @@
   }
 }
 
-.carousel__content--nomination {
+.carousel__content--nomination,
+.carousel__content--insta {
   position: relative;
-  @include filterWhiteToColour;
+
   &:hover {
     filter: none;
   }
@@ -188,28 +187,28 @@
   &::before {
     top: 14px;
     left: 15px;
-    border-top: 2px solid $darkest-colour;
-    border-left: 2px solid $darkest-colour;
+    border-top: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   &::after {
     top: 14px;
     right: 15px;
-    border-top: 2px solid $darkest-colour;
-    border-right: 2px solid $darkest-colour;
+    border-top: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   .carousel__nomination::before {
     bottom: -18px;
     left: 15px;
-    border-bottom: 2px solid $darkest-colour;
-    border-left: 2px solid $darkest-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
 
   .carousel__nomination::after {
     bottom: -18px;
     right: 15px;
-    border-bottom: 2px solid $darkest-colour;
-    border-right: 2px solid $darkest-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   &:hover::before,

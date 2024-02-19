@@ -6,6 +6,7 @@ import Collaborators from "../Collaborators/Collaborators";
 import Reviews from "../Reviews/Reviews";
 import Description from "../Description/Description";
 import Nominations from "../Nominations/Nominations";
+import Instagram from "../Instagram/Instagram";
 
 export default function Carousel({
   nominations,
@@ -14,6 +15,7 @@ export default function Carousel({
   reviews,
   alt,
   limit,
+  images,
 }) {
   const settings = {
     dots: true,
@@ -21,7 +23,7 @@ export default function Carousel({
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    autoplay: true,
+    // autoplay: true,
     // controls slide scroll duration
     speed: 2000,
     // controls slide stay duration
@@ -116,6 +118,7 @@ export default function Carousel({
           ) : (
             ""
           )}
+          {images ? <Instagram images={images} /> : ""}
         </Slider>
       ) : (
         <>

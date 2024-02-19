@@ -217,7 +217,7 @@
   color: $hover-colour;
 }
 
-@mixin slantedBorder($percent, $px, $colour) {
+@mixin slantedBorder($percent, $px, $colour, $right, $top) {
   position: relative;
   border: $px solid $colour;
   &:after,
@@ -234,13 +234,13 @@
   &:after {
     content: "";
 
-    left: calc($percent - calc($px / 2));
-    bottom: calc($percent - $px);
+    left: calc($percent - 3px);
+    bottom: calc($percent - 6px);
   }
   &:before {
     content: "";
 
-    right: calc($percent - calc($px / 2));
-    top: calc($percent - $px);
+    right: $right;
+    top: $top;
   }
 }

@@ -4,10 +4,20 @@ $button-colour: #ff8fa3;
 $hover-colour: #c9184a;
 $transparent-colour: #ff8fa484;
 $darkest-colour: #590d22;
+$transparent-colour-2: #c9184a7d;
+
+// COLOUR SCHEME 2
+// $bg-light: #fff0f3;
+// $bg-dark: #ffccd5;
+// $button-colour: #ff8fa3;
+// $hover-colour: #c9184a;
+// $transparent-colour: #ff8fa484;
+// $darkest-colour: #590d22;
+// $transparent-colour-2: #c9184a7d;
 
 $size-text: 0.8rem;
 $size-header: 1.6rem;
 $size-sub: 1.25rem;
 
-$shadow: 0 2px 4px $darkest-colour;
-$shadow-2: 0px 0px 10px 0px $darkest-colour;
+$shadow: 15px 15px 0px 0px $bg-light;
+$shadow-2: -5px -5px 0px 0px $bg-dark;

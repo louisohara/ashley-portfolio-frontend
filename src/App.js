@@ -83,7 +83,7 @@ function App() {
             path="/"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={true} />
+                <Header closeMenu={closeMenu} menuClosed={true} films={films} />
                 <main className="app__main">
                   <HomePage
                     isLoggedIn={isLoggedIn}
@@ -98,7 +98,11 @@ function App() {
             path="/films"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <HomePage
                     isLoggedIn={isLoggedIn}
@@ -114,7 +118,11 @@ function App() {
             path="/admin"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <AdminPage
                     isLoggedIn={isLoggedIn}
@@ -129,7 +137,11 @@ function App() {
             path="/about"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <AboutPage isLoggedIn={isLoggedIn} />
                 </main>
@@ -140,7 +152,11 @@ function App() {
             path="/contact"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <ContactPage />
                 </main>
@@ -151,7 +167,7 @@ function App() {
             path="/films/:id"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={true} />
+                <Header closeMenu={closeMenu} menuClosed={true} films={films} />
                 <main className="app__main">
                   <FilmPage isLoggedIn={isLoggedIn} />
                 </main>
@@ -162,7 +178,11 @@ function App() {
             path="/directing"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <DirectingPage isLoggedIn={isLoggedIn} films={films} />
                 </main>
@@ -173,7 +193,11 @@ function App() {
             path="/producing"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={false} />
+                <Header
+                  closeMenu={closeMenu}
+                  menuClosed={false}
+                  films={films}
+                />
                 <main className="app__main">
                   <ProducingPage isLoggedIn={isLoggedIn} films={films} />
                 </main>

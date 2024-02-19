@@ -15,6 +15,7 @@ export default function Grid({
   collaborators,
   user,
   clients,
+  images,
 }) {
   return (
     <div className="grid">
@@ -41,6 +42,7 @@ export default function Grid({
               alt="user"
               nominations={clients}
               limit="600"
+              images={images}
             />
           ) : (
             ""

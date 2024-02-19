@@ -1,10 +1,44 @@
 import Grid from "../components/Grid/Grid";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Instagram from "../components/Instagram/Instagram";
 
 export default function AboutPage({ isLoggedIn }) {
   const [user, setUser] = useState(null);
   const [clients, setClients] = useState(null);
+  const [images, setImages] = useState(null);
+
+  const getImages = async () => {
+    try {
+      const response = await axios.get(
+        "https://feeds.behold.so/yJrGA0gr3aRuzBX8v8Qp"
+      );
+      if (response) {
+        const filtered = filteredImage(response.data);
+        setImages(filtered);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const filteredImage = (array) => {
+    return array.map((image) => {
+      if (image.thumbnailUrl) {
+        return {
+          id: image.id,
+          image: image.thumbnailUrl,
+          caption: image.caption,
+          link: image.permalink,
+        };
+      } else
+        return {
+          id: image.id,
+          image: image.mediaUrl,
+          caption: image.caption,
+          link: image.permalink,
+        };
+    });
+  };
 
   const getUser = async () => {
     try {
@@ -29,6 +63,7 @@ export default function AboutPage({ isLoggedIn }) {
   useEffect(() => {
     getUser();
     getClients();
+    getImages();
   }, []);
 
   if (!user || !clients) {
@@ -36,7 +71,14 @@ export default function AboutPage({ isLoggedIn }) {
   }
   return (
     <section className="about">
-      <Grid alt1="about" alt2="carousel" user={user} clients={clients} />
+      <Grid
+        alt1="about"
+        alt2="carousel"
+        user={user}
+        clients={clients}
+        images={images}
+      />
+      {/* <Instagram /> */}
     </section>
   );
 }
