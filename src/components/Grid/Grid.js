@@ -50,13 +50,23 @@ export default function Grid({
         </li>
         <li className={`grid__item grid__item--${alt3}`}>
           {film ? <Title text={film.title} /> : ""}
-          {user ? <Title text={user.full_name} alt="user" /> : ""}
+          {user ? <Title text="Ashley Francis-Roy" alt="user" /> : ""}
         </li>
         <li className={`grid__item grid__item--${alt4}`}>
           {film ? <FilmDetails film={film} alt="film" /> : ""}
           {user ? <FilmDetails film={user} alt="user" /> : ""}
         </li>
       </ul>
+      {film ? (
+        <div className="grid__undercolour grid__undercolour--film"></div>
+      ) : (
+        <div className="grid__undercolour grid__undercolour--user"></div>
+      )}
+      {film ? (
+        <div className="grid__undercolour--two"></div>
+      ) : (
+        <div className="grid__undercolour--two grid__undercolour--two--user"></div>
+      )}
     </div>
   );
 }

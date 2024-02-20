@@ -1,0 +1,52 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.field {
+  margin: 1rem 0;
+  position: relative;
+  &--error {
+    &::before {
+      content: "*";
+      color: red;
+      font-size: 1.75rem;
+      position: absolute;
+      top: 0.5rem;
+      left: -1rem;
+    }
+  }
+  &__label {
+    display: none;
+  }
+  &__input {
+    border: none;
+    border-bottom: 2px solid $transparent-colour-2;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    position: relative;
+    font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
+
+    &::placeholder {
+      font-size: 1.5rem;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+    }
+    &--textarea {
+      width: 90%;
+
+      min-height: 0rem;
+      height: fit-content;
+      font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
+      color: inherit;
+      resize: none;
+      position: relative;
+      &:active {
+        outline: none;
+      }
+    }
+    &--error {
+      border-bottom: 2px solid red;
+    }
+  }
+}

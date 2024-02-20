@@ -22,7 +22,6 @@
   &__rating,
   &__quotation {
     color: $hover-colour;
-
     text-align: center;
   }
   &__rating {
@@ -75,6 +74,7 @@
     //   color: white;
     // }
     text-align: center;
+    color: $black;
 
     &--second {
       font-size: 0.9rem;
@@ -125,7 +125,7 @@
     font-size: 1rem;
     text-align: center;
     font-weight: 500;
-    color: black;
+    color: $black;
 
     &--second {
       font-size: 1rem;

@@ -41,7 +41,7 @@ export default function Films({ children }) {
   }, []);
   const renderFilms = () => {
     if (children) {
-      return children.map((child, i) => {
+      return children.slice(0, 12).map((child, i) => {
         return (
           <li
             className={i <= 5 ? "films__item films__item--alt" : "films__item"}

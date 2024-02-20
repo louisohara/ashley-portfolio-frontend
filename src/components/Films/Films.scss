@@ -2,6 +2,11 @@
 @use "../../styles/variables" as *;
 
 .films {
+  // margin-top: 4.5rem;
+  @include desktop {
+    width: 90%;
+    margin: auto;
+  }
   &__grid {
     padding-left: 0;
 
@@ -91,17 +96,28 @@
   }
   &__grid li:nth-child(5).films__item--alt .films__image-container {
     @include tablet {
-      animation-delay: 1.25s;
+      animation-delay: 1.5s;
     }
     @include desktop {
       @include fadeRight;
     }
+  }
+  &__grid li:nth-child(6).films__item--alt .films__image-container {
+    @include tablet {
+      animation-delay: 1.25s;
+    }
+    // @include desktop {
+    //   @include fadeRight;
+    // }
   }
   // fade in delay end
 
   &__grid li:nth-child(n).inView .films__image-container {
     @include fade(0.25s);
     animation-delay: 0.25s;
+    @include mobile-only {
+      @include fadeBottom;
+    }
   }
   // fadein on scroll from left animation
   &__grid li:nth-child(6n + 1).inView .films__image-container {
@@ -130,7 +146,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    filter: grayscale(1);
+    // filter: grayscale(1);
 
     transition: transform 0.25s;
     @include tablet {
@@ -157,10 +173,10 @@
     &:hover {
       z-index: 2;
       background-color: $transparent-colour-2;
-      color: white;
+      color: $white;
     }
     @include mobile-only {
-      color: white;
+      color: $white;
       align-items: flex-end;
       justify-content: flex-start;
 
@@ -178,24 +194,8 @@
         position: absolute;
         top: 0;
         width: 100%;
-        background-image: linear-gradient(
-          180deg,
-          rgba(201, 24, 74, 0) 45%,
-          rgba(201, 24, 74, 0.01) 48%,
-          rgba(201, 24, 74, 0.04) 50%,
-          rgba(201, 24, 74, 0.08) 53%,
-          rgba(201, 24, 74, 0.13) 57%,
-          rgba(201, 24, 74, 0.2) 61%,
-          rgba(201, 24, 74, 0.28) 65%,
-          rgba(201, 24, 74, 0.37) 69%,
-          rgba(201, 24, 74, 0.46) 73%,
-          rgba(201, 24, 74, 0.55) 77%,
-          rgba(201, 24, 74, 0.64) 81%,
-          rgba(201, 24, 74, 0.74) 85%,
-          rgba(201, 24, 74, 0.83) 89%,
-          rgba(201, 24, 74, 0.92) 92%,
-          rgba(201, 24, 74) 98%
-        );
+        opacity: 1;
+        @include gradient;
       }
     }
   }
@@ -206,8 +206,9 @@
       font-size: $size-header;
       position: relative;
       font-weight: 500;
-      z-index: 5;
-      padding: 0.5rem 1rem;
+      z-index: 4;
+      padding: 0rem 1rem;
+      text-align: left;
     }
   }
 }

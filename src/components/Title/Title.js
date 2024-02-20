@@ -11,9 +11,14 @@ export default function Title({ text, alt }) {
   if (text.length > 20) {
     titleClass = `title__title title__title--extra-long title__title--${alt}`;
   }
+  const firstWord = text.split(" ")[0];
+  const remaining = text.split(" ").splice(1).join(" ");
   return (
     <article className={`title title--${alt}`}>
-      <h1 className={titleClass}>{text}</h1>
+      <h1 className={titleClass}>
+        <span className={`title__firstWord--${alt}`}>{firstWord + " "} </span>
+        {remaining}
+      </h1>
     </article>
   );
 }

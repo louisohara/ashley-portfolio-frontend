@@ -3,35 +3,72 @@
 
 .grid {
   @include desktop {
-    padding-top: 0.5rem;
+    // padding-top: 0.5rem; MAXIMISING SPACE
   }
   width: 100%;
   height: 100%;
-  margin-top: 1rem;
   margin: auto;
+  &__undercolour {
+    position: absolute;
+    z-index: -1;
 
-  // @include desktop {
+    height: 60%;
+    width: 50%;
+    @include stripedBackground;
+    @include mobile-and-tablet {
+      width: 100%;
+    }
+    &--user {
+      top: 0;
+      right: 0;
+    }
+    &--film {
+      top: 0;
+      left: 0;
+    }
+    &--two {
+      @include dottedBackground;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      z-index: -1;
+      &--user {
+        left: 0;
+      }
+      @include mobile-and-tablet {
+        height: 35%;
+        width: 100%;
+      }
+    }
+    .header.fixedToTop + .app__main > .film > .grid &--film,
+    .header.fixedToTop + .app__main > .film > .grid &--user {
+      height: 50%;
+      @include desktop {
+        height: 55%;
+      }
+    }
+  }
 
-  //   width: 90%;
-  //   margin: auto;
-  // }
   &__list {
     // border: red 2px solid;
     padding-left: 0;
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(calc((100% / 10) - 10px), 1fr)
+      minmax(calc((100% / 10) - 15px), 1fr)
     );
     grid-template-rows: 1fr;
-    grid-gap: 10px;
+    column-gap: 15px;
+    row-gap: 15px;
   }
   &__list--about {
-    grid-template-rows: repeat(auto-fit, minmax(calc((100% / 10) - 10px), 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(calc((100% / 10) - 15px), 1fr));
   }
   //   padding bottom controls the vertical stretch of the item
   &__item {
-    background-color: white;
+    // background-color: $white;
     position: relative;
     display: flex;
 
@@ -45,9 +82,15 @@
     &--film:before {
       padding-bottom: calc(9 / 16 * 100%);
     }
+    &--details:before {
+      @include desktop {
+        padding-bottom: 0;
+      }
+    }
 
     &--about:before {
-      padding-bottom: 80%;
+      // controls the height of everything
+      padding-bottom: 65%;
       @include tablet-only {
         padding-bottom: calc(9 / 16 * 100%);
       }
@@ -63,7 +106,7 @@
   }
   &__list .grid__item:nth-child(n) {
     @include mobile-and-tablet {
-      @include fade(0.5s);
+      @include fadeBottom;
     }
   }
   &__list .grid__item:nth-child(1) {
@@ -73,7 +116,7 @@
       @include fadeLeft;
       grid-column: span 6;
       grid-row: span 1;
-      box-shadow: -10px -10px 0px 0px $bg-light;
+      // box-shadow: -15px -10px 0px 0px $bg-dark;
     }
   }
 
@@ -129,12 +172,13 @@
 
     @include fadeRight;
     animation-delay: 1s;
-    // border-top: red 2px solid;
+
     @include desktop {
-      // border-left: $hover-colour 2px solid;
       @include fadeRight;
       grid-column: span 6;
       grid-row: span 1;
+      padding-bottom: 0;
+      // box-shadow: 10px 10px 0px 0px $hover-colour;
     }
   }
   &__list--about .grid__item:nth-child(n) {
@@ -152,7 +196,8 @@
     z-index: 1;
     @include desktop {
       order: 3;
-      box-shadow: -10px 10px 0px 0px $bg-light;
+      // box-shadow: -15px 15px 0px 0px $bg-dark;
+
       @include fadeBottom;
       animation-delay: 0.5s;
       grid-row: span 8;
@@ -162,7 +207,7 @@
     // z-index: 1;
     @include desktop {
       border: 3px solid $hover-colour;
-      box-shadow: 10px -10px 0px 0px $hover-colour;
+      // box-shadow: 10px -10px 0px 0px $hover-colour;
 
       order: 2;
       animation-delay: 0.5s;
@@ -196,6 +241,7 @@
     // border: yellow 2px solid;
     order: 1;
     @include desktop {
+      box-shadow: none;
       animation-delay: 1.25s;
       border: none;
       order: 4;

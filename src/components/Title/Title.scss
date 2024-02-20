@@ -5,25 +5,27 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: center;
   gap: 1rem;
-  width: fit-content;
+  width: 100%;
   padding: 0 0.5rem;
 
   &__title {
     margin: 0;
     text-align: right;
+    color: $black;
+    // color: $hover-colour;
+    background-color: $white;
     @include mobile-and-tablet {
       text-align: left;
       padding-left: 0.25rem;
     }
 
     @include mobile-and-tablet {
-      font-size: 3.5rem;
+      font-size: 10.5vw;
     }
     @include desktop {
-      font-size: 4.5rem;
-      // font-size: 5vw;
+      // font-size: 4.5rem;
+      font-size: 5.25vw;
     }
     @include desktopLarge {
       font-size: 5.5rem;
@@ -72,8 +74,8 @@
     @include mobile-and-tablet {
       // text-align: right;
     }
-    // @include desktop {
-    //   font-size: ;
-    // }
+  }
+  &__firstWord--user {
+    display: block;
   }
 }

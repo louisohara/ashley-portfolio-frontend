@@ -58,7 +58,7 @@ export default function Nominations({ nominations, alt }) {
       <article className="carousel__content carousel__content--nomination">
         <div className="carousel__nomination">{renderNominations()}</div>
         <h3 className="nomination__awards">
-          {nominations.result ? "AWARDS" : "CLIENTS"}
+          {nominations[0].result ? "AWARDS" : "CLIENTS"}
         </h3>
       </article>
     </div>

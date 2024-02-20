@@ -64,6 +64,7 @@ export default function FilmPage({ isLoggedIn }) {
         film={film}
         collaborators={collaborators}
         reviews={reviews}
+        alt4="details"
       />
       {/* <Carousel /> */}
     </section>

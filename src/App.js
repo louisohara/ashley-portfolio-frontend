@@ -50,7 +50,8 @@ function App() {
 
     if (prevScrollPos <= currentScrollPos) {
       headerDiv.classList.remove("fixedToTop");
-      headerDiv.style.top = "-7.2rem";
+      headerDiv.style.top = "-10rem";
+
       closeMenu();
     } else {
       headerDiv.classList.add("fixedToTop");
@@ -71,11 +72,14 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
+  if (!films) {
+    return "";
+  }
 
   return (
     <div className="app">
       <BrowserRouter>
-        {/* <Header closeMenu={closeMenu} /> */}
+        <Header closeMenu={closeMenu} menuClosed={true} films={films} />
         {/* <main className="app__main"> */}
         <Routes>
           <Route
@@ -83,7 +87,6 @@ function App() {
             path="/"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={true} films={films} />
                 <main className="app__main">
                   <HomePage
                     isLoggedIn={isLoggedIn}
@@ -98,11 +101,6 @@ function App() {
             path="/films"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
                 <main className="app__main">
                   <HomePage
                     isLoggedIn={isLoggedIn}
@@ -118,12 +116,7 @@ function App() {
             path="/admin"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
-                <main className="app__main">
+                <main className="app__main app__main--flex">
                   <AdminPage
                     isLoggedIn={isLoggedIn}
                     setLoginTrue={setLoginTrue}
@@ -137,12 +130,7 @@ function App() {
             path="/about"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
-                <main className="app__main">
+                <main className="app__main app__main--flex">
                   <AboutPage isLoggedIn={isLoggedIn} />
                 </main>
               </>
@@ -152,12 +140,7 @@ function App() {
             path="/contact"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
-                <main className="app__main">
+                <main className="app__main app__main--flex">
                   <ContactPage />
                 </main>
               </>
@@ -167,8 +150,7 @@ function App() {
             path="/films/:id"
             element={
               <>
-                <Header closeMenu={closeMenu} menuClosed={true} films={films} />
-                <main className="app__main">
+                <main className="app__main app__main--flex">
                   <FilmPage isLoggedIn={isLoggedIn} />
                 </main>
               </>
@@ -178,11 +160,6 @@ function App() {
             path="/directing"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
                 <main className="app__main">
                   <DirectingPage isLoggedIn={isLoggedIn} films={films} />
                 </main>
@@ -193,11 +170,6 @@ function App() {
             path="/producing"
             element={
               <>
-                <Header
-                  closeMenu={closeMenu}
-                  menuClosed={false}
-                  films={films}
-                />
                 <main className="app__main">
                   <ProducingPage isLoggedIn={isLoggedIn} films={films} />
                 </main>
@@ -206,7 +178,7 @@ function App() {
           />
         </Routes>
         {/* </main> */}
-        <div className="app__undercolour"></div>
+
         <Footer />
       </BrowserRouter>
     </div>

@@ -6,20 +6,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   &--film {
     @include desktop {
-      @include slantedBorder(
-        100%,
-        10px,
-        $hover-colour,
-        calc(100% - 3px),
-        calc(100% - 6px)
-      );
-      border-top: 3px solid $hover-colour;
-      border-left: 3px solid $hover-colour;
-      background-color: $transparent-colour;
-      // border: 3px solid $hover-colour;
+      // @include slantedBorder(
+      //   100%,
+      //   10px,
+      //   $hover-colour,
+      //   calc(100% - 3px),
+      //   calc(100% - 6px)
+      // );
+      // border-top: 3px solid $hover-colour;
+      // border-left: 3px solid $hover-colour;
+      background-color: $bg-light;
+      border: 3px solid $hover-colour;
+    }
+    @include mobile-and-tablet {
+      background-color: $white;
     }
   }
   &--user {
@@ -27,12 +30,22 @@
       font-weight: 500;
       justify-content: flex-start;
       padding: 0.5rem;
+      // @include slantedBorder(
+      //   100%,
+      //   8px,
+      //   $hover-colour,
+      //   calc(100% - 3px),
+      //   calc(100% - 6px)
+      // );
+      // border-top: 3px solid $hover-colour;
+      // border-left: 3px solid $hover-colour;
     }
   }
 
   &--user {
     @include mobile-and-tablet {
       padding: 0.5rem;
+      background-color: $white;
     }
   }
 
@@ -44,11 +57,6 @@
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
-    // @include mobile-and-tablet {
-    //   flex-direction: row-reverse;
-
-    //   text-align: right;
-    // }
     margin: 0;
     & li {
       text-decoration: none;
@@ -104,7 +112,7 @@
       }
     }
     @include desktop {
-      font-size: 1.75vw;
+      font-size: 1.6vw;
     }
     &--extra-short {
       @include mobile-only {
@@ -114,7 +122,7 @@
         font-size: 2.25rem;
       }
       @include desktop {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
       }
       @include desktopLarge {
         font-size: 3rem;

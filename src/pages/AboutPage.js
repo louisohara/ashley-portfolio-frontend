@@ -1,7 +1,6 @@
 import Grid from "../components/Grid/Grid";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Instagram from "../components/Instagram/Instagram";
 
 export default function AboutPage({ isLoggedIn }) {
   const [user, setUser] = useState(null);
@@ -70,7 +69,7 @@ export default function AboutPage({ isLoggedIn }) {
     return <div className="loading">loading..</div>;
   }
   return (
-    <section className="about">
+    <section className="app__section--about">
       <Grid
         alt1="about"
         alt2="carousel"

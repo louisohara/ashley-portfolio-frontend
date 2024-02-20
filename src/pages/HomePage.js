@@ -10,7 +10,7 @@ export default function HomePage({ isLoggedIn, setLoginFalse, films }) {
   }
 
   return (
-    <section className="home app__section app__section--home active">
+    <section className="app__section app__section--home">
       <Films children={films} />
       {/* <p>This is the homepage</p>
         {isLoggedIn ? (
@@ -21,6 +21,7 @@ export default function HomePage({ isLoggedIn, setLoginFalse, films }) {
         ) : (
           <p>I'm not logged in </p>
         )} */}
+      <div className="app__undercolour"></div>
     </section>
   );
 }

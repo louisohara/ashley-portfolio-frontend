@@ -7,31 +7,45 @@
   height: 100vh;
   &__main {
     @include screenWidth;
-  }
-
-  &__section {
-    display: none;
-
-    &.active {
-      display: block;
-      padding: 1rem 0;
+    &--flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100% - 5rem);
     }
   }
-  &__undercolour {
-    position: fixed;
-    z-index: -1;
-    bottom: 0;
-    left: 0;
-    height: 40%;
-    width: 100%;
-    // background-color: $bg-light;
+  &__section > &__undercolour {
+    @include tablet {
+      position: fixed;
+      z-index: -1;
+      bottom: 0;
+      left: 0;
+      height: 50%;
+      width: 100%;
+
+      @include dottedBackground;
+    }
+  }
+  &__section {
+    margin-top: 1rem;
+  }
+  &__section--about {
+    @include desktop {
+      margin-bottom: 1rem;
+    }
   }
 }
 
 // fixedscroll animation
 .header.fixedToTop + .app__main {
   @include mobile-only {
+    margin-top: 5.2rem;
+  }
+  margin-top: 3.5rem;
+}
+.header.fixedToTop + .app__main > .app__section {
+  margin-top: 4.5rem;
+  @include mobile-only {
     margin-top: 6.2rem;
   }
-  margin-top: 4.5rem;
 }

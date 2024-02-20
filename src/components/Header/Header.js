@@ -93,7 +93,7 @@ export default function Header({ closeMenu, menuClosed, films }) {
               className="header__logo"
             />
           </a>
-          <ul className={menuClosed ? "header__menu" : "header__menu active"}>
+          <ul className={menuClosed ? "header__menu " : "header__menu active"}>
             <li className="header__item">
               <a className="header__link header__link--about" href="/about">
                 About

@@ -1,13 +1,13 @@
-// import "./Contact.scss";
+import "./Contact.scss";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import errorImg from "../../assets/icons/error.svg";
+
 import Input from "../../components/Input/Input";
 
 function Contact() {
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const form = useRef();
 
   const [fields, setFields] = useState({
@@ -65,102 +65,92 @@ function Contact() {
   };
 
   return (
-    <section className="contact contact--dark">
-      {!success && (
-        <div className="contact__container">
-          <div className="contact__text">
-            <h1 className="contact__title">Let's Connect!</h1>
-            <p className="contact__subtitle">
-              <span className="contact__span">
-                Like my code? Think we should work together?{" "}
-              </span>
-              <br />
-              Feel free to reach out to me directly via{" "}
-              <span className="contact__email">
-                <a
-                  href="mailto:louisohara20@gmail.com"
-                  className="contact__link"
-                >
-                  email
-                </a>
-              </span>{" "}
-              or by using the form below.
-            </p>
-          </div>
-          <div className="contact__form-wrapper">
+    <div className="contact__wrapper">
+      <div className="contact__undercolour"></div>
+
+      <div className="contact__container">
+        <div className="contact__text">
+          <h1 className="contact__title">Contact me</h1>
+          <p className="contact__subtitle">
+            <span className="contact__email">
+              <a
+                href="mailto:ashley.francisroy@gmail.com"
+                className="contact__link"
+              >
+                ashley.francisroy@gmail.com
+              </a>{" "}
+            </span>
+            <br />
+            <br />
+            <span className="contact__representation">
+              Ashley is represented by{" "}
+              <a
+                href="https://www.missinglinkfilms.co.uk/"
+                className="contact__link"
+              >
+                Missing Link Films
+              </a>{" "}
+              for commercials and branded content.
+            </span>
+          </p>
+        </div>
+        <div className="contact__form-wrapper">
+          {!success && (
             <form className="contact__form" ref={form} onSubmit={handleSubmit}>
               <div className="contact__flex">
-                <div className="contact__wrapper">
-                  <Input
-                    type="text"
-                    name="name"
-                    label="Name"
-                    onChange={handleChange}
-                    placeholder="Ada Lovelace"
-                    alt={error && !fields.name ? "error" : ""}
-                  />
-                  {(error && !fields.email) || (error && !isNameValid()) ? (
-                    <div className="contact__error-container">
-                      <img
-                        src={errorImg}
-                        className="contact__icon"
-                        alt="error icon"
-                      />
-                      <p className="contact__error">
-                        {fields.name ? "Enter valid name" : "Required field"}
-                      </p>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <div className="contact__wrapper">
-                  <Input
-                    type="text"
-                    name="email"
-                    label="Email"
-                    onChange={handleChange}
-                    placeholder="lovelace@gmail.com"
-                    alt={error && !fields.email ? "error" : ""}
-                  />{" "}
-                  {(error && !fields.email) || (error && !isEmailValid()) ? (
-                    <div className="contact__error-container">
-                      <img
-                        src={errorImg}
-                        className="contact__icon"
-                        alt="error icon"
-                      />
-                      <p className="contact__error">
-                        {fields.email ? "Enter valid email" : "Required field"}
-                      </p>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                <Input
+                  type="text"
+                  name="name"
+                  label="Name"
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  alt={error && !fields.name ? "error" : ""}
+                />
+                {(error && !fields.name) || (error && !isNameValid()) ? (
+                  <div className="contact__error-container">
+                    <p className="contact__error">
+                      {fields.name ? "Enter valid name" : "Required field"}
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+                <Input
+                  type="text"
+                  name="email"
+                  label="Email"
+                  onChange={handleChange}
+                  placeholder="Your email"
+                  alt={error && !fields.email ? "error" : ""}
+                />{" "}
+                {(error && !fields.email) || (error && !isEmailValid()) ? (
+                  <div className="contact__error-container">
+                    <p className="contact__error">
+                      {fields.email ? "Enter valid email" : "Required field"}
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
-              <div className="contact__message field">
+
+              <div className={error ? "field field--error" : "field"}>
                 <label htmlFor="message" className="field__label">
                   Message
                 </label>
                 <textarea
-                  className={`contact__textarea field__input  field__input--textarea ${
+                  className={`contact__textarea field__input field__input--textarea ${
                     error && !fields.message ? "field__input--error" : ""
                   }`}
                   type="textarea"
                   name="message"
                   id="message"
                   onChange={handleChange}
-                  placeholder="Let's talk about..."
+                  placeholder="Your message"
                 ></textarea>
 
                 {error && !fields.message ? (
                   <div className="contact__error-container">
-                    <img
-                      src={errorImg}
-                      className="contact__icon"
-                      alt="error icon"
-                    />
                     <p className="contact__error">Required field</p>
                   </div>
                 ) : (
@@ -168,13 +158,22 @@ function Contact() {
                 )}
               </div>
               <div className="contact__button-container">
-                <button className="contact__button">SEND</button>
+                <button className="contact__button">Send</button>
               </div>
             </form>
-          </div>
+          )}
+          {success && (
+            <div className="contact__text--success">
+              <h1 className="contact__title--success">Message sent</h1>
+              <p className="contact__subtitle--success">
+                Thanks for being in touch!
+              </p>
+            </div>
+          )}
         </div>
-      )}
-      {success && (
+      </div>
+
+      {/* {success && (
         <div className="contact__text contact__text--success">
           <h1 className="contact__title contact__title--success">
             Thanks for being in touch!
@@ -183,8 +182,8 @@ function Contact() {
             Your email was sent successfully
           </p>
         </div>
-      )}
-    </section>
+      )} */}
+    </div>
   );
 }
 

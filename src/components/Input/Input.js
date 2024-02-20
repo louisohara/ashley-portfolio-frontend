@@ -1,8 +1,17 @@
-// import "./Input.scss";
+import "./Input.scss";
 
-function Input({ label, name, type, onChange, value, accept, alt }) {
+function Input({
+  label,
+  name,
+  type,
+  onChange,
+  value,
+  accept,
+  alt,
+  placeholder,
+}) {
   return (
-    <div className="field">
+    <div className={`field field--${alt}`}>
       <label htmlFor={name} className={`field__label field__label--${alt}`}>
         {label}
       </label>
@@ -14,6 +23,7 @@ function Input({ label, name, type, onChange, value, accept, alt }) {
         value={value}
         onChange={onChange}
         accept={accept}
+        placeholder={placeholder}
       />
     </div>
   );

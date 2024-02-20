@@ -4,15 +4,16 @@
 .carousel {
   width: 100%;
   overflow: hidden;
+  background-color: $white;
   @include mobile-and-tablet {
     border: 5px solid $hover-colour;
-    background-color: $transparent-colour;
+    background-color: $bg-light;
   }
   &--user {
     position: relative;
     z-index: 2;
     @include desktop {
-      background-color: $transparent-colour;
+      background-color: $bg-light;
     }
   }
   &__slide {
@@ -20,11 +21,11 @@
   }
   &__content {
     @include mobile-and-tablet {
-      color: black !important;
+      color: $black !important;
       font-weight: 500 !important;
     }
     padding: 1rem;
-    height: calc(100% - 5rem);
+    height: calc(100% - 4rem);
   }
   &__content--nomination,
   &__content--insta {
