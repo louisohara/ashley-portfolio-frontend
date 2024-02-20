@@ -4,11 +4,11 @@
 .title {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
-  gap: 1rem;
   width: 100%;
   padding: 0 0.5rem;
-
+  height: 100%;
   &__title {
     margin: 0;
     text-align: right;
@@ -19,13 +19,15 @@
       text-align: left;
       padding-left: 0.25rem;
     }
-
-    @include mobile-and-tablet {
-      font-size: 10.5vw;
+    @include mobile-only {
+      font-size: 8.5vw;
+    }
+    @include tablet {
+      font-size: 7.5vw;
     }
     @include desktop {
       // font-size: 4.5rem;
-      font-size: 5.25vw;
+      font-size: 5.2vw;
     }
     @include desktopLarge {
       font-size: 5.5rem;
@@ -43,13 +45,13 @@
     }
     &--extra-long {
       @include mobile-only {
-        font-size: 2rem;
+        font-size: 7.2vw;
       }
-      @include mobile-and-tablet {
-        font-size: 2.75rem;
+      @include tablet {
+        font-size: 6.9vw;
       }
       @include desktop {
-        font-size: 3.5rem;
+        font-size: 3.69vw;
       }
       @include desktopLarge {
         font-size: 4.5rem;

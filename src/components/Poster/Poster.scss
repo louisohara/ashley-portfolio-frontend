@@ -34,16 +34,17 @@
     background-color: $transparent-colour;
   }
   &__icon {
-    @include filterWhiteToColour;
     border-radius: 50%;
     padding: 0.5rem;
     cursor: pointer;
+    filter: invert(1);
+    // border: 2px solid;
     width: 2.5rem;
     height: auto;
     display: block;
     transition: filter 0.5s ease;
     &:hover {
-      filter: invert(1);
+      @include filterWhiteToColour;
       border: 2px solid;
     }
   }

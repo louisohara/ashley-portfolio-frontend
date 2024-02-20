@@ -20,6 +20,7 @@
       // border-left: 3px solid $hover-colour;
       background-color: $bg-light;
       border: 3px solid $hover-colour;
+      overflow: hidden;
     }
     @include mobile-and-tablet {
       background-color: $white;
@@ -66,6 +67,9 @@
   &__role {
     font-weight: 500;
     color: $hover-colour;
+    @include mobile-and-tablet {
+      max-width: 30%;
+    }
   }
   &__wrapper {
     display: flex;
@@ -104,12 +108,11 @@
         // color: $hover-colour;
       }
     }
-
-    @include mobile-and-tablet {
+    @include mobile-only {
+      font-size: 2.8vw;
+    }
+    @include tablet {
       font-size: 2.5vw;
-      @include mobile-only {
-        font-size: 2.8vw;
-      }
     }
     @include desktop {
       font-size: 1.6vw;
@@ -122,7 +125,7 @@
         font-size: 2.25rem;
       }
       @include desktop {
-        font-size: 2.4rem;
+        font-size: 2.2vw;
       }
       @include desktopLarge {
         font-size: 3rem;
@@ -130,13 +133,13 @@
     }
     &--short {
       @include mobile-only {
-        font-size: 1.5rem;
+        font-size: 3vw;
       }
       @include tablet-only {
         font-size: 1.75rem;
       }
       @include desktop {
-        font-size: 2rem;
+        font-size: 2vw;
       }
       @include desktopLarge {
         font-size: 2.5rem;
@@ -150,7 +153,7 @@
         }
       }
       @include desktop {
-        font-size: 1.25rem;
+        font-size: 1.45vw;
       }
       @include desktopLarge {
         font-size: 1.75rem;

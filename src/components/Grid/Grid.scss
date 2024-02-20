@@ -4,10 +4,15 @@
 .grid {
   @include desktop {
     // padding-top: 0.5rem; MAXIMISING SPACE
+    // width: 90%;
   }
+
   width: 100%;
   height: 100%;
   margin: auto;
+  @include mobile-and-tablet {
+    // background-color: $white;
+  }
   &__undercolour {
     position: absolute;
     z-index: -1;
@@ -65,6 +70,11 @@
   }
   &__list--about {
     grid-template-rows: repeat(auto-fit, minmax(calc((100% / 10) - 15px), 1fr));
+  }
+  &__list--film {
+    margin-top: 0.75rem;
+    column-gap: 12.5px;
+    row-gap: 12.5px;
   }
   //   padding bottom controls the vertical stretch of the item
   &__item {
@@ -125,6 +135,7 @@
     // border: pink 2px solid;
     @include mobile-and-tablet {
       order: 4;
+      @include fadeTop;
     }
     @include desktop {
       @include fadeTop;
