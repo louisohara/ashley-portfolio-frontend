@@ -3,7 +3,7 @@
 
 .poster {
   width: 100%;
-  border: $black 3px solid;
+  border: $hover-colour 3px solid;
 
   &__wrapper {
     // z-index: 1;
@@ -11,7 +11,7 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: $black;
+    background-color: $darkest-colour;
   }
   &__image,
   &__video {

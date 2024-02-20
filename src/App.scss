@@ -2,7 +2,7 @@
 @use "./styles/mixins" as *;
 
 .app {
-  // background-color: $bg-dark;
+  // background-color: $white;
   position: relative;
   height: 100vh;
   &__main {
@@ -24,8 +24,8 @@
     width: 100%;
 
     @include dottedBackground;
-    // }
   }
+
   &__section {
     margin-top: 1rem;
   }
@@ -45,6 +45,7 @@
 }
 .header.fixedToTop + .app__main > .app__section {
   margin-top: 4.5rem;
+
   @include mobile-only {
     margin-top: 6.2rem;
   }

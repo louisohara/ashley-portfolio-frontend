@@ -41,7 +41,7 @@
     width: auto;
     transition: filter 0.15s ease;
 
-    filter: invert(1);
+    // filter: invert(1);
     &:hover {
       @include filterWhiteToColour;
     }

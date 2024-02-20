@@ -114,10 +114,12 @@
   }
   &__text--success {
     // color: $darkest-colour;
+
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: $black;
   }
   &__title--success {
     @include fadeTop;

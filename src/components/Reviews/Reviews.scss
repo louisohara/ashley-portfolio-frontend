@@ -103,6 +103,7 @@
     max-height: 2.5rem;
     max-width: 9rem;
     display: block;
+    @include filterWhiteToColour;
     &--second {
       max-height: 1.5rem;
       width: auto;
@@ -125,8 +126,7 @@
     font-size: 1rem;
     text-align: center;
     font-weight: 500;
-    color: $black;
-
+    color: $hover-colour;
     &--second {
       font-size: 1rem;
     }

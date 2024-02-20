@@ -3,6 +3,7 @@
 
 .details {
   //   @include filterWhiteToColour;
+  color: $hover-colour;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,6 +25,7 @@
     }
     @include mobile-and-tablet {
       background-color: $white;
+      // color: $black;
     }
   }
   &--user {

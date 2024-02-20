@@ -147,7 +147,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    // filter: grayscale(1);
+    filter: grayscale(1);
 
     transition: transform 0.25s;
     @include tablet {
@@ -174,10 +174,10 @@
     &:hover {
       z-index: 2;
       background-color: $transparent-colour-2;
-      color: $white;
+      color: $black;
     }
     @include mobile-only {
-      color: $white;
+      color: $black;
       align-items: flex-end;
       justify-content: flex-start;
 

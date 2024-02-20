@@ -2,8 +2,8 @@
 @use "../../styles/variables" as *;
 
 .header {
-  background-color: $white;
-  border-bottom: 3px solid $transparent-colour-2;
+  // background-color: $bg-light;
+  // border-bottom: 3px solid $transparent-colour;
   z-index: 10;
   transition: all 0.5s ease-in-out;
   &.fixedToTop {
@@ -75,7 +75,7 @@
       &.active {
         top: 0;
         left: 0;
-        @include fadeTop;
+        @include fadeRight;
         .header__item--film:nth-child(n) {
           @include fadeRight;
           // TARGETS THE LIST
@@ -103,7 +103,7 @@
     font-size: $size-sub;
     padding: 0;
     font-weight: 400;
-    color: $darkest-colour;
+    color: $black;
     transition: color 0.5s;
     cursor: pointer;
 
@@ -125,7 +125,7 @@
       text-decoration: none;
       font-size: $size-sub;
       font-weight: 400;
-      color: $darkest-colour;
+      color: $black;
       transition: color 0.5s;
       display: flex;
       flex-direction: row;
@@ -163,14 +163,14 @@
     @include mobile-only {
       position: relative;
       &::before {
-        content: " ";
-        width: 150px;
-        height: 10px;
-        border-bottom: 2px solid;
-        position: absolute;
-        top: -0.2rem;
-        font-size: 2rem;
-        left: -155px;
+        // content: " ";
+        // width: 150px;
+        // height: 10px;
+        // border-bottom: 2px solid;
+        // position: absolute;
+        // top: -0.2rem;
+        // font-size: 2rem;
+        // left: -155px;
       }
     }
   }
@@ -179,7 +179,7 @@
       position: absolute;
       height: fit-content;
       background: $white;
-      border: 2px solid $darkest-colour;
+      // border: 2px solid $darkest-colour;
       top: 0;
     }
   }

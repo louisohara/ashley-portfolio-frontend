@@ -7,13 +7,13 @@
   background-color: $white;
   @include mobile-and-tablet {
     border: 5px solid $hover-colour;
-    background-color: $bg-light;
+    background-color: $white;
   }
   &--user {
     position: relative;
     z-index: 2;
     @include desktop {
-      background-color: $bg-light;
+      // background-color: $bg-light;
     }
   }
   &__slide {
