@@ -19,7 +19,8 @@
       // border-top: 3px solid $hover-colour;
       // border-left: 3px solid $hover-colour;
       background-color: $bg-light;
-      border: 3px solid $hover-colour;
+
+      border: 2px solid $hover-colour;
       overflow: hidden;
     }
     @include mobile-and-tablet {

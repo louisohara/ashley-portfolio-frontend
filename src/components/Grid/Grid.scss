@@ -19,7 +19,8 @@
 
     height: 60%;
     width: 50%;
-    @include stripedBackground;
+    // @include stripedBackground;
+    @include dottedBackground;
     @include mobile-and-tablet {
       width: 100%;
     }
@@ -217,7 +218,7 @@
   &__list--about .grid__item:nth-child(2) {
     // z-index: 1;
     @include desktop {
-      border: 3px solid $hover-colour;
+      // border: 3px solid $hover-colour;
       // box-shadow: 10px -10px 0px 0px $hover-colour;
 
       order: 2;
