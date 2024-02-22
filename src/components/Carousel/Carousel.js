@@ -16,11 +16,12 @@ export default function Carousel({
   alt,
   limit,
   images,
+  slides,
 }) {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: parseInt(slides),
     slidesToScroll: 1,
     adaptiveHeight: true,
     // autoplay: true,

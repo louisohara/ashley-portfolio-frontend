@@ -134,7 +134,11 @@ function Contact() {
                 )}
               </div>
 
-              <div className={error ? "field field--error" : "field"}>
+              <div
+                className={
+                  error && !fields.message ? "field field--error" : "field"
+                }
+              >
                 <label htmlFor="message" className="field__label">
                   Message
                 </label>

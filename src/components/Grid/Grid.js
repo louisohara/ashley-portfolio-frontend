@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Carousel from "../Carousel/Carousel";
 import FilmDetails from "../FilmDetails/FilmDetails";
 import Poster from "../Poster/Poster";
@@ -17,8 +18,26 @@ export default function Grid({
   clients,
   images,
 }) {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+  const handleResize = () => {
+    setDimensions({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
-    <div className="grid">
+    <div className={film ? "grid grid--film" : "grid grid--user"}>
       <ul className={`grid__list grid__list--${alt1}`}>
         <li className={`grid__item grid__item--${alt1}`}>
           {film ? <Poster film={film} /> : ""}
@@ -32,6 +51,8 @@ export default function Grid({
               collaborators={collaborators}
               reviews={reviews}
               limit="450"
+              slides={dimensions.width <= 1024 ? "1" : "2"}
+              alt="film"
             />
           ) : (
             ""
@@ -43,13 +64,14 @@ export default function Grid({
               nominations={clients}
               limit="600"
               images={images}
+              slides="1"
             />
           ) : (
             ""
           )}
         </li>
         <li className={`grid__item grid__item--${alt3}`}>
-          {film ? <Title text={film.title} /> : ""}
+          {film ? <Title text={film.title} alt="film" /> : ""}
           {user ? <Title text="Ashley Francis-Roy" alt="user" /> : ""}
         </li>
         <li className={`grid__item grid__item--${alt4}`}>

@@ -3,24 +3,29 @@
 
 .details {
   //   @include filterWhiteToColour;
-  color: $hover-colour;
+  // EDIT
+  // color: $button-colour;
+  color: $black;
+  // END EDIT
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0.75rem 1rem;
   &--film {
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @include desktop {
-      // @include slantedBorder(
-      //   100%,
-      //   10px,
-      //   $hover-colour,
-      //   calc(100% - 3px),
-      //   calc(100% - 6px)
-      // );
-      // border-top: 3px solid $hover-colour;
-      // border-left: 3px solid $hover-colour;
-      background-color: $bg-light;
-      border: 3px solid $hover-colour;
+      // EDIT
+      background-color: $white;
+      border: 3px solid $button-colour;
+      // background-color: $white;
+      color: $black;
+
+      // color: $white;
+      // background-color: $button-colour;
+      // END EDIT
       overflow: hidden;
     }
     @include mobile-and-tablet {
@@ -32,23 +37,16 @@
     @include desktop {
       font-weight: 500;
       justify-content: flex-start;
-      padding: 0.5rem;
-      // @include slantedBorder(
-      //   100%,
-      //   8px,
-      //   $hover-colour,
-      //   calc(100% - 3px),
-      //   calc(100% - 6px)
-      // );
-      // border-top: 3px solid $hover-colour;
-      // border-left: 3px solid $hover-colour;
+      padding: 0;
+      background-color: $white;
+      color: $hover-colour;
     }
-  }
 
-  &--user {
     @include mobile-and-tablet {
       padding: 0.5rem;
-      background-color: $white;
+      background-color: $hover-colour;
+      color: $white;
+      font-weight: 500;
     }
   }
 
@@ -68,9 +66,13 @@
   }
   &__role {
     font-weight: 500;
-    color: $hover-colour;
+    color: $button-colour;
     @include mobile-and-tablet {
-      max-width: 30%;
+      max-width: 60%;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
   &__wrapper {
@@ -106,9 +108,6 @@
     &--user {
       margin: 0;
       // text-align: right;
-      @include mobile-and-tablet {
-        // color: $hover-colour;
-      }
     }
     @include mobile-only {
       font-size: 2.8vw;

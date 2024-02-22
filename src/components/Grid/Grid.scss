@@ -5,46 +5,72 @@
   @include desktop {
     // padding-top: 0.5rem; MAXIMISING SPACE
     // width: 90%;
+    zoom: 0.9;
   }
-
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  @include desktop {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+  }
+  transition: all 0.5s;
   @include mobile-and-tablet {
     // background-color: $white;
   }
   &__undercolour {
-    position: absolute;
+    position: fixed;
     z-index: -1;
 
-    height: 60%;
-    width: 50%;
+    height: 55%;
+    width: 49.5%;
+
     @include stripedBackground;
-    @include mobile-and-tablet {
+    @include mobile-only {
       width: 100%;
+      height: 15%;
+      top: 0;
+      display: none;
     }
     &--user {
-      top: 0;
-      right: 0;
+      bottom: 0;
+      left: 0;
+      @include fadeTop;
+      animation-delay: 1s;
     }
     &--film {
-      top: 0;
-      left: 0;
+      // EDIT
+      // top: 0;
+      // left: 0;
+      bottom: 0;
+      right: 0;
+      @include fadeRight;
+      // END EDIT
     }
     &--two {
       @include dottedBackground;
       position: fixed;
-      bottom: 0;
-      right: 0;
+      @include fadeLeft;
+      // EDIT
+      // bottom: 0;
+      // right: 0;
+      top: 0;
+      left: 0;
+      // end edit
       width: 50%;
-      height: 50%;
+      height: 55%;
       z-index: -1;
       &--user {
-        left: 0;
+        right: 0;
+        top: 0;
+        left: unset;
+        @include fadeBottom;
+        animation-delay: 1s;
       }
-      @include mobile-and-tablet {
-        height: 35%;
+      @include mobile-only {
+        @include fadeBottom;
+        height: 90%;
         width: 100%;
+        top: 8%;
+        display: none;
       }
     }
     .header.fixedToTop + .app__main > .film > .grid &--film,
@@ -105,13 +131,28 @@
         padding-bottom: calc(9 / 16 * 100%);
       }
     }
-    &--carousel {
-      z-index: 1;
-      &:before {
-        @include mobile-and-tablet {
-          padding-bottom: calc(12 / 16 * 100%);
-        }
+  }
+  &--film &__item--carousel {
+    z-index: 1;
+    &:before {
+      @include mobile-and-tablet {
+        padding-bottom: calc(12 / 16 * 100%);
       }
+    }
+    @include desktop {
+      display: none;
+      &.active {
+        display: flex;
+        @include fadeBottom;
+      }
+    }
+  }
+  &--user &__item--carousel {
+    z-index: 1;
+    &:before {
+      // @include mobile-and-tablet {
+      padding-bottom: calc(12 / 16 * 100%);
+      // }
     }
   }
   &__list .grid__item:nth-child(n) {
@@ -123,10 +164,16 @@
     grid-column: span 10;
     // border: green 2px solid;
     @include desktop {
-      @include fadeLeft;
+      // @include fadeLeft;
       grid-column: span 6;
-      grid-row: span 1;
-      // box-shadow: -15px -10px 0px 0px $bg-dark;
+
+      // EDIT
+      // grid-row: span 1;
+      // @include fadeLeft;
+      @include fadeLeft;
+      grid-row: span 2;
+      order: 1;
+      // END EDIT
     }
   }
 
@@ -138,10 +185,15 @@
       @include fadeTop;
     }
     @include desktop {
-      @include fadeTop;
-      animation-delay: 1.25s;
-      grid-column: span 4;
       grid-row: span 1;
+      // EDIT
+      // grid-column: span 4;
+      // @include fadeTop;
+      // @include fadeBottom;
+      animation-delay: 0.25s;
+      grid-column: span 10;
+      order: 4;
+      // END EDIT
     }
   }
   &__list .grid__item:nth-child(3),
@@ -153,30 +205,26 @@
     }
   }
   &__list .grid__item:nth-child(3) {
-    // grid-column: span 5;
-    // grid-column: span 10;
     @include mobile-and-tablet {
-      // border: 2px solid $darkest-colour;
-      // border-bottom: 5px solid $darkest-colour;
-      // border-left: 5px solid $darkest-colour;
       @include fadeLeft;
       animation-delay: 0.75s;
       margin-left: auto;
       order: 1;
     }
     @include desktop {
-      border-right: 0;
-      @include fadeBottom;
-      animation-delay: 1.25s;
       grid-column: span 4;
       grid-row: span 1;
+      //EDIT
+      // @include fadeBottom;
+      // animation-delay: 1.25s;
+      @include fadeRight;
+      animation-delay: 0.25s;
+      order: 2;
+      // END EDIT
     }
   }
 
   &__list .grid__item:nth-child(4) {
-    // THE COMMENTED OUT CODE IS FOR THE WIDTH BEING 80% VS 50%
-    // grid-column: span 10;
-    // grid-column: span 5;
     @include mobile-and-tablet {
       border: 3px solid $hover-colour;
     }
@@ -185,11 +233,15 @@
     animation-delay: 1s;
 
     @include desktop {
-      @include fadeRight;
-      grid-column: span 6;
+      // EDIT
+      @include fadeBottom;
+      animation-delay: 1.25s;
+      // grid-column: span 6;
+      order: 3;
+      grid-column: span 4;
+      // END EDIT
       grid-row: span 1;
       padding-bottom: 0;
-      // box-shadow: 10px 10px 0px 0px $hover-colour;
     }
   }
   &__list--about .grid__item:nth-child(n) {
@@ -206,32 +258,33 @@
     }
     z-index: 1;
     @include desktop {
-      order: 3;
+      order: 2;
       // box-shadow: -15px 15px 0px 0px $bg-dark;
 
-      @include fadeBottom;
-      animation-delay: 0.5s;
-      grid-row: span 8;
+      @include fadeTop;
+      // animation-delay: 0.5s;
+      animation-delay: 1s;
+
+      grid-row: span 7;
     }
   }
   &__list--about .grid__item:nth-child(2) {
     // z-index: 1;
     @include desktop {
-      border: 3px solid $hover-colour;
-      // box-shadow: 10px -10px 0px 0px $hover-colour;
+      border: 2px solid $button-colour;
+      background-color: $white;
+      @include fadeBottom;
+      animation-delay: 1s;
 
-      order: 2;
-      animation-delay: 0.5s;
-      grid-row: span 7;
+      order: 3;
+      // animation-delay: 0.5s;
+      grid-row: span 8;
     }
   }
   &__list--about .grid__item:nth-child(3),
   &__list--about .grid__item:nth-child(4) {
     @include mobile-and-tablet {
-      // width: 80%;
       width: 100%;
-      // grid-column: span 10;
-      // grid-row:
     }
   }
   &__list--about .grid__item:nth-child(3) {
@@ -240,8 +293,8 @@
     animation-delay: 1s;
     order: 2;
     @include desktop {
-      animation-delay: 1.25s;
-
+      // animation-delay: 1.25s;
+      animation-delay: 0s;
       order: 1;
       grid-row: span 2;
     }
@@ -253,10 +306,13 @@
     order: 1;
     @include desktop {
       box-shadow: none;
-      animation-delay: 1.25s;
+
       border: none;
       order: 4;
       grid-row: span 3;
+      @include fadeRight;
+      animation-delay: 0s;
+      // animation-delay: 1.25s;
     }
   }
 }

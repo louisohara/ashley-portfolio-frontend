@@ -3,23 +3,26 @@
 
 .description {
   color: $black;
+  // color: $button-colour;
+
   text-align: center;
   line-height: 1.5rem;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   &__title {
     @include carouselTitle;
   }
   &--long {
-    // margin-top: 0;
+    margin-top: 1.5rem;
     font-size: 1rem;
     &--user {
       @include desktop {
-        font-size: calc(1.2vw + 1%);
+        font-size: calc(1.4vw + 1%);
         line-height: calc(1.75vw + 1%);
       }
     }
     @include mobile-and-tablet {
-      font-size: 0.8rem;
+      font-size: calc(0.9rem + 2.5%);
+      font-weight: 500;
     }
 
     &:first-child {

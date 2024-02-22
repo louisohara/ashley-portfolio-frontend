@@ -15,15 +15,16 @@
     }
   }
   &__section > &__undercolour {
-    // @include tablet {
     position: fixed;
     z-index: -1;
     bottom: 0;
     left: 0;
     height: 50%;
     width: 100%;
-
-    @include dottedBackground;
+    // background-color: $bg-light;
+    @include tablet {
+      @include dottedBackground;
+    }
   }
 
   &__section {

@@ -8,9 +8,10 @@
   }
   &__wrapper {
     padding: 0rem 0.5rem;
-    @include mobile-and-tablet {
+    @include tablet {
       padding: 1rem;
     }
+    // @include tablet
     margin: 0.25rem 0;
 
     &--last {
@@ -67,36 +68,35 @@
     }
   }
   &__quote {
-    font-size: calc(0.9rem + 2.5%);
+    font-size: calc(0.9rem + 5%);
     padding: 0.25rem;
-    // color: $darkest-colour;
-    // @include mobile-and-tablet {
-    //   color: white;
-    // }
     text-align: center;
     color: $black;
-
+    margin: 0.5rem;
+    @include tablet-only {
+      font-size: calc(1rem + 5%);
+    }
+    @include desktop {
+      margin: 0.25rem 0;
+    }
     &--second {
       font-size: 0.9rem;
-      @include mobile-and-tablet {
-        font-size: calc(0.9rem + 5%);
-        margin-bottom: 0.5rem;
+
+      @include mobile-only {
+        font-size: calc(0.9rem + 2.5%);
+      }
+      @include tablet-only {
+        font-size: calc(1rem + 2.5%);
       }
     }
     &--last {
-      font-size: calc(0.9rem + 5%);
-      @include mobile-only {
-        font-weight: 500;
+      font-weight: 500;
+      @include tablet-only {
+        margin-bottom: 1.5rem;
       }
-      // @include tablet {
-      margin-bottom: 0.5rem;
-      // }
       // @include desktop {
       //   margin-bottom: 0.5rem;
       // }
-    }
-    @include mobile-only {
-      font-size: calc(0.7rem + 5%);
     }
   }
   &__image {
@@ -108,11 +108,14 @@
       max-height: 1.5rem;
       width: auto;
     }
-    &--TV {
-      filter: invert(1);
-    }
+    // &--TV {
+    //   filter: invert(1);
+    // }
     @include mobile-and-tablet {
       max-height: 1.25rem;
+    }
+    @include tablet {
+      max-height: 2rem;
     }
   }
 

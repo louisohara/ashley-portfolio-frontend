@@ -6,12 +6,13 @@
   width: 95%;
   height: 90%;
   margin: auto;
+  padding: 1.5rem 0;
 
   &__link {
     text-decoration: none; /* Remove underline from links */
-    width: calc(calc(100% - 3rem) / 3);
+    width: calc(calc(100% - 1.5rem) / 3);
 
-    height: 50%;
+    height: calc(50% - 0.5rem);
     position: relative;
   }
   &__image-container {

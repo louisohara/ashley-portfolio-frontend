@@ -4,10 +4,15 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-  background-color: $white;
+
+  // EDIT
+  // background-color: $white;
+
   @include mobile-and-tablet {
-    border: 5px solid $hover-colour;
-    background-color: $white;
+    // EDIT
+    // border: 1px solid $button-colour;
+    // END EDIT
+    // background-color: $bg-light;
   }
   &--user {
     position: relative;
@@ -20,19 +25,15 @@
     height: 100%;
   }
   &__content {
-    @include mobile-and-tablet {
-      color: $black !important;
-      font-weight: 500 !important;
-    }
     padding: 1rem;
     height: calc(100% - 4rem);
-  }
-  &__content--nomination,
-  &__content--insta {
-    padding: 2rem 1rem 0rem 1rem;
+    // EDIT
+    @include desktop {
+      background-color: $white;
+    }
   }
   &__content--nomination {
-    @include filterWhiteToColour;
+    padding: 2rem 1rem 0rem 1rem;
   }
   &__content--nomination,
   &__content--collaborators,
@@ -62,6 +63,11 @@
     height: calc(100% - 10px);
     width: 100%;
   }
+  &__content--nomination,
+  &__content--insta {
+    margin: 1rem;
+    // height: calc(100% - 4rem);
+  }
 
   &__content--review {
     display: flex;
@@ -75,25 +81,39 @@
 
 .slick {
   &-arrow,
-  &-dots {
+  &-dots button {
     @include filterWhiteToColour;
   }
   &-arrow {
     display: none !important;
   }
   &-slider {
-    height: 100%;
+    height: 97%;
     display: block !important;
   }
   //   controls placement of dots
   &-dots {
     bottom: 0.25rem;
+    @include desktop {
+      bottom: -0.7rem;
+    }
+    li {
+      background-color: $white;
+      border-radius: 50%;
+      padding: 0;
+      margin: 0;
+      height: fit-content;
+    }
   }
-  &-dots li,
-  &-dots button {
+  &-dots li {
     border: none !important;
     margin: 0 0.2rem;
   }
+  &-dots button {
+    width: 100%;
+    margin: auto;
+  }
+
   //   CONTROLS THE HEIGHT / (VIEW) OF THE CAROUSEL - RELATED TO THE PADDING OF CAROUSEL__CONTENT
   &-list,
   &-track,
@@ -129,29 +149,29 @@
   &::before {
     top: -2px;
     left: -2px;
-    border-top: 2px solid $hover-colour;
-    border-left: 2px solid $hover-colour;
+    border-top: 2px solid $button-colour;
+    border-left: 2px solid $button-colour;
   }
   &::after {
     top: -2px;
     right: -2px;
-    border-top: 2px solid $hover-colour;
-    border-right: 2px solid $hover-colour;
+    border-top: 2px solid $button-colour;
+    border-right: 2px solid $button-colour;
   }
 
   article::before,
   div::before {
     bottom: -2px;
     left: -2px;
-    border-bottom: 2px solid $hover-colour;
-    border-left: 2px solid $hover-colour;
+    border-bottom: 2px solid $button-colour;
+    border-left: 2px solid $button-colour;
   }
   article::after,
   div::after {
     bottom: -2px;
     right: -2px;
-    border-bottom: 2px solid $hover-colour;
-    border-right: 2px solid $hover-colour;
+    border-bottom: 2px solid $button-colour;
+    border-right: 2px solid $button-colour;
   }
 
   &:hover::before,
@@ -186,30 +206,30 @@
   }
 
   &::before {
-    top: 14px;
-    left: 15px;
-    border-top: 2px solid $hover-colour;
-    border-left: 2px solid $hover-colour;
+    top: -2px;
+    left: -2px;
+    border-top: 2px solid $button-colour;
+    border-left: 2px solid $button-colour;
   }
   &::after {
-    top: 14px;
-    right: 15px;
-    border-top: 2px solid $hover-colour;
-    border-right: 2px solid $hover-colour;
+    top: -2px;
+    right: -2px;
+    border-top: 2px solid $button-colour;
+    border-right: 2px solid $button-colour;
   }
 
   .carousel__nomination::before {
-    bottom: -18px;
-    left: 15px;
-    border-bottom: 2px solid $hover-colour;
-    border-left: 2px solid $hover-colour;
+    bottom: -2px;
+    left: -2px;
+    border-bottom: 2px solid $button-colour;
+    border-left: 2px solid $button-colour;
   }
 
   .carousel__nomination::after {
-    bottom: -18px;
-    right: 15px;
-    border-bottom: 2px solid $hover-colour;
-    border-right: 2px solid $hover-colour;
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 2px solid $button-colour;
+    border-right: 2px solid $button-colour;
   }
 
   &:hover::before,

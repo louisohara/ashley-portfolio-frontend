@@ -36,6 +36,7 @@
     max-width: calc(5rem + 5%);
     transition: transform 0.5s;
     display: block;
+    @include filterWhiteToColour;
     @include mobile-and-tablet {
       max-width: calc(6rem + 5%);
 
@@ -43,6 +44,7 @@
     }
     &:hover {
       transform: scale(1.1);
+      filter: none;
     }
   }
 
@@ -62,11 +64,13 @@
   }
   &__subtext {
     margin: 0.5rem 0;
+    color: $black;
   }
   &__category {
     font-size: 0.8rem;
     margin: 0;
     font-weight: 500;
+
     @include mobile-and-tablet {
       font-size: calc(0.9rem + 5%);
     }
@@ -78,6 +82,7 @@
   }
   &__text {
     justify-content: center;
+    color: $black;
     max-width: 95%;
     flex: 1;
     font-size: calc($size-text + 1%);

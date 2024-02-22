@@ -9,7 +9,7 @@ export default function FilmPage({ isLoggedIn }) {
   const [collaborators, setCollaborators] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [nominations, setNominations] = useState(null);
-
+  const [show, setShow] = useState(false);
   const { id } = useParams();
 
   const getFilmDetails = async () => {
@@ -43,10 +43,32 @@ export default function FilmPage({ isLoggedIn }) {
     }
   };
 
-  const renderFilm = () => {};
+  let count = 0;
+  const scrollDistance = window.innerHeight * 0.5;
+  const fadeInScroll = () => {
+    if (!show && count === 0) {
+      let element = document.querySelector(".grid__item--carousel");
+      if (element) {
+        element.classList.add("active");
+        setShow(true);
+        count++;
+
+        window.scrollBy({
+          top: scrollDistance,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     getFilmDetails();
+
+    window.addEventListener("scroll", fadeInScroll);
+
+    return () => {
+      window.removeEventListener("scroll", fadeInScroll);
+    };
   }, []);
   if (!film || !collaborators || !reviews || !nominations) {
     return <p className="loading">Loading...</p>;
@@ -66,6 +88,19 @@ export default function FilmPage({ isLoggedIn }) {
         reviews={reviews}
         alt4="details"
       />
+      {!show ? (
+        <div className="film__button">
+          <div className="film__arrow-container" onClick={fadeInScroll}>
+            {/* Read more */}
+
+            <div className="film__arrow"></div>
+            <div className="film__arrow"></div>
+            <div className="film__arrow"></div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       {/* <Carousel /> */}
     </section>
   );
