@@ -23,7 +23,7 @@
     height: 55%;
     width: 49.5%;
 
-    @include stripedBackground;
+    @include stripedBackground(-45deg);
     @include mobile-only {
       width: 100%;
       height: 15%;
@@ -31,6 +31,7 @@
       display: none;
     }
     &--user {
+      @include stripedBackground(45deg);
       bottom: 0;
       left: 0;
       @include fadeTop;
@@ -271,7 +272,7 @@
   &__list--about .grid__item:nth-child(2) {
     // z-index: 1;
     @include desktop {
-      border: 2px solid $button-colour;
+      // border: 2px solid $button-colour;
       background-color: $white;
       @include fadeBottom;
       animation-delay: 1s;

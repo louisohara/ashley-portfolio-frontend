@@ -9,17 +9,23 @@ export default function Description({
   alt,
 }) {
   const renderDescriptionSliced = (text) => {
-    return text.split("\n").map((paragraph, index) => (
-      <Fragment key={index}>
-        {paragraph}
-        {index < text.split("\n").length - 1 && (
-          <>
-            <br />
-            <br />
-          </>
-        )}
-      </Fragment>
-    ));
+    const firstNewLineIndex = text.indexOf("\n");
+
+    if (firstNewLineIndex === 0 || firstNewLineIndex === 1) {
+      return [<Fragment key={0}>{text}</Fragment>];
+    } else {
+      return text.split("\n").map((paragraph, index) => (
+        <Fragment key={index}>
+          {paragraph}
+          {index < text.split("\n").length - 1 && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
+        </Fragment>
+      ));
+    }
   };
 
   const renderDescription = () => {

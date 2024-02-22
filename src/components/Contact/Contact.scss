@@ -60,12 +60,12 @@
     }
   }
   &__subtitle {
-    border: 3px solid $hover-colour;
+    border: 2px solid $button-colour;
     background-color: $white;
     padding: 0.5rem;
     width: 70%;
     margin-left: auto;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: $black;
   }
   &__link {

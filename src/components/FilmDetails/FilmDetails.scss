@@ -34,19 +34,20 @@
     }
   }
   &--user {
+    padding: 0.5rem;
+    font-weight: 500;
     @include desktop {
-      font-weight: 500;
       justify-content: flex-start;
-      padding: 0;
-      background-color: $white;
-      color: $hover-colour;
+      // background-color: $white;
+      // color: $hover-colour
+      background-color: $hover-colour;
+      color: $white;
+      height: fit-content;
     }
 
     @include mobile-and-tablet {
-      padding: 0.5rem;
       background-color: $hover-colour;
       color: $white;
-      font-weight: 500;
     }
   }
 

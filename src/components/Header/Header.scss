@@ -134,6 +134,7 @@
       @include tablet {
         // margin: 1.5rem 2rem; THIS IS TO MINIMISE SIZE SO SCREEN SPACE IS ENLARGED
         margin: 1rem 2rem;
+        background-color: $white;
       }
       //   &:hover {
       //     // cursor: unset;
@@ -181,7 +182,7 @@
       position: absolute;
       height: fit-content;
       background: $white;
-      // border: 2px solid $darkest-colour;
+      border: 2px solid $darkest-colour;
       top: 0;
     }
   }

@@ -247,9 +247,9 @@
 }
 
 // COLOUR SPECIFIC
-@mixin stripedBackground {
+@mixin stripedBackground($deg) {
   background: repeating-linear-gradient(
-    -45deg,
+    $deg,
     $white,
     $white 30px,
     $transparent-colour-2 3px,
