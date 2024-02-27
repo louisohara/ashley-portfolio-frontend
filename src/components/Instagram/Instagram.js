@@ -1,37 +1,66 @@
 import "./Instagram.scss";
 
-export default function Instagram({ images }) {
+export default function Instagram({ images, alt }) {
   if (!images) {
     return <div>Loading...</div>;
   }
+
   return (
-    <div className="carousel__slide">
-      <article className="carousel__content carousel__content--insta">
-        <div className="carousel__nomination insta">
-          {images.map((image) => {
-            return (
-              <a
-                href={image.link}
-                id={image.id}
-                className="insta__link"
-                key={image.id}
-              >
-                <div className="insta__image-container">
-                  <img
-                    className="insta__image"
-                    src={image.image}
-                    alt={image.caption}
-                  />
-                </div>
-                <span className="insta__overlay">
-                  <p className="insta__title">@ashfranroy</p>
-                </span>
-              </a>
-            );
-          })}
+    <>
+      {images && Array.isArray(images) ? (
+        <div className="carousel__slide">
+          <article className="carousel__content carousel__content--insta">
+            <div className="carousel__nomination insta">
+              {images.map((image) => {
+                return (
+                  <a
+                    href={image.link}
+                    id={image.id}
+                    className="insta__link"
+                    key={image.id}
+                  >
+                    <div className="insta__image-container">
+                      <img
+                        className="insta__image"
+                        src={image.image}
+                        alt={image.caption}
+                      />
+                    </div>
+                    <span className="insta__overlay">
+                      <p className={`insta__title insta__title--${alt}`}>
+                        @ashfranroy
+                      </p>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+            <h3
+              className={`nomination__awards nomination__awards--user insta__header insta__header--${alt}`}
+            >
+              FEED
+            </h3>
+          </article>
         </div>
-        <h3 className="nomination__awards">INSTAGRAM</h3>
-      </article>
-    </div>
+      ) : (
+        <a
+          href={images.link}
+          id={images.id}
+          className={`insta__link insta__link--${alt}`}
+          key={images.id}
+        >
+          <div className="insta__image-container">
+            <img
+              className="insta__image"
+              src={images.image}
+              alt={images.caption}
+            />
+          </div>
+          <span className="insta__overlay">
+            <p className={`insta__title insta__title--${alt}`}>@ashfranroy</p>
+          </span>
+        </a>
+      )}
+    </>
   );
 }

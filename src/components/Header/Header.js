@@ -1,4 +1,3 @@
-import logo from "../../assets/icons/logo192.png";
 import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useEffect } from "react";
@@ -87,11 +86,7 @@ export default function Header({ closeMenu, menuClosed, films }) {
       <div className="header__container">
         <nav className="header__navbar">
           <a href="/" className="header__left">
-            <img
-              src={logo}
-              alt="Ashley Francis Roy logo"
-              className="header__logo"
-            />
+            <h1 className="header__logo">Ashley Francis-Roy</h1>
           </a>
           <ul className={menuClosed ? "header__menu " : "header__menu active"}>
             <li className="header__item">

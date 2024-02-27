@@ -19,7 +19,7 @@
     @include desktop {
       // EDIT
       background-color: $white;
-      border: 3px solid $button-colour;
+      border: 3px solid $hover-colour;
       // background-color: $white;
       color: $black;
 
@@ -38,17 +38,17 @@
     font-weight: 500;
     @include desktop {
       justify-content: flex-start;
-      // background-color: $white;
-      // color: $hover-colour
-      background-color: $hover-colour;
-      color: $white;
+      background-color: $white;
+      color: $black;
+      // background-color: $hover-colour;
+      // color: $white;
       height: fit-content;
     }
 
-    @include mobile-and-tablet {
-      background-color: $hover-colour;
-      color: $white;
-    }
+    // @include mobile-and-tablet {
+    //   background-color: $hover-colour;
+    //   color: $white;
+    // }
   }
 
   &__top {

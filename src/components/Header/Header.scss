@@ -2,17 +2,20 @@
 @use "../../styles/variables" as *;
 
 .header {
-  // background-color: $bg-light;
+  // background-color: $white;
   // border-bottom: 3px solid $transparent-colour;
   zoom: 0.9;
   z-index: 10;
+  position: relative;
   transition: all 0.5s ease-in-out;
+
   &.fixedToTop {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background-color: $white;
+    // border: 1px solid $hover-colour;
   }
   // fixed scroll animation end
   &__container {
@@ -134,7 +137,7 @@
       @include tablet {
         // margin: 1.5rem 2rem; THIS IS TO MINIMISE SIZE SO SCREEN SPACE IS ENLARGED
         margin: 1rem 2rem;
-        background-color: $white;
+        // background-color: $white;
       }
       //   &:hover {
       //     // cursor: unset;
@@ -142,12 +145,28 @@
       //   }
     }
   }
+  &__left {
+    text-decoration: none;
+  }
   &__logo {
-    height: 3rem;
+    font-size: 2.5rem;
+    @include tablet {
+      padding: 0.5rem 0 0 0;
+    }
+    @include mobile-and-tablet {
+      font-size: 8.5vw;
+    }
+    font-weight: 300;
+    letter-spacing: 1.75px;
+    margin: 0;
     width: auto;
     position: relative;
     z-index: 6;
     @include filterWhiteToColour;
+    &:hover {
+      filter: none;
+      color: $black;
+    }
   }
   &__p {
     margin: 0.5rem 0.5rem;
@@ -178,11 +197,15 @@
     }
   }
   &__inner {
+    @include mobile-only {
+      margin-top: 1rem;
+    }
     @include tablet {
       position: absolute;
       height: fit-content;
       background: $white;
-      border: 2px solid $darkest-colour;
+      // box-shadow: 0px 0px 10px 1px $hover-colour;
+      // border: 1cqi solid $hover-colour;
       top: 0;
     }
   }

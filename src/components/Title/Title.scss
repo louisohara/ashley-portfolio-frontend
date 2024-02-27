@@ -8,18 +8,19 @@
   width: 100%;
   padding: 0 0.5rem;
   height: 100%;
-  overflow: scroll;
+  // overflow: scroll;
+  overflow-wrap: break-word;
 
   &::-webkit-scrollbar {
     display: none;
   }
-  &--film {
-    @include mobile-and-tablet {
-      background-color: $hover-colour;
-      color: none;
-      // color: $black;
-    }
+  // &--film {
+  @include mobile-and-tablet {
+    background-color: $hover-colour;
+    color: $white;
+    // color: $black;
   }
+  // }
   @include desktop {
     color: $black;
   }
@@ -112,10 +113,13 @@
   &--user {
     @include mobile-only {
       align-items: center;
+      justify-content: flex-start;
     }
     @include mobile-and-tablet {
-      background-color: none;
-      color: $black;
+      // background-color: none;
+      // color: $black;
+      border: 3px solid $hover-colour;
+      padding: 0 0.25rem;
     }
     @include desktop {
       justify-content: flex-end;
@@ -123,7 +127,7 @@
   }
   &__title--user {
     @include mobile-only {
-      font-size: 11.5vw;
+      font-size: 10.5vw;
     }
     @include tablet-only {
       font-size: 10vw;

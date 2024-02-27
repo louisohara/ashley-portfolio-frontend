@@ -5,7 +5,7 @@
   // position: relative;
   z-index: 0;
   // background-color: $black;
-  color: white;
+  color: $white;
   position: absolute;
   // bottom: 0;
   width: 100%;
@@ -39,16 +39,16 @@
   &__icon {
     height: 1.5rem;
     width: auto;
-    transition: filter 0.15s ease;
+    // transition: filter 0.15s ease;
 
-    // filter: invert(1);
+    filter: invert(1);
     &:hover {
       @include filterWhiteToColour;
     }
   }
   &__branding {
     text-align: center;
-    padding: 0;
+    padding: 0 0.5rem;
     margin: auto;
     font-size: $size-text;
     width: fit-content;

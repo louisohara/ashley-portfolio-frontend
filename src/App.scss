@@ -5,6 +5,8 @@
   // background-color: $white;
   position: relative;
   height: 100vh;
+  width: 100%;
+  overflow-x: clip;
   &__main {
     @include screenWidth;
     &--flex {
@@ -23,22 +25,33 @@
     width: 100%;
     // background-color: $bg-light;
     @include tablet {
-      @include dottedBackground;
+      @include dottedBackground(2, 45);
     }
   }
 
   &__section {
     margin-top: 1rem;
   }
+
   &__section--about {
     @include desktop {
       margin-bottom: 1rem;
     }
   }
+  &__about {
+    @include desktop {
+      height: 100%;
+      &.active {
+        height: auto;
+        min-height: 100%;
+      }
+    }
+  }
 }
 
 // fixedscroll animation
-.header.fixedToTop + .app__main {
+.header.fixedToTop + .app__main,
+.header.fixedToTop + .app__about {
   @include mobile-only {
     margin-top: 5.2rem;
   }

@@ -176,17 +176,6 @@ function Contact() {
           )}
         </div>
       </div>
-
-      {/* {success && (
-        <div className="contact__text contact__text--success">
-          <h1 className="contact__title contact__title--success">
-            Thanks for being in touch!
-          </h1>
-          <p className="contact__subtitle contact__subtitle--success">
-            Your email was sent successfully
-          </p>
-        </div>
-      )} */}
     </div>
   );
 }

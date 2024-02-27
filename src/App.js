@@ -130,7 +130,7 @@ function App() {
             path="/about"
             element={
               <>
-                <main className="app__main app__main--flex">
+                <main className="app__main app--main--flex app__about">
                   <AboutPage isLoggedIn={isLoggedIn} />
                 </main>
               </>

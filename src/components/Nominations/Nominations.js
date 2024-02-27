@@ -55,9 +55,11 @@ export default function Nominations({ nominations, alt }) {
 
   return (
     <div className="carousel__slide">
-      <article className="carousel__content carousel__content--nomination">
+      <article
+        className={`carousel__content carousel__content--nomination carousel__content--nomination--${alt}`}
+      >
         <div className="carousel__nomination">{renderNominations()}</div>
-        <h3 className="nomination__awards">
+        <h3 className={`nomination__awards nomination__awards--${alt}`}>
           {nominations[0].result ? "AWARDS" : "CLIENTS"}
         </h3>
       </article>

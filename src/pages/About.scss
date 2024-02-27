@@ -1,0 +1,249 @@
+@use "../styles/mixins" as *;
+@use "../styles/variables" as *;
+
+.about {
+  @include desktop {
+    height: 90%;
+    display: flex;
+    justify-content: flex-start;
+    transition: all 0.5s;
+    // overflow: hidden;
+    &.active {
+      //   @include desktop {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      .about__top {
+        @include fadeBottom;
+      }
+      .about__below {
+        // display: block;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 2rem;
+        @include fadeTop;
+        position: relative;
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+        overflow: hidden;
+        // @include dottedBackground(3, 50);
+      }
+      .about__container {
+        width: 40%;
+        margin-top: 2rem;
+      }
+      .about__grid {
+        display: block;
+        // border: red 2px solid;
+      }
+    }
+
+    position: relative;
+    // }
+  }
+  &__top {
+    display: flex;
+    width: 100%;
+  }
+  &__below {
+    display: none;
+  }
+  &__grid {
+    display: none;
+    width: 40%;
+  }
+  &__container {
+    display: none;
+    @include desktop {
+      @include fadeLeft;
+      flex-direction: column;
+      display: flex;
+      width: 37.5%;
+      height: inherit;
+      justify-content: center;
+      //   margin: 0 5rem;
+      &.active {
+        width: 45%;
+      }
+    }
+  }
+  &__description {
+    // display: none;
+    // &.active {
+    visibility: hidden;
+    display: flex;
+    width: 60%;
+    &.inView {
+      visibility: visible;
+      @include fadeRight;
+    }
+    // }
+  }
+  &__buttons {
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  &__wrapper {
+    margin: 1rem 0;
+  }
+  &__bio {
+    font-weight: 500;
+    color: $black;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.5rem 0;
+    // background-color: $white;
+  }
+  &__carousel--outer {
+    // background-color: $white;
+    margin-top: 2rem;
+    overflow: hidden;
+    height: 80px;
+    width: 100%;
+  }
+  &__carousel {
+    -webkit-animation: scroll 12s ease-in-out infinite;
+    animation: scroll 12s ease-in-out infinite;
+  }
+
+  @keyframes scroll {
+    0%,
+    5% {
+      transform: translateY(80px);
+    }
+
+    5%,
+    30% {
+      transform: translateY(0);
+    }
+
+    35%,
+    62% {
+      transform: translateY(-80px);
+    }
+
+    66%,
+    95% {
+      transform: translateY(-160px);
+    }
+
+    100% {
+      transform: translateY(-240px);
+    }
+  }
+  &__inner {
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  &__button {
+    // background-color: $hover-colour;
+    font-weight: 500;
+    font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
+    color: $hover-colour;
+    background-color: $white;
+    transition: background-color 0.5s;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    // @include underline(-0.5rem);
+    transition: all 0.25s ease-in;
+    border: 2px solid $hover-colour;
+    &:hover {
+      background-color: $hover-colour;
+      color: $white;
+    }
+    &:active {
+      color: $darkest-colour;
+      border: $darkest-colour;
+      background-color: $white;
+    }
+    &--alt {
+      background-color: $hover-colour;
+      color: $white;
+    }
+  }
+  &__image-container {
+    display: block;
+    width: fit-content;
+    margin: 0.5rem 0;
+  }
+  &__image {
+    max-width: 6rem;
+    @include filterWhiteToColour;
+  }
+  &__representation {
+    font-weight: 400;
+    // letter-spacing: 1.25px;
+    margin: 0;
+    // background-color: $white;
+    // color: $hover-colour;
+  }
+  &__text {
+    margin: 0rem 0;
+  }
+  &__show {
+    width: 35rem;
+    height: 30rem;
+    margin: auto;
+    @include fadeRight;
+  }
+  &__hero {
+    @include mobile-and-tablet {
+      display: none;
+    }
+    position: absolute;
+    width: 70%;
+    height: 110%;
+    top: -10%;
+    right: -10%;
+    @include fadeRight;
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 80%,
+      transparent 100%
+    );
+    // transition: all 0.5s;
+    &.active {
+      top: -15%;
+      height: 130%;
+      //   height: 110%;
+      //   top: 0%;
+      //   right: 0;
+      width: 65%;
+    }
+    // overflow: hidden;
+  }
+  &__background-container {
+    position: relative;
+  }
+  &__background,
+  &__background-container {
+    width: 100%;
+    height: 100%;
+  }
+  &__background-container {
+    mask-image: linear-gradient(to left, rgb(0, 0, 0) 60%, transparent 100%);
+  }
+
+  &__background {
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    mask-image: linear-gradient(
+      to bottom left,
+      rgba(0, 0, 0, 1) 70%,
+      transparent 100%
+    );
+  }
+  //
+}

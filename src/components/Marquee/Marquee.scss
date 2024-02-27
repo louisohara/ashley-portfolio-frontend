@@ -1,0 +1,68 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.marquee {
+  //   @include dottedBackground(3, 50);
+  //   background-color: $white;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  margin: 1rem 0;
+  top: 0;
+  &--alt {
+    top: unset;
+    bottom: -100%;
+    margin: 4rem 0;
+  }
+  &__item-container {
+    float: left;
+    width: calc(100% / 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  &__item {
+    max-height: 2rem;
+    width: auto;
+    &.Broadcast.Awards {
+      filter: invert(1);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+  @keyframes marquee--alt {
+    0% {
+      right: 0%;
+    }
+    100% {
+      right: -100%;
+    }
+  }
+
+  &__inner {
+    height: 3rem;
+    overflow: hidden;
+
+    margin-top: 0.75rem;
+    display: block;
+    width: 200%;
+    position: absolute;
+    animation: marquee 30s linear infinite;
+    &--alt {
+      animation: marquee--alt 30s linear infinite;
+    }
+    animation-play-state: running;
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+}

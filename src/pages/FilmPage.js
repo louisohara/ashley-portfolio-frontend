@@ -75,10 +75,6 @@ export default function FilmPage({ isLoggedIn }) {
   }
   return (
     <section className="film">
-      {/* {film.title}
-      {collaborators[0].title}
-      {reviews.length > 0 ? reviews[0].author : ""}
-      {nominations.length > 0 ? nominations[0].result : ""} */}
       <Grid
         alt1="film"
         alt2="carousel"
@@ -101,7 +97,6 @@ export default function FilmPage({ isLoggedIn }) {
       ) : (
         ""
       )}
-      {/* <Carousel /> */}
     </section>
   );
 }

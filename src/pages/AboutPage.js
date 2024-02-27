@@ -1,11 +1,20 @@
 import Grid from "../components/Grid/Grid";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./About.scss";
+import Description from "../components/Description/Description";
+import Carousel from "../components/Carousel/Carousel";
+import background from "../assets/images/about.jpeg";
+import background2 from "../assets/images/about2.jpeg";
+import background3 from "../assets/images/about3.jpg";
+import Marquee from "../components/Marquee/Marquee";
 
 export default function AboutPage({ isLoggedIn }) {
   const [user, setUser] = useState(null);
   const [clients, setClients] = useState(null);
   const [images, setImages] = useState(null);
+  const [show, setShow] = useState(false);
+  const [nominations, setNominations] = useState(null);
 
   const getImages = async () => {
     try {
@@ -59,25 +68,221 @@ export default function AboutPage({ isLoggedIn }) {
       console.error(error);
     }
   };
+  const getNominations = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/api/nominations/unique"
+      );
+      if (response) {
+        setNominations(response.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // const scrollDistance = window.innerHeight * 1.5;
+
+  const fadeInScroll = () => {
+    if (!show) {
+      let element = document.querySelector(".about");
+      let appEl = document.querySelector(".app__about");
+      let heroEl = document.querySelector(".about__hero");
+      let gridEl = document.querySelector(".about__grid");
+      let descriptionEl = document.querySelector(".about__description");
+
+      if (gridEl) {
+        let distInView =
+          gridEl.getBoundingClientRect().top - window.innerHeight - 20;
+        if (distInView < 0) {
+          gridEl.classList.add("inView");
+          descriptionEl.classList.add("inView");
+        } else {
+          gridEl.classList.remove("inView");
+          descriptionEl.classList.remove("inView");
+        }
+      }
+
+      let carousel = document.querySelector(".grid__item--carousel");
+      if (element) {
+        element.classList.add("active");
+        // gridEl.classList.add("show");
+        appEl.classList.add("active");
+        heroEl.classList.add("active");
+        carousel.classList.add("active");
+
+        setShow(true);
+      }
+    }
+  };
+  const handleClose = () => {
+    setShow(false);
+    let element = document.querySelector(".about");
+    let appEl = document.querySelector(".app__about");
+    let heroEl = document.querySelector(".about__hero");
+    let carousel = document.querySelector(".grid__item");
+    let gridEl = document.querySelector(".about__grid");
+    let descriptionEl = document.querySelector(".about__description");
+
+    if (gridEl) {
+      gridEl.classList.remove("inView");
+    }
+    if (descriptionEl) {
+      descriptionEl.classList.remove("inView");
+    }
+    if (element) {
+      element.classList.remove("active");
+    }
+    if (appEl) {
+      appEl.classList.remove("active");
+    }
+    if (heroEl) {
+      heroEl.classList.remove("active");
+    }
+    if (carousel) {
+      carousel.classList.remove("active");
+    }
+  };
   useEffect(() => {
     getUser();
     getClients();
     getImages();
+    getNominations();
+    window.addEventListener("scroll", fadeInScroll);
+
+    return () => {
+      window.removeEventListener("scroll", fadeInScroll);
+    };
   }, []);
 
-  if (!user || !clients) {
+  let hero = [background, background2, background3];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNextSlide();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [currentImageIndex]);
+
+  const goToNextSlide = () => {
+    const newIndex = (currentImageIndex + 1) % hero.length;
+    setCurrentImageIndex(newIndex);
+  };
+
+  if (!user || !clients || !nominations) {
     return <div className="loading">loading..</div>;
   }
   return (
-    <section className="app__section--about">
+    <section className="app__section--about about">
+      {/* {!show && ( */}
+      <div className="about__top">
+        <div className="about__hero">
+          <div className="about__background-container">
+            <img
+              src={hero[currentImageIndex]}
+              alt={user.full_name}
+              className="about__background"
+            />
+          </div>
+        </div>
+        {/* )} */}
+        <div className="about__container">
+          <div className="about__left">
+            {/* {!show && ( */}
+            <>
+              <div className="about__carousel--outer">
+                <div className="about__carousel">
+                  <h1 className="about__inner">Director</h1>
+                  <h1 className="about__inner">Filmmaker</h1>
+                  <h1 className="about__inner">Creator</h1>
+                </div>
+              </div>
+
+              <div className="about__wrapper">
+                <p className="about__bio ">
+                  Documentary filmmaker Ashley Francis-Roy makes distinctive,
+                  warm and authentic films. His work is emotionally engaging,
+                  intimate, and full of joy and humanity.
+                </p>
+                <p className="about__representation">
+                  <span className="about__representation">
+                    Ashley is represented by{" "}
+                    <a
+                      href="https://www.missinglinkfilms.co.uk/"
+                      className="contact__link"
+                    >
+                      Missing Link Films
+                    </a>{" "}
+                    for commercials and branded content.
+                  </span>
+                </p>
+              </div>
+            </>
+          </div>
+
+          <div className="about__buttons">
+            <div className="about__button-container">
+              {!show ? (
+                <button className="about__button " onClick={fadeInScroll}>
+                  Read more
+                </button>
+              ) : (
+                <button
+                  className="about__button about__button--alt"
+                  onClick={handleClose}
+                >
+                  Return
+                </button>
+              )}
+            </div>
+
+            <div className="about__button-container">
+              <a href="/contact" className="about__button">
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+        {/* )} */}
+      </div>
+      {/* MOBILE VIEW */}
       <Grid
         alt1="about"
         alt2="carousel"
+        alt3="insta"
         user={user}
         clients={clients}
-        images={images}
+        // images={images}
       />
-      {/* <Instagram /> */}
+
+      <div className="about__below">
+        <Marquee array={clients} />
+        <Marquee array={nominations} alt="alt" />
+
+        {show && (
+          <div className="about__grid">
+            <Grid
+              alt1="about"
+              alt2="carousel"
+              alt3="insta"
+              user={user}
+              clients={clients}
+              images={images}
+            />
+          </div>
+        )}
+
+        <div className="about__description">
+          <Description
+            film={user}
+            part={user.description}
+            alt="about"
+            title="ABOUT"
+          />
+        </div>
+      </div>
     </section>
   );
 }

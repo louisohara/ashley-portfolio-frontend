@@ -3,13 +3,25 @@
 
 .description {
   color: $black;
-  // color: $button-colour;
-
   text-align: center;
   line-height: 1.5rem;
   // margin-top: 1rem;
   &__title {
     @include carouselTitle;
+    &--film {
+      @include desktop {
+        color: $white;
+        font-weight: 500;
+      }
+    }
+  }
+  &__content--about {
+    background-color: none;
+  }
+  &--film {
+    @include desktop {
+      color: $white;
+    }
   }
   &--long {
     margin-top: 1.5rem;
@@ -20,6 +32,7 @@
         line-height: calc(1.75vw + 1%);
       }
     }
+
     @include mobile-and-tablet {
       font-size: calc(0.9rem + 2.5%);
       font-weight: 500;
@@ -32,5 +45,16 @@
 
   @include tablet-only {
     font-size: calc(1rem + 5%);
+  }
+  &--about {
+    // color: $white;
+    font-size: 0.9rem;
+    // border: green 10px solid;
+    margin: 0;
+    padding-top: 1.5rem;
+  }
+  &__title--about {
+    width: calc(50% - 1rem);
+    top: -1.5rem;
   }
 }

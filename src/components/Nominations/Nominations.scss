@@ -9,21 +9,18 @@
   flex-wrap: wrap;
   &__awards {
     @include carouselTitle;
-    top: -1rem;
-    width: calc(100% - 2rem);
+    top: -2rem;
+    left: 0;
+    width: 100%;
     text-align: center;
+    &--user {
+      @include desktop {
+        font-size: 1rem;
+        top: -0.5rem;
+      }
+    }
   }
 
-  // &:hover {
-  //   // filter: none;
-  //   // background: linear-gradient(
-  //   //     217deg,
-  //   //     $button-colour,
-  //   //     rgba(255, 0, 0, 0) 70.71%
-  //   //   ),
-  //   //   linear-gradient(127deg, $bg-light, rgba(0, 255, 0, 0) 80%),
-  //   //   linear-gradient(336deg, $hover-colour, rgba(0, 0, 255, 0) 50%);
-  // }
   &__image-container,
   &__subtext {
     display: flex;
@@ -39,12 +36,15 @@
     @include filterWhiteToColour;
     @include mobile-and-tablet {
       max-width: calc(6rem + 5%);
-
       max-height: calc(4.5rem + 5%);
     }
     &:hover {
       transform: scale(1.1);
       filter: none;
+    }
+    &--user {
+      max-height: 4rem;
+      max-width: 4rem;
     }
   }
 

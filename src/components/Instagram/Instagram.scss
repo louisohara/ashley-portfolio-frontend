@@ -6,7 +6,7 @@
   width: 95%;
   height: 90%;
   margin: auto;
-  padding: 1.5rem 0;
+  // padding: 1.5rem 0;
 
   &__link {
     text-decoration: none; /* Remove underline from links */
@@ -14,6 +14,10 @@
 
     height: calc(50% - 0.5rem);
     position: relative;
+    &--user {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__image-container {
     overflow: hidden;
@@ -50,8 +54,27 @@
     }
   }
   &__title {
-    font-size: $size-sub;
+    font-size: 1.1rem;
+
     text-align: center;
     display: block;
+    &--alt {
+      font-size: 1.3rem;
+    }
+    &--user {
+      @include desktop {
+        font-size: 1.5vw;
+      }
+    }
+  }
+  &__header {
+    @include desktop {
+      display: none;
+    }
+    &--alt {
+      display: block;
+      font-size: 1.5em;
+      top: -1.75rem;
+    }
   }
 }

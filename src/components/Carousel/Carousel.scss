@@ -4,9 +4,16 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-
+  &--film {
+    @include desktop {
+      width: 60%;
+    }
+  }
+  &__slide {
+    width: 100%;
+  }
   // EDIT
-  background-color: $white;
+  // background-color: $white;
 
   @include mobile-and-tablet {
     // EDIT
@@ -29,12 +36,12 @@
     height: calc(100% - 4rem);
     // EDIT
     @include desktop {
-      background-color: $white;
+      // background-color: $white;
     }
   }
-  &__content--nomination {
-    padding: 2rem 1rem 0rem 1rem;
-  }
+  // &__content--nomination {
+  //   // padding: 2rem 1rem 0rem 1rem;
+  // }
   &__content--nomination,
   &__content--collaborators,
   &__content--description,
@@ -66,7 +73,16 @@
   &__content--nomination,
   &__content--insta {
     margin: 1rem;
-    // height: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+  }
+  &__content--nomination--user,
+  &__content--insta {
+    @include desktop {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      // border: 3px solid $hover-colour;
+    }
   }
 
   &__content--review {
@@ -88,17 +104,17 @@
     display: none !important;
   }
   &-slider {
-    height: 97%;
+    height: 100%;
     display: block !important;
   }
   //   controls placement of dots
   &-dots {
-    bottom: 0.25rem;
+    bottom: 0.5rem;
     @include desktop {
-      bottom: -0.7rem;
+      bottom: 0rem;
     }
     li {
-      background-color: $white;
+      // background-color: $white;
       border-radius: 50%;
       padding: 0;
       margin: 0;
@@ -149,29 +165,29 @@
   &::before {
     top: -2px;
     left: -2px;
-    border-top: 2px solid $button-colour;
-    border-left: 2px solid $button-colour;
+    border-top: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   &::after {
     top: -2px;
     right: -2px;
-    border-top: 2px solid $button-colour;
-    border-right: 2px solid $button-colour;
+    border-top: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   article::before,
   div::before {
     bottom: -2px;
     left: -2px;
-    border-bottom: 2px solid $button-colour;
-    border-left: 2px solid $button-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   article::after,
   div::after {
     bottom: -2px;
     right: -2px;
-    border-bottom: 2px solid $button-colour;
-    border-right: 2px solid $button-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   &:hover::before,
@@ -189,9 +205,6 @@
 .carousel__content--insta {
   position: relative;
 
-  &:hover {
-    filter: none;
-  }
   z-index: 0;
   &::before,
   &::after,
@@ -208,28 +221,28 @@
   &::before {
     top: -2px;
     left: -2px;
-    border-top: 2px solid $button-colour;
-    border-left: 2px solid $button-colour;
+    border-top: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
   &::after {
     top: -2px;
     right: -2px;
-    border-top: 2px solid $button-colour;
-    border-right: 2px solid $button-colour;
+    border-top: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   .carousel__nomination::before {
     bottom: -2px;
     left: -2px;
-    border-bottom: 2px solid $button-colour;
-    border-left: 2px solid $button-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-left: 2px solid $hover-colour;
   }
 
   .carousel__nomination::after {
     bottom: -2px;
     right: -2px;
-    border-bottom: 2px solid $button-colour;
-    border-right: 2px solid $button-colour;
+    border-bottom: 2px solid $hover-colour;
+    border-right: 2px solid $hover-colour;
   }
 
   &:hover::before,
@@ -239,4 +252,22 @@
     width: calc(50% / 2);
     height: calc(50% / 2);
   }
+}
+// .carousel__content--nomination,
+// .carousel__content--insta {
+//   @include desktop {
+//     border: 2px solid $hover-colour;
+//   }
+// }
+.grid--alt .carousel--alt .carousel__content {
+  border: none;
+  &--insta {
+    margin: 1rem;
+    height: calc(100% - 4rem);
+    padding: 1rem 0;
+  }
+}
+
+.carousel__content--about {
+  padding: 1rem;
 }

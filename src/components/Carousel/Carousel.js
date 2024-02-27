@@ -7,6 +7,7 @@ import Reviews from "../Reviews/Reviews";
 import Description from "../Description/Description";
 import Nominations from "../Nominations/Nominations";
 import Instagram from "../Instagram/Instagram";
+import Poster from "../Poster/Poster";
 
 export default function Carousel({
   nominations,
@@ -26,7 +27,7 @@ export default function Carousel({
     adaptiveHeight: true,
     // autoplay: true,
     // controls slide scroll duration
-    speed: 2000,
+    speed: 500,
     // controls slide stay duration
     autoplaySpeed: 5000,
     pauseOnHover: true,
@@ -37,7 +38,7 @@ export default function Carousel({
   // Split the description at the nearest paragraph break around the limit mark
   let firstPart = false;
   let secondPart = false;
-  if (film.description) {
+  if (film && film.description) {
     const splitIndex = film.description.lastIndexOf(".", limit);
     firstPart = film.description.substring(0, splitIndex + 1);
     secondPart = film.description.substring(splitIndex + 1);
@@ -53,33 +54,36 @@ export default function Carousel({
   }
   const moreThanOne = hasMultipleParams(
     nominations,
-    film.description,
+    film && film.description,
     collaborators,
-    reviews
+    reviews,
+    images
   );
 
   return (
     <div className={`carousel carousel--${alt}`}>
       {moreThanOne ? (
         <Slider {...settings}>
-          {film.description ? (
+          {film && film.description ? (
             <Description
               firstPart={firstPart}
               secondPart={secondPart}
               film={film}
               part={firstPart}
               alt={alt}
+              title="DESCRIPTION"
             />
           ) : (
             ""
           )}
-          {film.description && secondPart ? (
+          {film && film.description && secondPart ? (
             <Description
               firstPart={firstPart}
               secondPart={secondPart}
               film={film}
               part={secondPart}
               alt={alt}
+              title="DESCRIPTION"
             />
           ) : (
             ""
@@ -119,17 +123,18 @@ export default function Carousel({
           ) : (
             ""
           )}
-          {images ? <Instagram images={images} /> : ""}
+          {images ? <Instagram images={images} alt={alt} /> : ""}
         </Slider>
       ) : (
         <>
-          {film.description ? (
+          {film && film.description ? (
             <Description
               firstPart={firstPart}
               secondPart={secondPart}
               film={film}
               part={firstPart}
               alt={alt}
+              title="DESCRIPTION"
             />
           ) : (
             ""

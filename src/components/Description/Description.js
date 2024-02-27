@@ -7,6 +7,7 @@ export default function Description({
   firstPart,
   secondPart,
   alt,
+  title,
 }) {
   const renderDescriptionSliced = (text) => {
     const firstNewLineIndex = text.indexOf("\n");
@@ -31,9 +32,13 @@ export default function Description({
   const renderDescription = () => {
     if (film.description.length < 450) {
       return (
-        <div className="carousel__slide">
-          <div className="carousel__content carousel__content--description">
-            <h3 className="description__title">DESCRIPTION</h3>
+        <div className={"carousel__slide"}>
+          <div
+            className={`carousel__content carousel__content--description carousel__content--${alt}`}
+          >
+            <h3 className={`description__title description__title--${alt}`}>
+              {title}
+            </h3>
             <article className={`description description--${alt}`}>
               {renderDescriptionSliced(film.description)}
             </article>
@@ -42,9 +47,13 @@ export default function Description({
       );
     } else {
       return (
-        <div className="carousel__slide">
-          <div className="carousel__content carousel__content--description">
-            <h3 className="description__title">DESCRIPTION</h3>
+        <div className={"carousel__slide"}>
+          <div
+            className={`carousel__content carousel__content--description carousel__content--${alt}`}
+          >
+            <h3 className={`description__title description__title--${alt}`}>
+              {title}
+            </h3>
             <article
               className={
                 part === secondPart

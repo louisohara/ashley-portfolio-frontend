@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Poster.scss";
 import { PlayIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
-export default function Poster({ film }) {
+export default function Poster({ film, image }) {
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -15,7 +15,7 @@ export default function Poster({ film }) {
     <div className="poster">
       {!show ? (
         <div className="poster__wrapper">
-          <img src={film.image} alt={film.title} className="poster__image" />
+          <img src={image} alt={film.title} className="poster__image" />
           <div className="poster__overlay">
             {film.video ? (
               <div className="poster__button" onClick={handleShow}>
@@ -49,7 +49,7 @@ export default function Poster({ film }) {
         </div>
       ) : (
         <div className="poster__wrapper">
-          <img src={film.image} alt={film.title} className="poster__image" />
+          <img src={image} alt={film.title} className="poster__image" />
         </div>
       )}
     </div>

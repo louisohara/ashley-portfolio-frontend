@@ -4,6 +4,9 @@ import FilmDetails from "../FilmDetails/FilmDetails";
 import Poster from "../Poster/Poster";
 import Title from "../Title/Title";
 import "./Grid.scss";
+import Instagram from "../Instagram/Instagram";
+import Nominations from "../Nominations/Nominations";
+import Description from "../Description/Description";
 
 export default function Grid({
   alt1,
@@ -36,47 +39,99 @@ export default function Grid({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <div className={film ? "grid grid--film" : "grid grid--user"}>
       <ul className={`grid__list grid__list--${alt1}`}>
         <li className={`grid__item grid__item--${alt1}`}>
-          {film ? <Poster film={film} /> : ""}
-          {user ? <Poster film={user} /> : ""}
+          {film ? <Poster film={film} image={film.image} /> : ""}
+          {user ? (
+            dimensions.width > 1024 && images > 0 ? (
+              <Instagram alt="user" images={images[3]} />
+            ) : (
+              <Poster film={user} image={user.image2} />
+            )
+          ) : (
+            ""
+          )}
         </li>
         <li className={`grid__item grid__item--${alt2}`}>
           {film ? (
-            <Carousel
-              nominations={nominations}
-              film={film}
-              collaborators={collaborators}
-              reviews={reviews}
-              limit="450"
-              slides={dimensions.width <= 1024 ? "1" : "2"}
-              alt="film"
-            />
+            dimensions.width > 1024 ? (
+              <>
+                <div className="grid__description grid__description--alt">
+                  <Description
+                    film={film}
+                    part={film.description}
+                    alt="film"
+                    title="DESCRIPTION"
+                  />
+                </div>
+                <Carousel
+                  nominations={nominations}
+                  collaborators={collaborators}
+                  reviews={reviews}
+                  limit="450"
+                  slides={dimensions.width <= 1024 ? "1" : "1"}
+                  alt="film"
+                />
+              </>
+            ) : (
+              <Carousel
+                nominations={nominations}
+                film={film}
+                collaborators={collaborators}
+                reviews={reviews}
+                limit="450"
+                slides={dimensions.width <= 1024 ? "1" : "1"}
+                alt="film"
+              />
+            )
           ) : (
             ""
           )}
           {user ? (
-            <Carousel
-              film={user}
-              alt="user"
-              nominations={clients}
-              limit="600"
-              images={images}
-              slides="1"
-            />
+            dimensions.width > 1024 && images > 0 ? (
+              <Instagram alt="user" images={images[2]} />
+            ) : (
+              <Carousel
+                film={user}
+                alt="user"
+                nominations={clients}
+                limit="600"
+                images={images}
+                slides="1"
+              />
+            )
           ) : (
             ""
           )}
         </li>
         <li className={`grid__item grid__item--${alt3}`}>
           {film ? <Title text={film.title} alt="film" /> : ""}
-          {user ? <Title text="Ashley Francis-Roy" alt="user" /> : ""}
+          {user ? (
+            dimensions.width > 1024 && images > 0 ? (
+              // <Instagram images={images} alt="user" />
+              <Instagram alt="user" images={images[0]} />
+            ) : (
+              <Title text="Director" alt="user" />
+            )
+          ) : (
+            ""
+          )}
         </li>
         <li className={`grid__item grid__item--${alt4}`}>
           {film ? <FilmDetails film={film} alt="film" /> : ""}
-          {user ? <FilmDetails film={user} alt="user" /> : ""}
+          {user ? (
+            dimensions.width > 1024 && images > 0 ? (
+              // <Nominations nominations={clients} alt="user" />
+              <Instagram alt="user" images={images[1]} />
+            ) : (
+              <FilmDetails film={user} alt="user" />
+            )
+          ) : (
+            ""
+          )}
         </li>
       </ul>
       {film ? (
