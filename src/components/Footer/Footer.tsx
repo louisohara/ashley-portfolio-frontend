@@ -5,36 +5,8 @@ import linkedin from "../../assets/icons/linkedin.svg";
 import vimeo from "../../assets/icons/vimeo.svg";
 import resume from "../../assets/icons/resume.svg";
 import CV from "../../assets/files/resume.pdf";
-import { useState, useEffect } from "react";
-import axios from "axios";
-
-// import logo from "../../assets/logo192.png";
 
 export default function Footer() {
-  // const [file, setFile] = useState(null);
-
-  // const getResume = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "http://localhost:8080/files/resume.pdf"
-  //       // {
-  //       //   responseType: "blob",
-  //       // }
-  //     );
-  //     if (response) {
-  //       // const file = new Blob([response.data], { type: "application/pdf" });
-
-  //       setFile(response.data.blob());
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getResume();
-  // }, []);
-
   return (
     <footer className="footer">
       <div className="footer__container">

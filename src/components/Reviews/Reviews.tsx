@@ -1,10 +1,18 @@
+import { ReviewObject } from "../../types/interfaces/interfaces";
 import "./Reviews.scss";
 
-export default function Reviews({ reviews, x, y, alt }) {
+interface ReviewsProps {
+  reviews: Array<ReviewObject>;
+  x: number;
+  y: number;
+  alt?: string;
+}
+
+export default function Reviews({ reviews, x, y, alt }: ReviewsProps) {
   const reviewsSorted = reviews.sort((a, b) => {
     return a.quote.length - b.quote.length;
   });
-  const reviewsRating = (rating) => {
+  const reviewsRating = (rating: number) => {
     let string = "";
     for (let i = 0; i < rating; i++) {
       string += `\u2B51 `;
@@ -12,7 +20,7 @@ export default function Reviews({ reviews, x, y, alt }) {
     return string;
   };
 
-  const renderReviewsSliced = (x, y, alt) => {
+  const renderReviewsSliced = (x: number, y: number, alt?: string) => {
     if (reviews.length > 0) {
       return reviewsSorted.slice(x, y).map((review) => {
         return (

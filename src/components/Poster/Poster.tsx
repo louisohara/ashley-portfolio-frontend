@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./Poster.scss";
 import { PlayIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { PropsObject } from "../../types/interfaces/interfaces";
 
-export default function Poster({ film, image }) {
+interface PosterProps {
+  film: PropsObject;
+  image: string;
+}
+
+export default function Poster({ film, image }: PosterProps) {
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -15,22 +21,26 @@ export default function Poster({ film, image }) {
     <div className="poster">
       {!show ? (
         <div className="poster__wrapper">
-          <img src={image} alt={film.title} className="poster__image" />
+          <img
+            src={image}
+            alt={
+              "title" in film && film.title
+                ? film.title
+                : "Ashley Francis-Roy Profile"
+            }
+            className="poster__image"
+          />
           <div className="poster__overlay">
-            {film.video ? (
+            {"video" in film && film.video ? (
               <div className="poster__button" onClick={handleShow}>
-                <PlayIcon
-                  className="poster__icon"
-                  alt="Play video icon"
-                  title="Play video"
-                />
+                <PlayIcon className="poster__icon" title="Play video" />
               </div>
             ) : (
               ""
             )}
           </div>
         </div>
-      ) : film.video ? (
+      ) : "video" in film && film.video ? (
         <div className="poster__wrapper">
           <div
             className="poster__button poster__button--alt"
@@ -42,14 +52,22 @@ export default function Poster({ film, image }) {
             src={film.video}
             width="100%"
             height="100%"
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       ) : (
         <div className="poster__wrapper">
-          <img src={image} alt={film.title} className="poster__image" />
+          <img
+            src={image}
+            alt={
+              "title" in film && film.title
+                ? film.title
+                : "Ashley Francis-Roy Profile"
+            }
+            className="poster__image"
+          />
         </div>
       )}
     </div>

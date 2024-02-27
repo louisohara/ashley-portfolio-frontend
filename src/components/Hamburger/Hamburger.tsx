@@ -1,12 +1,16 @@
 import "./Hamburger.scss";
 
-export default function Hamburger({ menuClosed }) {
+interface HamburgerProps {
+  menuClosed: boolean;
+}
+export default function Hamburger({ menuClosed }: HamburgerProps) {
   const mobileMenu = () => {
     const hamburger = document.querySelector(".hamburger");
     const headerMenu = document.querySelector(".header__menu");
-
-    hamburger.classList.toggle("active");
-    headerMenu.classList.toggle("active");
+    if (hamburger && headerMenu) {
+      hamburger.classList.toggle("active");
+      headerMenu.classList.toggle("active");
+    }
   };
   return (
     <div

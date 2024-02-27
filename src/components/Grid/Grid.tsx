@@ -7,6 +7,29 @@ import "./Grid.scss";
 import Instagram from "../Instagram/Instagram";
 import Nominations from "../Nominations/Nominations";
 import Description from "../Description/Description";
+import {
+  ClientObject,
+  CollaboratorsObject,
+  ImageObject,
+  NominationsObject,
+  ReviewObject,
+  filmObject,
+  userObject,
+} from "../../types/interfaces/interfaces";
+
+interface GridProps {
+  alt1?: string;
+  alt2?: string;
+  alt3?: string;
+  alt4?: string;
+  nominations?: NominationsObject[];
+  film?: filmObject;
+  reviews?: ReviewObject[];
+  collaborators?: CollaboratorsObject[];
+  user?: userObject;
+  clients?: ClientObject[];
+  images?: ImageObject[];
+}
 
 export default function Grid({
   alt1,
@@ -20,7 +43,7 @@ export default function Grid({
   user,
   clients,
   images,
-}) {
+}: GridProps) {
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -46,7 +69,7 @@ export default function Grid({
         <li className={`grid__item grid__item--${alt1}`}>
           {film ? <Poster film={film} image={film.image} /> : ""}
           {user ? (
-            dimensions.width > 1024 && images > 0 ? (
+            dimensions.width > 1024 && images ? (
               <Instagram alt="user" images={images[3]} />
             ) : (
               <Poster film={user} image={user.image2} />
@@ -91,7 +114,7 @@ export default function Grid({
             ""
           )}
           {user ? (
-            dimensions.width > 1024 && images > 0 ? (
+            dimensions.width > 1024 && images ? (
               <Instagram alt="user" images={images[2]} />
             ) : (
               <Carousel
@@ -110,7 +133,7 @@ export default function Grid({
         <li className={`grid__item grid__item--${alt3}`}>
           {film ? <Title text={film.title} alt="film" /> : ""}
           {user ? (
-            dimensions.width > 1024 && images > 0 ? (
+            dimensions.width > 1024 && images ? (
               // <Instagram images={images} alt="user" />
               <Instagram alt="user" images={images[0]} />
             ) : (
@@ -123,7 +146,7 @@ export default function Grid({
         <li className={`grid__item grid__item--${alt4}`}>
           {film ? <FilmDetails film={film} alt="film" /> : ""}
           {user ? (
-            dimensions.width > 1024 && images > 0 ? (
+            dimensions.width > 1024 && images ? (
               // <Nominations nominations={clients} alt="user" />
               <Instagram alt="user" images={images[1]} />
             ) : (

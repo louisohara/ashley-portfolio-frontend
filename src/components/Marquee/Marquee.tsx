@@ -1,12 +1,21 @@
+import {
+  NominationsObject,
+  ClientObject,
+} from "../../types/interfaces/interfaces";
 import "./Marquee.scss";
 
-export default function Marquee({ array, alt }) {
+interface MarqueeProps {
+  array: Array<NominationsObject> | Array<ClientObject>;
+  alt?: string;
+}
+
+export default function Marquee({ array, alt }: MarqueeProps) {
   const renderArray = () => {
     return (
       <>
         {array.map((item, index) => (
           <div key={index} className="marquee__item-container ">
-            {item.link ? (
+            {"link" in item && item.link ? (
               <a href={item.link}>
                 <img
                   src={item.logo}
@@ -22,10 +31,16 @@ export default function Marquee({ array, alt }) {
             ) : (
               <img
                 src={item.logo}
-                alt={item.category ? item.category : "Client"}
-                title={`${item.awardshow} - ${item.category} - ${item.result}`}
+                alt={
+                  "category" in item && item.category ? item.category : "Client"
+                }
+                title={
+                  "awardshow" in item && item.awardshow
+                    ? `${item.awardshow} - ${item.category} - ${item.result}`
+                    : ""
+                }
                 className={
-                  item.awardshow
+                  "awardshow" in item && item.awardshow
                     ? `marquee__item ${item.awardshow}`
                     : "marquee__item "
                 }

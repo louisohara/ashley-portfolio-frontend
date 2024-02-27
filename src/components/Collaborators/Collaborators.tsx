@@ -1,6 +1,11 @@
+import { CollaboratorsObject } from "../../types/interfaces/interfaces";
 import "./Collaborators.scss";
 
-export default function Collaborators({ collaborators }) {
+interface CollaboratorsProps {
+  collaborators: Array<CollaboratorsObject>;
+}
+
+export default function Collaborators({ collaborators }: CollaboratorsProps) {
   const renderCollaborators = () => {
     if (collaborators.length > 0) {
       return collaborators.map((collaborator) => {

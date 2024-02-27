@@ -1,6 +1,11 @@
 import "./Title.scss";
 
-export default function Title({ text, alt }) {
+interface TitleProps {
+  text: string;
+  alt?: string;
+}
+
+export default function Title({ text, alt }: TitleProps) {
   let titleClass = `title__title title__title--${alt}`;
   if (text.length < 10) {
     titleClass = `title__title title__title--short title__title--${alt}`;

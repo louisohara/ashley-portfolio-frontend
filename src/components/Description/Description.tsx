@@ -1,5 +1,15 @@
 import { Fragment } from "react";
 import "./Description.scss";
+import { PropsObject } from "../../types/interfaces/interfaces";
+
+interface DescriptionProps {
+  film: PropsObject;
+  part: string;
+  firstPart?: string;
+  secondPart?: string;
+  alt?: string;
+  title?: string;
+}
 
 export default function Description({
   film,
@@ -8,8 +18,8 @@ export default function Description({
   secondPart,
   alt,
   title,
-}) {
-  const renderDescriptionSliced = (text) => {
+}: DescriptionProps) {
+  const renderDescriptionSliced = (text: string) => {
     const firstNewLineIndex = text.indexOf("\n");
 
     if (firstNewLineIndex === 0 || firstNewLineIndex === 1) {

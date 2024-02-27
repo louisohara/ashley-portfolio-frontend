@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import "./Films.scss";
+import { filmObject } from "../../types/interfaces/interfaces";
 
-export default function Films({ children }) {
+interface FilmsProps {
+  films: filmObject[];
+}
+
+export default function Films({ films }: FilmsProps) {
   const fadeInScroll = () => {
     let elements = document.querySelectorAll(".films__item");
     elements.forEach((element, i) => {
@@ -16,7 +21,7 @@ export default function Films({ children }) {
       }
     });
   };
-  const handleMouseEnter = (child) => {
+  const handleMouseEnter = (child: filmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
 
     if (image) {
@@ -24,7 +29,7 @@ export default function Films({ children }) {
     }
   };
 
-  const handleMouseLeave = (child) => {
+  const handleMouseLeave = (child: filmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
 
     if (image) {
@@ -40,8 +45,8 @@ export default function Films({ children }) {
     };
   }, []);
   const renderFilms = () => {
-    if (children) {
-      return children.slice(0, 12).map((child, i) => {
+    if (films) {
+      return films.slice(0, 12).map((child, i) => {
         return (
           <li
             className={i <= 5 ? "films__item films__item--alt" : "films__item"}

@@ -1,6 +1,12 @@
+import { ImageObject } from "../../types/interfaces/interfaces";
 import "./Instagram.scss";
 
-export default function Instagram({ images, alt }) {
+interface InstagramProps {
+  images: Array<ImageObject> | ImageObject;
+  alt?: string;
+}
+
+export default function Instagram({ images, alt }: InstagramProps) {
   if (!images) {
     return <div>Loading...</div>;
   }

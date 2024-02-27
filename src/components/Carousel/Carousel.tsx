@@ -8,6 +8,25 @@ import Description from "../Description/Description";
 import Nominations from "../Nominations/Nominations";
 import Instagram from "../Instagram/Instagram";
 import Poster from "../Poster/Poster";
+import {
+  ClientObject,
+  CollaboratorsObject,
+  ImageObject,
+  NominationsObject,
+  PropsObject,
+  ReviewObject,
+} from "../../types/interfaces/interfaces";
+
+interface CarouselProps {
+  nominations?: Array<NominationsObject> | Array<ClientObject>;
+  film?: PropsObject;
+  collaborators?: Array<CollaboratorsObject>;
+  reviews?: Array<ReviewObject>;
+  alt?: string;
+  limit: string;
+  images?: Array<ImageObject>;
+  slides: string;
+}
 
 export default function Carousel({
   nominations,
@@ -18,7 +37,7 @@ export default function Carousel({
   limit,
   images,
   slides,
-}) {
+}: CarouselProps) {
   const settings = {
     dots: true,
     infinite: true,
@@ -36,14 +55,17 @@ export default function Carousel({
   };
 
   // Split the description at the nearest paragraph break around the limit mark
-  let firstPart = false;
-  let secondPart = false;
+  let firstPart: string = "";
+  let secondPart: string = "";
   if (film && film.description) {
-    const splitIndex = film.description.lastIndexOf(".", limit);
+    const splitIndex: number = film.description.lastIndexOf(
+      ".",
+      parseInt(limit)
+    );
     firstPart = film.description.substring(0, splitIndex + 1);
     secondPart = film.description.substring(splitIndex + 1);
   }
-  function hasMultipleParams(...params) {
+  function hasMultipleParams(...params: any[]) {
     let count = 0;
     params.forEach((param) => {
       if (param && param.length > 0) {

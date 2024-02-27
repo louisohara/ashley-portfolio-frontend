@@ -1,6 +1,14 @@
+import {
+  ClientObject,
+  NominationsObject,
+} from "../../types/interfaces/interfaces";
 import "./Nominations.scss";
 
-export default function Nominations({ nominations, alt }) {
+interface NominationsProps {
+  nominations: Array<NominationsObject> | Array<ClientObject>;
+  alt?: string;
+}
+export default function Nominations({ nominations, alt }: NominationsProps) {
   const renderNominations = () => {
     if (nominations.length > 0) {
       const n = Math.floor(nominations.length / 2);
@@ -30,18 +38,31 @@ export default function Nominations({ nominations, alt }) {
               >
                 <img
                   src={nomination.logo}
-                  alt={nomination.awardshow ? nomination.awardshow : "client"}
+                  alt={
+                    "awardshow" in nomination && nomination.awardshow
+                      ? `${nomination.awardshow}`
+                      : "client"
+                  }
                   className={`nomination__image nomination__image--${alt}`}
                 />
               </div>
-              {nomination.result ? (
+              {"result" in nomination &&
+              "category" in nomination &&
+              nomination.result &&
+              nomination.category ? (
                 <div className="nomination__text">
                   <div className="nomination__subtext">
                     <h3 className="nomination__category">
-                      {nomination.category}
+                      {"category" in nomination && nomination.category
+                        ? `${nomination.category}`
+                        : ""}
                     </h3>
                   </div>
-                  <h2 className="nomination__result">{nomination.result}</h2>
+                  <h2 className="nomination__result">
+                    {"result" in nomination && nomination.result
+                      ? `${nomination.result}`
+                      : ""}
+                  </h2>
                 </div>
               ) : (
                 ""
@@ -60,7 +81,9 @@ export default function Nominations({ nominations, alt }) {
       >
         <div className="carousel__nomination">{renderNominations()}</div>
         <h3 className={`nomination__awards nomination__awards--${alt}`}>
-          {nominations[0].result ? "AWARDS" : "CLIENTS"}
+          {"result" in nominations[0] && nominations[0].result
+            ? "AWARDS"
+            : "CLIENTS"}
         </h3>
       </article>
     </div>

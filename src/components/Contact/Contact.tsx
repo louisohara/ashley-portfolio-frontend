@@ -1,5 +1,5 @@
 import "./Contact.scss";
-import { useState } from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 
@@ -8,14 +8,18 @@ import Input from "../../components/Input/Input";
 function Contact() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  const form = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [fields, setFields] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const handleChange = (event) => {
+  const handleChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
   const isFormValid = () => {
@@ -38,7 +42,7 @@ function Contact() {
     return true;
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!isFormValid()) {
@@ -47,19 +51,27 @@ function Contact() {
     } else {
       setError(false);
       try {
-        const response = await emailjs.sendForm(
-          process.env.REACT_APP_SERVICE_ID,
-          process.env.REACT_APP_TEMPLATE_ID,
-          form.current,
+        if (
+          process.env.REACT_APP_SERVICE_ID &&
+          process.env.REACT_APP_TEMPLATE_ID &&
+          formRef.current &&
           process.env.REACT_APP_PUBLIC_KEY
-        );
-        if (response.status === 200) {
-          setSuccess(true);
-          setFields();
+        ) {
+          const response = await emailjs.sendForm(
+            process.env.REACT_APP_SERVICE_ID,
+            process.env.REACT_APP_TEMPLATE_ID,
+            formRef.current,
+            process.env.REACT_APP_PUBLIC_KEY
+          );
+
+          if (response.status === 200) {
+            setSuccess(true);
+            // setFields();
+          }
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error(error);
-        setError(error.response.data);
+        setError(true);
       }
     }
   };
@@ -96,7 +108,11 @@ function Contact() {
         </div>
         <div className="contact__form-wrapper">
           {!success && (
-            <form className="contact__form" ref={form} onSubmit={handleSubmit}>
+            <form
+              className="contact__form"
+              ref={formRef}
+              onSubmit={handleSubmit}
+            >
               <div className="contact__flex">
                 <Input
                   type="text"
@@ -146,7 +162,7 @@ function Contact() {
                   className={`contact__textarea field__input field__input--textarea ${
                     error && !fields.message ? "field__input--error" : ""
                   }`}
-                  type="textarea"
+                  // type="textarea"
                   name="message"
                   id="message"
                   onChange={handleChange}

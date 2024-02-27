@@ -1,8 +1,15 @@
 import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useEffect } from "react";
+import { filmObject } from "../../types/interfaces/interfaces";
 
-export default function Header({ closeMenu, menuClosed, films }) {
+interface HeaderProps {
+  closeMenu: () => {};
+  menuClosed: boolean;
+  films: Array<filmObject>;
+}
+
+export default function Header({ closeMenu, menuClosed, films }: HeaderProps) {
   const handleMouseEnter = () => {
     const arrow = document.querySelector(".header__arrow");
     const secondaryMenu = document.querySelector(".header__secondary-menu");
@@ -73,9 +80,14 @@ export default function Header({ closeMenu, menuClosed, films }) {
   }, [films]);
 
   useEffect(() => {
-    const menuLinks = document.getElementsByClassName("header__link");
+    const menuLinks: Array<HTMLAnchorElement> = Array.from(
+      document.getElementsByClassName("header__link")
+    ) as HTMLAnchorElement[];
     for (let i = 0; i < menuLinks.length; i++) {
-      if (menuLinks[i].href === window.location.href) {
+      if (
+        "href" in menuLinks[i] &&
+        menuLinks[i].href === window.location.href
+      ) {
         menuLinks[i].className += " active";
       }
     }

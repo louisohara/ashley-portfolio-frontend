@@ -1,5 +1,15 @@
 import "./Input.scss";
 
+interface InputProps {
+  label: string;
+  name?: string;
+  type?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  accept?: string;
+  alt?: string;
+  placeholder?: string;
+}
 function Input({
   label,
   name,
@@ -9,7 +19,7 @@ function Input({
   accept,
   alt,
   placeholder,
-}) {
+}: InputProps) {
   return (
     <div className={`field field--${alt}`}>
       <label htmlFor={name} className={`field__label field__label--${alt}`}>
