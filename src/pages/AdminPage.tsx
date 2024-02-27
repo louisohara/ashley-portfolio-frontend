@@ -4,7 +4,16 @@ import { useEffect } from "react";
 
 // ADD FIREBASE FOR CV AND IMAGES STORAGE AND CONNECT WITH EDIT FUNCTIONS
 
-export default function AdminPage({ isLoggedIn, setLoginTrue, setLoginFalse }) {
+interface AdminPageProps {
+  isLoggedIn: boolean;
+  setLoginTrue: () => void;
+  setLoginFalse: () => void;
+}
+export default function AdminPage({
+  isLoggedIn,
+  setLoginTrue,
+  setLoginFalse,
+}: AdminPageProps) {
   const nav = useNavigate();
 
   const handleClick = () => {

@@ -11,6 +11,9 @@
     width: 95%;
     height: 100%;
     margin: auto;
+    &--film {
+      height: unset;
+    }
     &--user {
       // visibility: hidden;
       // width: 0;

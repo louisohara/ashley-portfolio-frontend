@@ -38,15 +38,6 @@
       margin-bottom: 1rem;
     }
   }
-  &__about {
-    @include desktop {
-      height: 100%;
-      &.active {
-        height: auto;
-        min-height: 100%;
-      }
-    }
-  }
 }
 
 // fixedscroll animation

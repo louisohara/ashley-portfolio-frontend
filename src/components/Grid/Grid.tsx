@@ -28,7 +28,7 @@ interface GridProps {
   collaborators?: CollaboratorsObject[];
   user?: userObject;
   clients?: ClientObject[];
-  images?: ImageObject[];
+  images?: ImageObject[] | null;
 }
 
 export default function Grid({

@@ -3,6 +3,10 @@
 
 .contact {
   zoom: 0.8;
+  min-height: calc(100vh - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @include mobile-only {
     &__wrapper {
       position: absolute;

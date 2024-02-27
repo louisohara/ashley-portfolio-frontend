@@ -4,7 +4,11 @@ import { useParams } from "react-router-dom";
 import Grid from "../components/Grid/Grid";
 import "./Film.scss";
 
-export default function FilmPage({ isLoggedIn }) {
+interface FilmPageProps {
+  isLoggedIn: boolean;
+}
+
+export default function FilmPage({ isLoggedIn }: FilmPageProps) {
   const [film, setFilm] = useState(null);
   const [collaborators, setCollaborators] = useState(null);
   const [reviews, setReviews] = useState(null);

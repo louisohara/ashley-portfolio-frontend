@@ -14,7 +14,7 @@ export interface filmObject {
 }
 export interface userObject {
   id: number;
-  full_name?: string;
+  full_name: string;
   bio: string;
   image: string;
   image2: string;

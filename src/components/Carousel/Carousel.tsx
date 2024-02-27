@@ -24,7 +24,7 @@ interface CarouselProps {
   reviews?: Array<ReviewObject>;
   alt?: string;
   limit: string;
-  images?: Array<ImageObject>;
+  images?: Array<ImageObject> | null;
   slides: string;
 }
 

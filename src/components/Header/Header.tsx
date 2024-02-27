@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { filmObject } from "../../types/interfaces/interfaces";
 
 interface HeaderProps {
-  closeMenu: () => {};
+  closeMenu: () => void;
   menuClosed: boolean;
   films: Array<filmObject>;
 }

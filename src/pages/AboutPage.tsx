@@ -8,14 +8,31 @@ import background from "../assets/images/about.jpeg";
 import background2 from "../assets/images/about2.jpeg";
 import background3 from "../assets/images/about3.jpg";
 import Marquee from "../components/Marquee/Marquee";
+import {
+  ClientObject,
+  ImageObject,
+  NominationsObject,
+  userObject,
+} from "../types/interfaces/interfaces";
 
-export default function AboutPage({ isLoggedIn }) {
-  const [user, setUser] = useState(null);
-  const [clients, setClients] = useState(null);
-  const [images, setImages] = useState(null);
+interface AboutPageProps {
+  isLoggedIn: boolean;
+}
+interface Image {
+  id: string;
+  thumbnailUrl?: string;
+  mediaUrl: string;
+  caption: string;
+  permalink: string;
+}
+export default function AboutPage({ isLoggedIn }: AboutPageProps) {
+  const [user, setUser] = useState<userObject | null>(null);
+  const [clients, setClients] = useState<ClientObject[] | null>(null);
+  const [images, setImages] = useState<ImageObject[] | null>(null);
+  const [nominations, setNominations] = useState<NominationsObject[] | null>(
+    null
+  );
   const [show, setShow] = useState(false);
-  const [nominations, setNominations] = useState(null);
-
   const getImages = async () => {
     try {
       const response = await axios.get(
@@ -29,9 +46,10 @@ export default function AboutPage({ isLoggedIn }) {
       console.error(error);
     }
   };
-  const filteredImage = (array) => {
-    return array.map((image) => {
-      if (image.thumbnailUrl) {
+
+  const filteredImage = (array: Image[]): ImageObject[] => {
+    return array.map((image: Image): ImageObject => {
+      if ("thumbnailUrl" in image && image.thumbnailUrl) {
         return {
           id: image.id,
           image: image.thumbnailUrl,
@@ -81,17 +99,25 @@ export default function AboutPage({ isLoggedIn }) {
     }
   };
 
-  // const scrollDistance = window.innerHeight * 1.5;
-
   const fadeInScroll = () => {
     if (!show) {
       let element = document.querySelector(".about");
-      let appEl = document.querySelector(".app__about");
       let heroEl = document.querySelector(".about__hero");
       let gridEl = document.querySelector(".about__grid");
       let descriptionEl = document.querySelector(".about__description");
+      let carouselEl = document.querySelector(".grid__item--carousel");
 
-      if (gridEl) {
+      if (element) {
+        element.classList.add("active");
+        setShow(true);
+      }
+      if (heroEl) {
+        heroEl.classList.add("active");
+      }
+      if (carouselEl) {
+        carouselEl.classList.add("active");
+      }
+      if (gridEl && descriptionEl) {
         let distInView =
           gridEl.getBoundingClientRect().top - window.innerHeight - 20;
         if (distInView < 0) {
@@ -102,25 +128,14 @@ export default function AboutPage({ isLoggedIn }) {
           descriptionEl.classList.remove("inView");
         }
       }
-
-      let carousel = document.querySelector(".grid__item--carousel");
-      if (element) {
-        element.classList.add("active");
-        // gridEl.classList.add("show");
-        appEl.classList.add("active");
-        heroEl.classList.add("active");
-        carousel.classList.add("active");
-
-        setShow(true);
-      }
     }
   };
+
   const handleClose = () => {
     setShow(false);
     let element = document.querySelector(".about");
-    let appEl = document.querySelector(".app__about");
     let heroEl = document.querySelector(".about__hero");
-    let carousel = document.querySelector(".grid__item");
+    let carousel = document.querySelector(".grid__item--carousel");
     let gridEl = document.querySelector(".about__grid");
     let descriptionEl = document.querySelector(".about__description");
 
@@ -132,9 +147,6 @@ export default function AboutPage({ isLoggedIn }) {
     }
     if (element) {
       element.classList.remove("active");
-    }
-    if (appEl) {
-      appEl.classList.remove("active");
     }
     if (heroEl) {
       heroEl.classList.remove("active");

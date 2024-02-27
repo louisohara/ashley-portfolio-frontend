@@ -3,16 +3,19 @@
 
 .about {
   @include desktop {
-    height: 90%;
+    height: 90vh;
+
     display: flex;
     justify-content: flex-start;
-    transition: all 0.5s;
+    transition: all 0.5s both;
     // overflow: hidden;
     &.active {
       //   @include desktop {
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 2rem;
+      min-height: 100vh;
+      height: 100%;
       .about__top {
         @include fadeBottom;
       }
@@ -64,9 +67,6 @@
       height: inherit;
       justify-content: center;
       //   margin: 0 5rem;
-      &.active {
-        width: 45%;
-      }
     }
   }
   &__description {

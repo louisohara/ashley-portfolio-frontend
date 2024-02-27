@@ -1,6 +1,17 @@
 import Films from "../components/Films/Films";
+import { filmObject } from "../types/interfaces/interfaces";
 
-export default function HomePage({ isLoggedIn, setLoginFalse, films }) {
+interface HomePageProps {
+  isLoggedIn: boolean;
+  setLoginFalse: () => void;
+  films: filmObject[];
+}
+
+export default function HomePage({
+  isLoggedIn,
+  setLoginFalse,
+  films,
+}: HomePageProps) {
   // const handleClick = () => {
   //   setLoginFalse();
   // };

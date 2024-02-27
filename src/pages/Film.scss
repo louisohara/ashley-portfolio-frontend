@@ -2,17 +2,21 @@
 @use "../styles/variables" as *;
 
 .film {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh);
   &__button {
     display: none;
     @include desktop {
       position: relative;
       @include fadeBottom;
       animation-delay: 2s;
-      // background-color: $black;
-      // cursor: pointer;
-      height: 0rem;
+      margin-top: 2rem;
+      height: 5rem;
       width: 100%;
-      margin-top: 5rem;
+      bottom: 5rem;
       display: flex;
       align-items: center;
       justify-content: center;
