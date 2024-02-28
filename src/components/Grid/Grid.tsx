@@ -82,14 +82,16 @@ export default function Grid({
           {film ? (
             dimensions.width > 1024 ? (
               <>
-                <div className="grid__description grid__description--alt">
-                  <Description
-                    film={film}
-                    part={film.description}
-                    alt="film"
-                    title="DESCRIPTION"
-                  />
-                </div>
+                {film.description && (
+                  <div className="grid__description grid__description--alt">
+                    <Description
+                      film={film}
+                      part={film.description}
+                      alt="film"
+                      title="DESCRIPTION"
+                    />
+                  </div>
+                )}
                 <Carousel
                   nominations={nominations}
                   collaborators={collaborators}

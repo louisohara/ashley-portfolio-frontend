@@ -3,7 +3,7 @@ export interface filmObject {
   title: string;
   bio: string;
   image: string;
-  description: string;
+  description?: string;
   category?: string;
   role?: string;
   length?: string;

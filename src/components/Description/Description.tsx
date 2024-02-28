@@ -3,7 +3,7 @@ import "./Description.scss";
 import { PropsObject } from "../../types/interfaces/interfaces";
 
 interface DescriptionProps {
-  film: PropsObject;
+  film: PropsObject | null;
   part: string;
   firstPart?: string;
   secondPart?: string;
@@ -20,7 +20,7 @@ export default function Description({
   title,
 }: DescriptionProps) {
   const renderDescriptionSliced = (text: string) => {
-    const firstNewLineIndex = text.indexOf("\n");
+    const firstNewLineIndex: number = text.indexOf("\n");
 
     if (firstNewLineIndex === 0 || firstNewLineIndex === 1) {
       return [<Fragment key={0}>{text}</Fragment>];
@@ -40,7 +40,7 @@ export default function Description({
   };
 
   const renderDescription = () => {
-    if (film.description.length < 450) {
+    if (film && film.description && film.description.length < 450) {
       return (
         <div className={"carousel__slide"}>
           <div

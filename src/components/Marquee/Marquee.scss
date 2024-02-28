@@ -27,7 +27,10 @@
   &__item {
     max-height: 2rem;
     width: auto;
-    &.Broadcast.Awards {
+    // &.Broadcast.Awards {
+    //   filter: invert(1);
+    // }
+    &.TV {
       filter: invert(1);
     }
   }

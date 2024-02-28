@@ -5,8 +5,8 @@
   // margin-top: 4.5rem;
   background-color: $white;
   @include desktop {
-    width: 90%;
-    margin: auto;
+    width: 110%;
+    margin-left: -5%;
   }
   &__grid {
     padding-left: 0;
@@ -71,31 +71,37 @@
   }
 
   // fade in delay start
-  &__grid li:nth-child(n).films__item--alt .films__image-container {
+  &__grid li:nth-child(n).films__item--alt .films__image-container,
+  &__grid li:nth-child(n).films__item--alt .films__overlay {
     @include tablet {
-      @include fade(0.25s);
+      @include fade(0.5s);
     }
   }
-  &__grid li:nth-child(1).films__item--alt .films__image-container {
+  &__grid li:nth-child(1).films__item--alt .films__image-container,
+  &__grid li:nth-child(1).films__item--alt .films__overlay {
     @include desktop {
       @include fadeLeft;
     }
   }
 
-  &__grid li:nth-child(2).films__item--alt .films__image-container {
+  &__grid li:nth-child(2).films__item--alt .films__image-container,
+  &__grid li:nth-child(2).films__item--alt .films__overlay {
     animation-delay: 0.5s;
   }
-  &__grid li:nth-child(3).films__item--alt .films__image-container {
+  &__grid li:nth-child(3).films__item--alt .films__image-container,
+  &__grid li:nth-child(3).films__item--alt .films__overlay {
     @include tablet {
       animation-delay: 0.75s;
     }
   }
-  &__grid li:nth-child(4).films__item--alt .films__image-container {
+  &__grid li:nth-child(4).films__item--alt .films__image-container,
+  &__grid li:nth-child(4).films__item--alt .films__overlay {
     @include tablet {
       animation-delay: 1s;
     }
   }
-  &__grid li:nth-child(5).films__item--alt .films__image-container {
+  &__grid li:nth-child(5).films__item--alt .films__image-container,
+  &__grid li:nth-child(5).films__item--alt .films__overlay {
     @include tablet {
       animation-delay: 1.5s;
     }
@@ -103,7 +109,8 @@
       @include fadeRight;
     }
   }
-  &__grid li:nth-child(6).films__item--alt .films__image-container {
+  &__grid li:nth-child(6).films__item--alt .films__image-container,
+  &__grid li:nth-child(6).films__item--alt .films__overlay {
     @include tablet {
       animation-delay: 1.25s;
     }
@@ -113,26 +120,31 @@
   }
   // fade in delay end
 
-  &__grid li:nth-child(n).inView .films__image-container {
-    @include fade(0.25s);
+  &__grid li:nth-child(n).inView .films__image-container,
+  &__grid li:nth-child(n).inView .films__overlay {
+    @include fade(0.5s);
     animation-delay: 0.25s;
     @include mobile-only {
       @include fadeBottom;
     }
   }
+
   // fadein on scroll from left animation
-  &__grid li:nth-child(6n + 1).inView .films__image-container {
+  &__grid li:nth-child(6n + 1).inView .films__image-container,
+  &__grid li:nth-child(6n + 1).inView .films__overlay {
     @include desktop {
       @include fadeLeft;
     }
   }
   // fadein on scroll from right animation
-  &__grid li:nth-child(6n + 5).inView .films__image-container {
+  &__grid li:nth-child(6n + 5).inView .films__image-container,
+  &__grid li:nth-child(6n + 5).inView .films__overlay {
     @include desktop {
       @include fadeRight;
     }
   }
-  &__grid li:nth-child(5).films__item--alt .films__image-container {
+  &__grid li:nth-child(5).films__item--alt .films__image-container,
+  &__grid li:nth-child(5).films__item--alt .films__overlay {
     @include tablet {
       animation-delay: 1s;
     }
@@ -159,6 +171,7 @@
       transform: scale(1.1);
     }
   }
+
   &__overlay {
     position: absolute;
     top: 0;
@@ -169,15 +182,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     color: transparent;
+
     &:hover {
       z-index: 2;
-      background-color: $transparent-colour-2;
+      // background-color: $transparent-colour-2;
+      // color: $white;
+      background-color: $transparent-colour;
+
+      backdrop-filter: blur(3px);
       color: $white;
     }
     @include mobile-only {
-      color: $white;
       align-items: flex-end;
       justify-content: flex-start;
 
@@ -202,8 +219,13 @@
     }
   }
   &__title {
+    padding: 0.5rem;
     font-size: $size-sub;
     text-align: center;
+    // text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -1.5px;
+
     @include mobile-only {
       font-size: $size-header;
       position: relative;
@@ -211,6 +233,15 @@
       z-index: 4;
       padding: 0rem 1rem;
       text-align: left;
+      -webkit-text-stroke-width: 2px;
+      color: transparent;
+      text-transform: uppercase;
+      -webkit-text-stroke-color: $hover-colour;
+      -webkit-text-stroke-width: 1px;
+      color: $white;
+      -webkit-text-stroke-color: $hover-colour;
+      text-shadow: 5px 2px 0 $hover-colour, -5px 2px 0 $hover-colour,
+        -5px -2px 0 $hover-colour, 5px -2px 0 $hover-colour;
     }
   }
 }

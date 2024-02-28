@@ -4,11 +4,11 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-  &--film {
-    @include desktop {
-      width: 60%;
-    }
-  }
+  // &--film {
+  //   @include desktop {
+  //     width: 100%;
+  //   }
+  // }
   &__slide {
     width: 100%;
   }
@@ -109,7 +109,7 @@
   }
   //   controls placement of dots
   &-dots {
-    bottom: 0.5rem;
+    bottom: -0.5rem;
     @include desktop {
       bottom: 0rem;
     }

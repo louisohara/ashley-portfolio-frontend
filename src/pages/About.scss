@@ -140,6 +140,7 @@
     line-height: 80px;
     font-weight: 800;
     margin: 0;
+    color: $black;
   }
 
   &__button {
@@ -185,7 +186,13 @@
     // letter-spacing: 1.25px;
     margin: 0;
     // background-color: $white;
-    // color: $hover-colour;
+    color: $black;
+  }
+  &__link {
+    color: $hover-colour;
+    text-decoration: none;
+    @include underline(-0.1rem);
+    font-weight: 500;
   }
   &__text {
     margin: 0rem 0;
@@ -202,8 +209,8 @@
     }
     position: absolute;
     width: 70%;
-    height: 110%;
-    top: -10%;
+    height: 111.5%;
+    top: -11.5%;
     right: -10%;
     @include fadeRight;
     mask-image: linear-gradient(

@@ -4,9 +4,9 @@ import axios from "axios";
 import "./About.scss";
 import Description from "../components/Description/Description";
 import Carousel from "../components/Carousel/Carousel";
-import background from "../assets/images/about.jpeg";
-import background2 from "../assets/images/about2.jpeg";
-import background3 from "../assets/images/about3.jpg";
+import background from "../assets/images/about.jpg";
+import background2 from "../assets/images/about2.jpg";
+import background3 from "../assets/images/about3.jpeg";
 import Marquee from "../components/Marquee/Marquee";
 import {
   ClientObject,
@@ -223,7 +223,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
                     Ashley is represented by{" "}
                     <a
                       href="https://www.missinglinkfilms.co.uk/"
-                      className="contact__link"
+                      className="about__link"
                     >
                       Missing Link Films
                     </a>{" "}

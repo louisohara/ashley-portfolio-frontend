@@ -2,20 +2,24 @@
 @use "../../styles/variables" as *;
 
 .header {
-  // background-color: $white;
   // border-bottom: 3px solid $transparent-colour;
   zoom: 0.9;
   z-index: 10;
   position: relative;
-  transition: all 0.5s ease-in-out;
+  // transition: position 0.5s ease-in-out, background-color 0.5s ease-in-out;
 
   &.fixedToTop {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: $white;
-    // border: 1px solid $hover-colour;
+    background-color: $transparent-colour-2;
+    @include tablet {
+      backdrop-filter: blur(8px);
+    }
+  }
+  &.active {
+    backdrop-filter: none;
   }
   // fixed scroll animation end
   &__container {
@@ -69,7 +73,8 @@
       position: fixed;
       top: -150%;
       left: 0;
-      background-color: $bg-light;
+      background-color: $transparent-colour-2;
+      backdrop-filter: blur(16px);
       width: 100%;
       transition: all 0.25s ease-in-out;
       box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
@@ -83,6 +88,7 @@
           @include fadeRight;
           // TARGETS THE LIST
         }
+        transition: background-color 0.5s;
       }
     }
   }
@@ -95,6 +101,7 @@
         margin: 0.5rem 2.5rem;
       }
     }
+
     &--alt {
       position: relative;
     }
@@ -107,9 +114,13 @@
     padding: 0;
     font-weight: 400;
     color: $black;
-    transition: color 0.5s;
-    cursor: pointer;
 
+    transition: color 0.15s;
+    cursor: pointer;
+    @include mobile-only {
+      color: $black;
+      font-weight: 500;
+    }
     &--contact,
     &--about {
       @include underline(-0.5rem);
@@ -117,6 +128,9 @@
     &:hover,
     &.active {
       color: $hover-colour;
+      @include mobile-only {
+        color: $hover-colour;
+      }
     }
     &--alt.active,
     &--contact.active,
@@ -149,23 +163,33 @@
     text-decoration: none;
   }
   &__logo {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    -webkit-text-stroke-width: 1px;
+    color: $white;
+    -webkit-text-stroke-color: $hover-colour;
+    text-shadow: 5px 2px 0 $hover-colour, -5px 2px 0 $hover-colour,
+      -5px -2px 0 $hover-colour, 5px -2px 0 $hover-colour;
     @include tablet {
       padding: 0.5rem 0 0 0;
     }
-    @include mobile-and-tablet {
+    @include mobile-only {
       font-size: 8.5vw;
     }
-    font-weight: 300;
+    @include tablet-only {
+      font-size: 5vw;
+    }
+    font-weight: 400;
     letter-spacing: 1.75px;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     width: auto;
     position: relative;
     z-index: 6;
-    @include filterWhiteToColour;
+    // @include filterWhiteToColour;
+    // color: $hover-colour;
     &:hover {
-      filter: none;
-      color: $black;
+      text-shadow: none;
+      text-decoration: dashed;
+      color: $hover-colour;
     }
   }
   &__p {
@@ -203,9 +227,8 @@
     @include tablet {
       position: absolute;
       height: fit-content;
-      background: $white;
-      // box-shadow: 0px 0px 10px 1px $hover-colour;
-      // border: 1cqi solid $hover-colour;
+      background: $transparent-colour-2;
+
       top: 0;
     }
   }

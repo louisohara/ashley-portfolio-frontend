@@ -22,7 +22,7 @@
     background-color: $white;
     color: $black;
     border: none;
-    border-bottom: 2px solid $transparent-colour-2;
+    border-bottom: 2px solid $transparent-colour;
     padding: 0.5rem 0;
     font-size: 1.5rem;
     position: relative;
@@ -30,7 +30,7 @@
 
     &::placeholder {
       font-size: 1.5rem;
-      color: $darkest-colour;
+      color: $bg-light;
     }
     &:active,
     &:focus {
