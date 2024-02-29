@@ -93,7 +93,7 @@ export default function Carousel({
               film={film}
               part={firstPart}
               alt={alt}
-              title="DESCRIPTION"
+              title={"full_name" in film ? "ABOUT" : "DESCRIPTION"}
             />
           ) : (
             ""
@@ -105,7 +105,7 @@ export default function Carousel({
               film={film}
               part={secondPart}
               alt={alt}
-              title="DESCRIPTION"
+              title={"full_name" in film ? "ABOUT" : "DESCRIPTION"}
             />
           ) : (
             ""
@@ -156,7 +156,7 @@ export default function Carousel({
               film={film}
               part={firstPart}
               alt={alt}
-              title="DESCRIPTION"
+              title={"full_name" in film ? "ABOUT" : "DESCRIPTION"}
             />
           ) : (
             ""

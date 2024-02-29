@@ -3,14 +3,19 @@
 
 .films {
   // margin-top: 4.5rem;
-  background-color: $white;
+  // background-color: $transparent-colour-2;
   @include desktop {
     width: 110%;
     margin-left: -5%;
+    backdrop-filter: blur(1px);
   }
   &__grid {
-    padding-left: 0;
-
+    // @include desktop {
+    //   padding: 1rem;
+    //   padding-left: 5%;
+    //   width: 90%;
+    // }
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
@@ -45,6 +50,12 @@
 
       grid-column: span 3;
       grid-row: span 3;
+    }
+  }
+  &__grid .films__item--hidden {
+    visibility: hidden;
+    &.inView {
+      visibility: visible;
     }
   }
   &__grid li:nth-child(4n + 1) {
@@ -161,7 +172,7 @@
     display: block;
     // filter: grayscale(1);
 
-    transition: transform 0.25s;
+    transition: transform 0.1s;
     @include tablet {
       position: absolute;
       top: 0;
@@ -182,7 +193,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.1s ease, color 0.1s ease;
     color: transparent;
 
     &:hover {

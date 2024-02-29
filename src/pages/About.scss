@@ -77,6 +77,8 @@
     width: 60%;
     &.inView {
       visibility: visible;
+      background-color: $transparent-colour-2;
+      backdrop-filter: blur(1px);
       @include fadeRight;
     }
     // }
@@ -210,7 +212,7 @@
     position: absolute;
     width: 70%;
     height: 111.5%;
-    top: -11.5%;
+    top: -12%;
     right: -10%;
     @include fadeRight;
     mask-image: linear-gradient(
@@ -218,9 +220,13 @@
       rgba(0, 0, 0, 1) 80%,
       transparent 100%
     );
+    @include desktopLarge {
+      right: -20%;
+      width: 80%;
+    }
     // transition: all 0.5s;
     &.active {
-      top: -15%;
+      top: -17.5%;
       height: 130%;
       //   height: 110%;
       //   top: 0%;

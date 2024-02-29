@@ -45,10 +45,12 @@
       height: fit-content;
     }
 
-    // @include mobile-and-tablet {
-    //   background-color: $hover-colour;
-    //   color: $white;
-    // }
+    @include mobile-and-tablet {
+      font-weight: 400;
+      // background-color: $hover-colour;
+      // color: $white;
+      // color: $hover-colour;
+    }
   }
 
   &__top {

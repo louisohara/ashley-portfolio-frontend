@@ -168,7 +168,7 @@
   }
 }
 @mixin fadeRight {
-  animation: fromRight 0.5s ease-in both;
+  animation: fromRight 0.25s ease-in both;
   animation-delay: 0.25s;
 }
 
@@ -203,7 +203,7 @@
   }
 }
 @mixin fadeLeft {
-  animation: fromLeft 0.5s ease-in both;
+  animation: fromLeft 0.25s ease-in both;
   animation-delay: 0.25s;
 }
 @mixin fadeBottom {
@@ -380,4 +380,11 @@
       )
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+}
+
+@mixin logoBackground {
+  background-image: url("../../assets/images/background.png");
+  background-size: 50%;
+  // z-index: -10;
+  filter: brightness(0.5);
 }

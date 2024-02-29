@@ -83,6 +83,7 @@ function App() {
 
   return (
     <div className="app">
+      <div className="app__background-text"></div>
       <BrowserRouter>
         <Header closeMenu={closeMenu} menuClosed={true} films={films} />
         <main className="app__main">

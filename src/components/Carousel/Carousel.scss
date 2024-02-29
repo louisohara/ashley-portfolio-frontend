@@ -13,7 +13,8 @@
     width: 100%;
   }
   // EDIT
-  // background-color: $white;
+  backdrop-filter: blur(16px);
+  background-color: $transparent-colour-2;
 
   @include mobile-and-tablet {
     // EDIT

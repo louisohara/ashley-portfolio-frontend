@@ -21,6 +21,7 @@
   &--film {
     @include desktop {
       color: $white;
+      font-weight: 500;
     }
   }
   &--long {
@@ -36,10 +37,6 @@
     @include mobile-and-tablet {
       font-size: calc(0.9rem + 2.5%);
       font-weight: 500;
-    }
-
-    &:first-child {
-      color: $darkest-colour;
     }
   }
 

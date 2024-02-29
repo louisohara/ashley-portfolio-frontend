@@ -49,7 +49,11 @@ export default function Films({ films }: FilmsProps) {
       return films.slice(0, 12).map((child, i) => {
         return (
           <li
-            className={i <= 5 ? "films__item films__item--alt" : "films__item"}
+            className={
+              i <= 5
+                ? "films__item films__item--alt"
+                : "films__item films__item--hidden"
+            }
             key={child.id}
           >
             <a href={`/films/${child.id}`} className="films__link">

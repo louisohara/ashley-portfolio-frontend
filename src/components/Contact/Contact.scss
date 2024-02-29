@@ -13,14 +13,17 @@
       width: 100%;
       top: -1rem;
       left: 0;
-      @include dottedBackground(3, 50);
+      // @include dottedBackground(3, 50);
+      @include logoBackground;
+      filter: brightness(1);
     }
   }
   &__undercolour {
     @include tablet {
       position: fixed;
       z-index: -1;
-      @include dottedBackground(3, 50);
+      // @include dottedBackground(3, 50);
+      @include logoBackground;
       bottom: 0;
       left: 0;
       height: 100%;
@@ -65,7 +68,7 @@
   }
   &__subtitle {
     border: 2px solid $hover-colour;
-    background-color: $hover-colour;
+    background-color: $white;
     padding: 0.5rem;
     width: 70%;
     margin-left: auto;
@@ -74,7 +77,7 @@
   }
   &__link {
     text-decoration: none;
-    color: $white;
+    color: $hover-colour;
     @include underline(-0.2rem);
   }
   &__form-wrapper {
@@ -90,17 +93,17 @@
   &__representation,
   &__email {
     font-weight: 500;
-    color: $bg-light;
+    color: $black;
   }
   &__button {
     font-size: $size-sub;
 
     font-weight: 500;
-    color: $white;
-    background-color: $white;
+
+    background-color: $hover-colour;
     transition: color 0.5s;
     cursor: pointer;
-    color: $hover-colour;
+    color: $white;
     border: 3px solid $hover-colour;
     padding: 0.25rem 1rem;
     font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
@@ -108,8 +111,8 @@
     font-size: 1.5rem;
     transition: all 0.5s;
     &:hover {
-      color: $white;
-      background-color: $hover-colour;
+      color: $hover-colour;
+      background-color: $white;
     }
   }
   &__error-container {

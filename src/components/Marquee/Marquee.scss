@@ -30,7 +30,9 @@
     // &.Broadcast.Awards {
     //   filter: invert(1);
     // }
-    &.TV {
+    &.TV,
+    &.marquee__item--1,
+    &.Grierson.Documentary.Awards {
       filter: invert(1);
     }
   }

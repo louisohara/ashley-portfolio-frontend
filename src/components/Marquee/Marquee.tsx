@@ -42,7 +42,7 @@ export default function Marquee({ array, alt }: MarqueeProps) {
                 className={
                   "awardshow" in item && item.awardshow
                     ? `marquee__item ${item.awardshow}`
-                    : "marquee__item "
+                    : `marquee__item marquee__item--${item.id}`
                 }
               />
             )}

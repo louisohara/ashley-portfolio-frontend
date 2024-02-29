@@ -4,7 +4,8 @@
 .footer {
   // position: relative;
   z-index: 0;
-  // background-color: $black;
+  // background-color: $transparent-colour-2;
+  // @include logoBackground;
   color: $white;
   position: absolute;
   // bottom: 0;
@@ -19,7 +20,7 @@
   }
 
   &__list {
-    background-color: $white;
+    // background-color: $transparent-colour-2;
 
     display: flex;
     gap: 1rem;

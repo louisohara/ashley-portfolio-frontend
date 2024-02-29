@@ -139,7 +139,7 @@ export default function Grid({
               // <Instagram images={images} alt="user" />
               <Instagram alt="user" images={images[0]} />
             ) : (
-              <Title text="Director" alt="user" />
+              <Title text="Director Creator Maker" alt="user" />
             )
           ) : (
             ""
