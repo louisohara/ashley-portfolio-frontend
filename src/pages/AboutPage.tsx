@@ -14,6 +14,7 @@ import {
   NominationsObject,
   userObject,
 } from "../types/interfaces/interfaces";
+import Scroll from "../components/Scroll/Scroll";
 
 interface AboutPageProps {
   isLoggedIn: boolean;
@@ -36,10 +37,11 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   const getImages = async () => {
     try {
       const response = await axios.get(
-        "https://feeds.behold.so/yJrGA0gr3aRuzBX8v8Qp"
+        "https://feeds.behold.so/yYXOpO4nOkfo6LH0vl7d"
       );
       if (response) {
-        const filtered = filteredImage(response.data);
+        const filtered = filteredImage(response.data.posts);
+
         setImages(filtered);
       }
     } catch (error) {
@@ -184,7 +186,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   };
 
   if (!user || !clients || !nominations) {
-    return <div className="loading">loading..</div>;
+    return <div className="loading"></div>;
   }
   return (
     <section className="app__section--about about">
@@ -235,8 +237,8 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
           </div>
 
           <div className="about__buttons">
-            <div className="about__button-container">
-              {!show ? (
+            {/* <div className="about__button-container"> */}
+            {/* {!show ? (
                 <button className="about__button " onClick={fadeInScroll}>
                   Read more
                 </button>
@@ -247,8 +249,9 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
                 >
                   Return
                 </button>
-              )}
-            </div>
+              )} */}
+
+            {/* </div> */}
 
             <div className="about__button-container">
               <a href="/contact" className="about__button">
@@ -257,6 +260,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
             </div>
           </div>
         </div>
+        {!show ? <Scroll handleScroll={fadeInScroll} alt="user" /> : ""}
         {/* )} */}
       </div>
       {/* MOBILE VIEW */}
@@ -266,7 +270,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
         alt3="insta"
         user={user}
         clients={clients}
-        // images={images}
+        images={images}
       />
 
       <div className="about__below">

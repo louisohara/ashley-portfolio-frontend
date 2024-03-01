@@ -54,10 +54,12 @@
     top: 1rem;
     left: 1rem;
     z-index: 2;
+    background-color: unset;
   }
   &__icon--alt {
     height: 1.5rem;
-    padding: 0.2rem;
+    padding: 0rem;
+    color: none;
     width: auto;
   }
   &__video {

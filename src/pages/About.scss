@@ -28,8 +28,9 @@
         gap: 2rem;
         @include fadeTop;
         position: relative;
-        padding-top: 5rem;
-        padding-bottom: 4rem;
+        // padding-top: 5rem;
+        // padding-bottom: 4rem;
+        padding: 5rem 1rem 4rem 1rem;
         overflow: hidden;
         // @include dottedBackground(3, 50);
       }
@@ -84,7 +85,7 @@
     // }
   }
   &__buttons {
-    margin: 0;
+    margin: 1rem 0;
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -102,7 +103,7 @@
   }
   &__carousel--outer {
     // background-color: $white;
-    margin-top: 2rem;
+    margin-top: 0;
     overflow: hidden;
     height: 80px;
     width: 100%;

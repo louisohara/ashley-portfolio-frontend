@@ -17,7 +17,7 @@ export default function HomePage({
   // };
 
   if (!films) {
-    return <p>loading...</p>;
+    return <div className="loading"></div>;
   }
 
   return (

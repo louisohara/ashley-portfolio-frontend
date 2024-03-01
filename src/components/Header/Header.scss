@@ -3,7 +3,8 @@
 
 .header {
   // border-bottom: 3px solid $transparent-colour;
-  zoom: 0.9;
+
+  zoom: 0.85;
   z-index: 10;
   position: relative;
   // transition: position 0.5s ease-in-out, background-color 0.5s ease-in-out;
@@ -96,7 +97,7 @@
     list-style-type: none;
     margin: 0;
     @include mobile-only {
-      margin: 2rem 0 0 2.5rem;
+      margin: 1rem 0 0 2.5rem;
       &--film {
         margin: 0.5rem 2.5rem;
       }
@@ -120,6 +121,7 @@
     @include mobile-only {
       color: $black;
       font-weight: 500;
+      font-size: 1rem;
     }
     &--contact,
     &--about {
@@ -147,7 +149,9 @@
       display: flex;
       flex-direction: row;
       position: relative;
-
+      @include mobile-only {
+        font-size: 1rem;
+      }
       @include tablet {
         // margin: 1.5rem 2rem; THIS IS TO MINIMISE SIZE SO SCREEN SPACE IS ENLARGED
         margin: 1.5rem 2rem;
@@ -164,21 +168,26 @@
   }
   &__logo {
     font-size: 3rem;
+    // background-image: url(../../assets/images/background.png);
     -webkit-text-stroke-width: 1px;
     color: $white;
     -webkit-text-stroke-color: $hover-colour;
-    text-shadow: 5px 2px 0 $hover-colour, -5px 2px 0 $hover-colour,
-      -5px -2px 0 $hover-colour, 5px -2px 0 $hover-colour;
+    text-shadow: 6px 6px 0 $hover-colour, -6px 6px 0 $hover-colour,
+      -6px -6px 0 $hover-colour, 6px -6px 0 $hover-colour;
+    transition: all 0.25s;
     @include tablet {
       padding: 0.5rem 0 0 0;
     }
     @include mobile-only {
       font-size: 8.5vw;
+      .header.active & {
+        text-shadow: none;
+      }
     }
     @include tablet-only {
       font-size: 5vw;
     }
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 1.75px;
     margin: 0 0 0.5rem 0;
     width: auto;
@@ -188,7 +197,6 @@
     // color: $hover-colour;
     &:hover {
       text-shadow: none;
-      text-decoration: dashed;
       color: $hover-colour;
     }
   }
@@ -197,6 +205,7 @@
     text-align: center;
     @include mobile-only {
       text-align: left;
+      margin: 0rem 0.25rem;
     }
   }
   &__link--film {
@@ -207,6 +216,7 @@
     }
     @include mobile-only {
       position: relative;
+      font-size: 0.8rem;
 
       // &::before {
       // content: " ";
@@ -222,12 +232,12 @@
   }
   &__inner {
     @include mobile-only {
-      margin-top: 1rem;
+      margin-top: 0rem;
     }
     @include tablet {
       position: absolute;
       height: fit-content;
-      background: $transparent-colour-2;
+      background: $white;
 
       top: 0;
     }

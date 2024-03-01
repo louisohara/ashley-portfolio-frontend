@@ -9,8 +9,17 @@
   //     width: 100%;
   //   }
   // }
+  @include mobile-only {
+    @include logoBackground;
+    filter: contrast(1);
+    filter: brightness(1);
+  }
   &__slide {
     width: 100%;
+    @include mobile-only {
+      position: relative;
+      transform: scale(0.9);
+    }
   }
   // EDIT
   backdrop-filter: blur(16px);
@@ -35,6 +44,11 @@
   &__content {
     padding: 1rem;
     height: calc(100% - 4rem);
+    @include mobile-only {
+      background-color: $transparent-colour-2;
+      backdrop-filter: blur(2px);
+      padding-top: 1.5rem;
+    }
     // EDIT
     @include desktop {
       // background-color: $white;
@@ -61,6 +75,9 @@
   // }
   &__content--review {
     padding: 1rem;
+    @include mobile-only {
+      padding-top: 1.5rem;
+    }
     margin: 1rem;
   }
   &__nomination {
@@ -110,9 +127,12 @@
   }
   //   controls placement of dots
   &-dots {
-    bottom: -0.5rem;
+    bottom: 2rem;
+    @include tablet {
+      bottom: -0.5rem;
+    }
     @include desktop {
-      bottom: 0rem;
+      bottom: -0.25rem;
     }
     li {
       // background-color: $white;

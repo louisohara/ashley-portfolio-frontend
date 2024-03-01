@@ -6,6 +6,7 @@
   // EDIT
   // color: $button-colour;
   color: $black;
+  background-color: $white;
   // END EDIT
   display: flex;
   flex-direction: column;
@@ -28,22 +29,18 @@
       // END EDIT
       overflow: hidden;
     }
-    @include mobile-and-tablet {
-      background-color: $white;
-      // color: $black;
-    }
   }
   &--user {
     padding: 0.5rem;
     font-weight: 500;
-    @include desktop {
-      justify-content: flex-start;
-      background-color: $white;
-      color: $black;
-      // background-color: $hover-colour;
-      // color: $white;
-      height: fit-content;
-    }
+    // @include desktop {
+    //   justify-content: flex-start;
+    //   // // background-color: $white;
+    //   // color: $black;
+    //   // // background-color: $hover-colour;
+    //   // // color: $white;
+    //   height: fit-content;
+    // }
 
     @include mobile-and-tablet {
       font-weight: 400;
@@ -77,6 +74,9 @@
         display: none;
       }
     }
+    @include mobile-only {
+      font-size: 0.9rem;
+    }
   }
   &__wrapper {
     display: flex;
@@ -101,6 +101,9 @@
       max-width: calc(3rem + 5%);
       max-height: 3rem;
     }
+    @include mobile-only {
+      max-width: 3.25rem;
+    }
     &:hover {
       transform: scale(1.1);
       filter: none;
@@ -123,7 +126,7 @@
     }
     &--extra-short {
       @include mobile-only {
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
       @include tablet-only {
         font-size: 2.25rem;

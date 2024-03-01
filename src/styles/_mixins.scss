@@ -219,10 +219,10 @@
   font-weight: 300;
   font-size: 1.5em;
   position: absolute;
-  top: -2rem;
-  @include desktop {
-    top: -1.5rem;
-  }
+  top: -1.5rem;
+  // @include desktop {
+  //   top: -1.5rem;
+  // }
   text-align: center;
   color: $hover-colour;
 }
@@ -386,5 +386,5 @@
   background-image: url("../../assets/images/background.png");
   background-size: 50%;
   // z-index: -10;
-  filter: brightness(0.5);
+  filter: brightness(0.6);
 }

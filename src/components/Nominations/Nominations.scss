@@ -9,7 +9,8 @@
   flex-wrap: wrap;
   &__awards {
     @include carouselTitle;
-    top: -2rem;
+
+    top: -1.5rem;
     left: 0;
     width: 100%;
     text-align: center;
@@ -78,7 +79,12 @@
   &__result {
     margin: 0.5rem 0;
     text-transform: capitalize;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: "Times New Roman", Times, serif;
+    // -webkit-text-stroke-width: 1px;
+    color: $black;
+    // -webkit-text-stroke-color: $hover-colour;
+    // text-shadow: 5px 2px 0 $hover-colour, -5px 2px 0 $hover-colour,
+    //   -5px -2px 0 $hover-colour, 5px -2px 0 $hover-colour;
   }
   &__text {
     justify-content: center;

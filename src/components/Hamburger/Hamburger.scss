@@ -15,14 +15,14 @@
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: $button-colour;
+    background-color: $hover-colour;
     &:hover {
-      background-color: $hover-colour;
+      background-color: $black;
     }
   }
   &.active {
     .hamburger__bar:nth-child(n) {
-      background-color: $hover-colour;
+      background-color: $black;
     }
     .hamburger__bar:nth-child(2) {
       opacity: 0;

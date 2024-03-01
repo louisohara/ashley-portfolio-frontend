@@ -24,13 +24,18 @@
     border: none;
     border-bottom: 2px solid $transparent-colour;
     padding: 0.5rem 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     position: relative;
     font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
-
+    @include mobile-only {
+      font-size: 1rem;
+    }
     &::placeholder {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: $bg-light;
+      @include mobile-only {
+        font-size: 1rem;
+      }
     }
     &:active,
     &:focus {

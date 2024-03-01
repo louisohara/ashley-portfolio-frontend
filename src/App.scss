@@ -21,12 +21,26 @@
     width: 100%;
     background-image: url("../src/assets/images/background.png");
     background-size: 25%;
-    filter: brightness(0.5);
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 30%,
+      transparent 70%,
+      black 100%
+    );
+    @include tablet {
+      mask-image: linear-gradient(
+        to left,
+        black 0%,
+        transparent 30%,
+        transparent 70%,
+        black 100%
+      );
+    }
+
+    filter: brightness(0.4);
     @include fade(0.25s);
     // background-color: $bg-light;
-    @include tablet {
-      // @include dottedBackground(2, 45);
-    }
   }
 
   &__section {
@@ -54,4 +68,9 @@
   @include mobile-only {
     margin-top: 6.2rem;
   }
+}
+
+.loading {
+  width: 100vh;
+  height: 100vh;
 }

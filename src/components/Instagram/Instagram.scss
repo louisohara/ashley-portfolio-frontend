@@ -49,8 +49,8 @@
     color: transparent;
     &:hover {
       z-index: 2;
-      background-color: $transparent-colour-2;
-      color: $white;
+      background-color: $transparent-colour;
+      color: $black;
     }
   }
   &__title {

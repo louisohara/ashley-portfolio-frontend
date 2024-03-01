@@ -68,7 +68,7 @@
     }
   }
   &__quote {
-    font-size: calc(0.9rem + 5%);
+    font-size: 0.9rem;
     padding: 0.25rem;
     text-align: center;
     color: $black;
@@ -78,12 +78,13 @@
     }
     @include desktop {
       margin: 0.25rem 0;
+      font-size: calc(0.9rem + 5%);
     }
     &--second {
       font-size: 0.9rem;
 
       @include mobile-only {
-        font-size: calc(0.9rem + 2.5%);
+        font-size: calc(0.9rem);
       }
       @include tablet-only {
         font-size: calc(1rem + 2.5%);
@@ -133,7 +134,10 @@
     &--second {
       font-size: 1rem;
     }
-    @include mobile-and-tablet {
+    @include mobile-only {
+      font-size: 1rem;
+    }
+    @include tablet {
       font-size: calc(1rem + 5%);
     }
   }

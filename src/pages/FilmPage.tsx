@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Grid from "../components/Grid/Grid";
 import "./Film.scss";
+import Scroll from "../components/Scroll/Scroll";
 
 interface FilmPageProps {
   isLoggedIn: boolean;
@@ -75,7 +76,7 @@ export default function FilmPage({ isLoggedIn }: FilmPageProps) {
     };
   }, []);
   if (!film || !collaborators || !reviews || !nominations) {
-    return <p className="loading">Loading...</p>;
+    return <div className="loading"></div>;
   }
   return (
     <section className="film">
@@ -88,19 +89,7 @@ export default function FilmPage({ isLoggedIn }: FilmPageProps) {
         reviews={reviews}
         alt4="details"
       />
-      {!show ? (
-        <div className="film__button">
-          <div className="film__arrow-container" onClick={fadeInScroll}>
-            {/* Read more */}
-
-            <div className="film__arrow"></div>
-            <div className="film__arrow"></div>
-            <div className="film__arrow"></div>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
+      {!show ? <Scroll handleScroll={fadeInScroll} alt="film" /> : ""}
     </section>
   );
 }

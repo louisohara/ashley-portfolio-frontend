@@ -49,7 +49,7 @@ export default function Poster({ film, image }: PosterProps) {
             <XMarkIcon className="poster__icon poster__icon--alt" />
           </div>
           <iframe
-            src={film.video}
+            src={`${film.video}&badge=0`}
             width="100%"
             height="100%"
             frameBorder="0"

@@ -4,17 +4,21 @@
 .films {
   // margin-top: 4.5rem;
   // background-color: $transparent-colour-2;
-  @include desktop {
-    width: 110%;
-    margin-left: -5%;
-    backdrop-filter: blur(1px);
-  }
+  // @include desktop {
+  // width: 110%;
+  // margin-left: -5%;
+  // backdrop-filter: blur(1px);
+  // @include mobile-only {
+  //   transform: scale(0.9);
+  // }
+  // }
   &__grid {
-    // @include desktop {
-    //   padding: 1rem;
-    //   padding-left: 5%;
-    //   width: 90%;
-    // }
+    @include desktop {
+      // padding: 1rem;
+      // padding-left: 5%;
+      width: 90%;
+      margin: auto;
+    }
     padding: 0;
     display: grid;
     grid-template-columns: repeat(
@@ -170,7 +174,10 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    // filter: grayscale(1);
+    filter: saturate(1.2);
+    &:hover {
+      filter: none;
+    }
 
     transition: transform 0.1s;
     @include tablet {
@@ -195,10 +202,11 @@
     justify-content: center;
     transition: background-color 0.1s ease, color 0.1s ease;
     color: transparent;
+    // background-color: $transparent-colour;
 
     &:hover {
       z-index: 2;
-      // background-color: $transparent-colour-2;
+      // background-color: none;
       // color: $white;
       background-color: $transparent-colour;
 
@@ -238,14 +246,14 @@
     letter-spacing: -1.5px;
 
     @include mobile-only {
-      font-size: $size-header;
+      font-size: 1.2rem;
       position: relative;
-      font-weight: 500;
+      // font-weight: 500;
       z-index: 4;
       padding: 0rem 1rem;
       text-align: left;
       -webkit-text-stroke-width: 2px;
-      color: transparent;
+
       text-transform: uppercase;
       -webkit-text-stroke-color: $hover-colour;
       -webkit-text-stroke-width: 1px;

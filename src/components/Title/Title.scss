@@ -138,6 +138,59 @@
       // text-align: right;
     }
   }
+  &__longword {
+    @include mobile-only {
+      // font-size: calc(70%);
+    }
+  }
+  &__in {
+    @include mobile-only {
+      font-size: 8.2vw;
+      & .title__firstWord--film {
+        font-size: 90%;
+        & + span {
+          display: block;
+        }
+      }
+      & .title__longword {
+        font-size: 90%;
+      }
+    }
+  }
+
+  &__Lee {
+    @include mobile-only {
+      font-size: 8.5vw;
+    }
+  }
+  &__Guthrie {
+    @include mobile-only {
+      font-size: 6.5vw;
+    }
+  }
+  &__is {
+    @include mobile-only {
+      font-size: 8.5vw;
+    }
+  }
+  &__Real {
+    & .title__longword {
+      font-size: 80%;
+    }
+    & .title__firstWord--film {
+      @include mobile-only {
+        display: block;
+      }
+    }
+  }
+  &__A &__firstWord--film {
+    @include mobile-only {
+      font-size: 75%;
+      & + span {
+        display: block;
+      }
+    }
+  }
   &__firstWord--user {
     display: block;
   }

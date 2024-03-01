@@ -1,0 +1,84 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+$total-arrows: 3;
+$arrow-line-length: 31px;
+$arrow-line-width: 4px;
+
+// arrow animtion + choose direction
+@mixin arrow-transitions($rot: 0deg) {
+  transform: translate(-50%, -50%) rotateZ($rot);
+}
+.scroll {
+  &__button {
+    display: none;
+    @include desktop {
+      position: relative;
+      @include fadeBottom;
+      animation-delay: 2s;
+      margin-top: 3rem;
+      height: 5rem;
+      width: 100%;
+      bottom: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // color: $button-colour;
+      // font-size: 2.5vw;
+      &--user {
+        width: 27.5%;
+        bottom: -80%;
+      }
+    }
+  }
+
+  &__arrow-container {
+    display: block;
+    width: 50px;
+    height: 100px;
+    //   position: absolute;
+    bottom: 0;
+    @include arrow-transitions(0deg);
+    &:hover {
+      cursor: pointer;
+      .scroll__arrow {
+        top: 50%;
+        &:before {
+          @include arrow-transitions(-45deg);
+        }
+        &:after {
+          @include arrow-transitions(45deg);
+        }
+      }
+    }
+  }
+  &__arrow {
+    position: absolute;
+    left: 50%;
+    transition: all 0.4s ease;
+    &:before,
+    &:after {
+      transition: all 0.4s ease;
+      content: "";
+      display: block;
+      position: absolute;
+      transform-origin: bottom right;
+      background: $hover-colour;
+      width: $arrow-line-width;
+      height: $arrow-line-length;
+      // border-radius: 5px;
+      transform: translate(-50%, -50%) rotateZ(-55deg);
+    }
+    &:after {
+      transform-origin: bottom left;
+      transform: translate(-50%, -50%) rotateZ(55deg);
+    }
+    @for $i from 1 through $total-arrows {
+      &:nth-child(#{$i}) {
+        opacity: 0.3 * $i;
+        top: 15 + (100% * $i/5);
+      }
+    }
+  }
+}
