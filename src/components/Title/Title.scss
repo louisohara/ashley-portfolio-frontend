@@ -18,7 +18,7 @@
     @include mobile-and-tablet {
       background-color: $hover-colour;
       // color: $hover-colour;
-      // color: $black;
+      color: $white;
     }
   }
   @include desktop {

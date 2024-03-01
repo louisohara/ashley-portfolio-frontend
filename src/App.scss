@@ -12,6 +12,7 @@
     @include screenWidth;
     // background-color: $transparent-colour-2;
   }
+
   &__section > &__undercolour {
     position: fixed;
     z-index: -1;
@@ -23,22 +24,22 @@
     background-size: 25%;
     mask-image: linear-gradient(
       to bottom,
-      black 0%,
+      rgba(255, 255, 255, 0.2) 0%,
       transparent 30%,
       transparent 70%,
-      black 100%
+      rgba(255, 255, 255, 0.2) 100%
     );
     @include tablet {
       mask-image: linear-gradient(
         to left,
-        black 0%,
+        rgba(255, 255, 255, 0.2) 0%,
         transparent 30%,
         transparent 70%,
-        black 100%
+        rgba(255, 255, 255, 0.2) 100%
       );
     }
 
-    filter: brightness(0.4);
+    filter: bright(0.8);
     @include fade(0.25s);
     // background-color: $bg-light;
   }

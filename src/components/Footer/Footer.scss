@@ -36,6 +36,8 @@
   &__icon {
     height: 1.1rem;
     width: auto;
+    filter: invert(1);
+
     &:hover {
       @include filterWhiteToColour;
     }
@@ -47,6 +49,6 @@
     font-size: 0.75rem;
     width: fit-content;
     color: $black;
-    background-color: $white;
+    // background-color: $white;
   }
 }

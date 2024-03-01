@@ -172,8 +172,8 @@
     -webkit-text-stroke-width: 1px;
     color: $white;
     -webkit-text-stroke-color: $hover-colour;
-    text-shadow: 6px 6px 0 $hover-colour, -6px 6px 0 $hover-colour,
-      -6px -6px 0 $hover-colour, 6px -6px 0 $hover-colour;
+    text-shadow: 10px 10px 0 $hover-colour, -10px 10px 0 $hover-colour,
+      -10px -10px 0 $hover-colour, 10px -10px 0 $hover-colour;
     transition: all 0.25s;
     @include tablet {
       padding: 0.5rem 0 0 0;

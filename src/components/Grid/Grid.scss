@@ -86,7 +86,11 @@
       right: 0;
       @include fadeRight;
       // filter: brightness(1);
-      mask-image: linear-gradient(to top left, black 0%, transparent 80%);
+      mask-image: linear-gradient(
+        to top left,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 80%
+      );
       // END EDIT
     }
     &--two {
@@ -104,6 +108,7 @@
       //   );
       position: fixed;
       @include logoBackground;
+
       @include fadeLeft;
       // EDIT
       // bottom: 0;
@@ -114,7 +119,11 @@
       width: 50%;
       height: 50%;
       z-index: -2;
-      mask-image: linear-gradient(to bottom right, black 0%, transparent 80%);
+      mask-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 80%
+      );
 
       &--user {
         right: 0;
@@ -126,10 +135,10 @@
         height: 100%;
         mask-image: linear-gradient(
           to bottom,
-          black 0%,
+          rgba(255, 255, 255, 0.2) 0%,
           transparent 20%,
           transparent 80%,
-          black 100%
+          rgba(255, 255, 255, 0.2) 100%
         );
         // background: none;
       }
