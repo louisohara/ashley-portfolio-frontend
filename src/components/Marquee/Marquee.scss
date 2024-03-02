@@ -8,7 +8,7 @@
   overflow: hidden;
   width: 100%;
   position: absolute;
-  margin: 1rem 0;
+  margin: 1.25rem 0 1rem 0;
   top: 0;
   &--alt {
     top: unset;
@@ -27,14 +27,14 @@
   &__item {
     max-height: 2rem;
     width: auto;
-    // &.Broadcast.Awards {
-    //   filter: invert(1);
-    // }
-    &.TV,
-    &.marquee__item--1,
-    &.Grierson.Documentary.Awards {
+    &.Broadcast.Awards {
       filter: invert(1);
     }
+    // &.TV,
+    // &.marquee__item--1,
+    // &.Grierson.Documentary.Awards {
+    //   filter: invert(1);
+    // }
   }
   @keyframes marquee {
     0% {

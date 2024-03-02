@@ -9,18 +9,18 @@
   //     width: 100%;
   //   }
   // }
-  @include mobile-only {
-    @include logoBackground;
-    filter: contrast(1);
-    filter: brightness(1);
-  }
-  &__slide {
-    width: 100%;
-    @include mobile-only {
-      position: relative;
-      transform: scale(0.9);
-    }
-  }
+  // @include mobile-only {
+  //   @include logoBackground;
+  //   filter: contrast(1);
+  //   filter: brightness(1);
+  // }
+  // &__slide {
+  //   width: 100%;
+  //   @include mobile-only {
+  //     position: relative;
+  //     transform: scale(0.9);
+  //   }
+  // }
   // EDIT
   backdrop-filter: blur(16px);
   background-color: $transparent-colour-2;
@@ -127,7 +127,7 @@
   }
   //   controls placement of dots
   &-dots {
-    bottom: 2rem;
+    bottom: 1rem;
     @include tablet {
       bottom: -0.5rem;
     }

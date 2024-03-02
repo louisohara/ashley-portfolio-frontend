@@ -13,8 +13,9 @@
       width: 100%;
       top: -1rem;
       left: 0;
-      // @include dottedBackground(3, 50);
-      @include logoBackground;
+      @include dottedBackground(4, 50);
+      // background-color: $bg-light;
+      // @include logoBackground;
       filter: brightness(1);
       @include fade(0.25s);
     }
@@ -23,8 +24,8 @@
     @include tablet {
       position: fixed;
       z-index: -1;
-      // @include dottedBackground(3, 50);
-      @include logoBackground;
+      @include dottedBackground(4, 50);
+      // @include logoBackground;
       bottom: 0;
       left: 0;
       height: 100%;
@@ -62,7 +63,7 @@
   &__title {
     font-size: 5.5rem;
     margin: 0;
-    color: $black;
+    color: $hover-colour;
     @include mobile-only {
       font-size: 12.5vw;
     }

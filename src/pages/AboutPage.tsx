@@ -185,7 +185,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
     setCurrentImageIndex(newIndex);
   };
 
-  if (!user || !clients || !nominations) {
+  if (!user || !clients || !nominations || !images) {
     return <div className="loading"></div>;
   }
   return (
@@ -274,9 +274,8 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
       />
 
       <div className="about__below">
-        <Marquee array={clients} />
-        <Marquee array={nominations} alt="alt" />
-
+        <Marquee array={nominations} />
+        <Marquee array={clients} alt="alt" />
         {show && (
           <div className="about__grid">
             <Grid

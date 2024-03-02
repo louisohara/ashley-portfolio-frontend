@@ -23,6 +23,10 @@
   }
   @include desktop {
     color: $black;
+    -webkit-text-stroke-width: 1px;
+
+    color: $hover-colour;
+    -webkit-text-stroke-color: $hover-colour;
   }
   &__title {
     margin: 0;
@@ -118,7 +122,7 @@
     @include mobile-and-tablet {
       // background-color: none;
       // color: $hover-colour;
-      color: none;
+      color: $white;
       background-color: $hover-colour;
       border: 3px solid $hover-colour;
       padding: 0 0.25rem;
@@ -141,6 +145,11 @@
   &__longword {
     @include mobile-only {
       // font-size: calc(70%);
+    }
+  }
+  &__Greatest {
+    @include desktop {
+      font-size: 4.1vw;
     }
   }
   &__in {

@@ -169,11 +169,13 @@
   &__logo {
     font-size: 3rem;
     // background-image: url(../../assets/images/background.png);
-    -webkit-text-stroke-width: 1px;
-    color: $white;
-    -webkit-text-stroke-color: $hover-colour;
-    text-shadow: 10px 10px 0 $hover-colour, -10px 10px 0 $hover-colour,
-      -10px -10px 0 $hover-colour, 10px -10px 0 $hover-colour;
+    // -webkit-text-stroke-width: 1px;
+    // color: $white;
+    color: $hover-colour;
+    // -webkit-text-stroke-color: $hover-colour;
+    // @include underline(-0.5rem);
+    // text-shadow: 10px 10px 0 $hover-colour, -10px 10px 0 $hover-colour,
+    //   -10px -10px 0 $hover-colour, 10px -10px 0 $hover-colour;
     transition: all 0.25s;
     @include tablet {
       padding: 0.5rem 0 0 0;
@@ -182,6 +184,7 @@
       font-size: 8.5vw;
       .header.active & {
         text-shadow: none;
+        color: $hover-colour;
       }
     }
     @include tablet-only {
@@ -197,7 +200,7 @@
     // color: $hover-colour;
     &:hover {
       text-shadow: none;
-      color: $hover-colour;
+      color: $button-colour;
     }
   }
   &__p {

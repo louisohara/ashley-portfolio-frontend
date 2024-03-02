@@ -68,11 +68,11 @@ export default function Footer() {
               />
             </a>
           </li> */}
-          <li className="footer__list-item">
+          {/* <li className="footer__list-item">
             <a href={CV} className="footer__link" title="Resume">
               <img src={resume} alt="Resume icon" className="footer__icon" />
             </a>
-          </li>
+          </li> */}
         </ul>
         <p className="footer__branding">© 2024 ASHLEY FRANCIS-ROY</p>
       </div>
