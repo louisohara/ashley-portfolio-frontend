@@ -54,7 +54,6 @@ export default function Carousel({
     swipeToSlide: true,
   };
 
-  // Split the description at the nearest paragraph break around the limit mark
   let firstPart: string = "";
   let secondPart: string = "";
   if (film && film.description) {
@@ -135,16 +134,17 @@ export default function Carousel({
           ) : (
             ""
           )}
-          {collaborators && collaborators.length > 0 ? (
-            <Collaborators collaborators={collaborators} />
-          ) : (
-            ""
-          )}
           {nominations && nominations.length > 0 ? (
             <Nominations nominations={nominations} alt={alt} />
           ) : (
             ""
           )}
+          {collaborators && collaborators.length > 0 ? (
+            <Collaborators collaborators={collaborators} />
+          ) : (
+            ""
+          )}
+
           {images ? <Instagram images={images} alt={alt} /> : ""}
         </Slider>
       ) : (
@@ -161,17 +161,7 @@ export default function Carousel({
           ) : (
             ""
           )}
-          {/* DO NOT DELETE */}
-          {/* {film.description && secondPart ? (
-            <Description
-              firstPart={firstPart}
-              secondPart={secondPart}
-              film={film}
-              part={secondPart}
-            />
-          ) : (
-            ""
-          )} */}
+
           {reviews && reviews.length > 0 ? (
             <Reviews reviews={reviews} x={0} y={3} alt="first" />
           ) : (
@@ -197,13 +187,13 @@ export default function Carousel({
           ) : (
             ""
           )}
-          {collaborators && collaborators.length > 0 ? (
-            <Collaborators collaborators={collaborators} />
+          {nominations && nominations.length > 0 ? (
+            <Nominations nominations={nominations} />
           ) : (
             ""
           )}
-          {nominations && nominations.length > 0 ? (
-            <Nominations nominations={nominations} />
+          {collaborators && collaborators.length > 0 ? (
+            <Collaborators collaborators={collaborators} />
           ) : (
             ""
           )}

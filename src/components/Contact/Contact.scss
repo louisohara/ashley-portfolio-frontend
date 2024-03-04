@@ -66,6 +66,9 @@
     color: $hover-colour;
     @include mobile-only {
       font-size: 12.5vw;
+      background-color: $white;
+      width: fit-content;
+      margin-left: auto;
     }
   }
   &__subtitle {
@@ -77,7 +80,7 @@
     font-size: 1.1rem;
     color: $white;
     @include mobile-only {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
   &__link {
@@ -101,8 +104,6 @@
     color: $black;
   }
   &__button {
-    font-size: $size-sub;
-
     font-weight: 500;
 
     background-color: $hover-colour;

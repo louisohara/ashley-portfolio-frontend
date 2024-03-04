@@ -50,8 +50,9 @@ function App() {
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
     const headerDiv: HTMLElement | null = document.querySelector(".header");
-
-    if (prevScrollPos <= currentScrollPos && headerDiv) {
+    console.log(currentScrollPos);
+    console.log(prevScrollPos);
+    if (prevScrollPos < currentScrollPos && headerDiv) {
       headerDiv.classList.remove("fixedToTop");
       headerDiv.style.top = "-10rem";
 

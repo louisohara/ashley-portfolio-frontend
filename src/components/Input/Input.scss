@@ -28,13 +28,14 @@
     position: relative;
     font-family: "Lora", "Helvetica Neue", Georgia, sans-serif;
     @include mobile-only {
-      font-size: 1rem;
+      font-size: 1.1rem;
+      width: 45%;
     }
     &::placeholder {
       font-size: 1.25rem;
       color: $black;
       @include mobile-only {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
     }
     &:active,
@@ -60,5 +61,13 @@
         color: red;
       }
     }
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="textarea"] {
+    /* Resetting default styles */
+    appearance: none;
+    border-radius: 0;
+    -webkit-appearance: none; /* Removes iOS border-radius and shadow */
   }
 }

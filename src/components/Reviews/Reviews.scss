@@ -112,8 +112,8 @@
     // &--TV {
     //   filter: invert(1);
     // }
-    @include mobile-and-tablet {
-      max-height: 1.25rem;
+    @include mobile-only {
+      max-height: 1.5rem;
     }
     @include tablet {
       max-height: 2rem;
