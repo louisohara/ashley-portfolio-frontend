@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Poster.scss";
-import { PlayIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { PlayIcon } from "@heroicons/react/24/solid";
 import { PropsObject } from "../../types/interfaces/interfaces";
 
 interface PosterProps {
@@ -14,9 +14,7 @@ export default function Poster({ film, image }: PosterProps) {
   const handleShow = () => {
     setShow(true);
   };
-  const handleClose = () => {
-    setShow(false);
-  };
+
   return (
     <div className="poster">
       {!show ? (
@@ -42,13 +40,8 @@ export default function Poster({ film, image }: PosterProps) {
         </div>
       ) : "video" in film && film.video ? (
         <div className="poster__wrapper">
-          {/* <div
-            className="poster__button poster__button--alt"
-            onClick={handleClose}
-          >
-            <XMarkIcon className="poster__icon poster__icon--alt" />
-          </div> */}
           <iframe
+            title={film.title}
             src={`${film.video}&badge=0`}
             width="100%"
             height="100%"

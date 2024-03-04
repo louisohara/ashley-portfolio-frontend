@@ -3,8 +3,6 @@ import twitter from "../../assets/icons/twitter.svg";
 import instagram from "../../assets/icons/instagram.svg";
 import linkedin from "../../assets/icons/linkedin.svg";
 import vimeo from "../../assets/icons/vimeo.svg";
-import resume from "../../assets/icons/resume.svg";
-import CV from "../../assets/files/resume.pdf";
 
 export default function Footer() {
   return (
@@ -55,24 +53,6 @@ export default function Footer() {
               />
             </a>
           </li>
-          {/* <li className="footer__list-item">
-            <a
-              href="https://www.thetalentmanager.com/talent/32103"
-              className="footer__link"
-              title="Talent Management"
-            >
-              <img
-                src={representation}
-                alt="Talent Management icon"
-                className="footer__icon footer__icon--alt"
-              />
-            </a>
-          </li> */}
-          {/* <li className="footer__list-item">
-            <a href={CV} className="footer__link" title="Resume">
-              <img src={resume} alt="Resume icon" className="footer__icon" />
-            </a>
-          </li> */}
         </ul>
         <p className="footer__branding">© 2024 ASHLEY FRANCIS-ROY</p>
       </div>

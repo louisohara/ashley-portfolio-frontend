@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import HomePage from "./pages/HomePage";
-import AdminPage from "./pages/AdminPage";
+// import AdminPage from "./pages/AdminPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ContactPage from "./pages/ContactPage";
@@ -108,7 +108,7 @@ function App() {
               }
             />
 
-            <Route
+            {/* <Route
               path="/admin"
               element={
                 <AdminPage
@@ -117,7 +117,7 @@ function App() {
                   setLoginFalse={setLoginFalse}
                 />
               }
-            />
+            /> */}
             <Route
               path="/about"
               element={<AboutPage isLoggedIn={isLoggedIn} />}

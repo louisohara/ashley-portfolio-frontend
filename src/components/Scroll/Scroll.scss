@@ -76,8 +76,8 @@ $arrow-line-width: 4px;
     }
     @for $i from 1 through $total-arrows {
       &:nth-child(#{$i}) {
-        opacity: 0.3 * $i;
-        top: 15 + (100% * $i/5);
+        opacity: calc(0.3 * $i);
+        top: 15 + calc(100% * $i/5);
       }
     }
   }

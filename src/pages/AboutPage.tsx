@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./About.scss";
 import Description from "../components/Description/Description";
-import Carousel from "../components/Carousel/Carousel";
 import background from "../assets/images/about.jpg";
 import background2 from "../assets/images/about2.jpg";
 import background3 from "../assets/images/about3.jpeg";
