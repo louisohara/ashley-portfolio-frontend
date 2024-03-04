@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   height: 100%;
   // overflow: scroll;
   overflow-wrap: break-word;
@@ -58,7 +58,7 @@
     }
     &--short {
       @include mobile-only {
-        font-size: 10.5vw;
+        font-size: 10.75vw;
       }
       @include tablet {
         font-size: 4.5rem;
@@ -87,7 +87,7 @@
     }
     &--extra-long {
       @include mobile-only {
-        font-size: 7.9vw;
+        font-size: 8.15vw;
       }
       @include tablet {
         font-size: 7.4vw;
@@ -101,7 +101,7 @@
     }
     &--extra-long--2 {
       @include mobile-only {
-        font-size: 7.25vw;
+        font-size: 7.5vw;
       }
       @include tablet {
         font-size: 6.9vw;
@@ -172,7 +172,7 @@
 
   &__Lee {
     @include mobile-only {
-      font-size: 8.5vw;
+      font-size: 9vw;
     }
   }
   &__Guthrie {
@@ -182,7 +182,7 @@
   }
   &__is {
     @include mobile-only {
-      font-size: 8.5vw;
+      font-size: 9.5vw;
     }
     @include desktop {
       font-size: 6vw;
@@ -191,7 +191,7 @@
   &__Real {
     @include mobile-only {
       & .title__longword {
-        font-size: 80%;
+        font-size: 85%;
       }
       & .title__firstWord--film {
         display: block;
@@ -215,8 +215,16 @@
     }
   }
   &__Not {
+    @include mobile-only {
+      font-size: 10vw;
+    }
     @include desktop {
       font-size: 6.25vw;
+    }
+  }
+  &__Antony {
+    @include mobile-only {
+      font-size: 8.55vw;
     }
   }
 }

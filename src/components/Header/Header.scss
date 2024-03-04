@@ -33,7 +33,7 @@
     align-items: center;
     // padding: 0 1.5rem;
     @include mobile-only {
-      padding: 1rem calc(5%);
+      padding: 1rem;
     }
   }
   &__secondary-menu {
@@ -99,7 +99,7 @@
     @include mobile-only {
       margin: 1rem 0 0 2.5rem;
       &--film {
-        margin: 0.5rem 2.5rem;
+        margin: 0.65rem 2.5rem;
       }
     }
 
@@ -121,7 +121,7 @@
     @include mobile-only {
       color: $black;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     &--contact,
     &--about {
@@ -150,7 +150,7 @@
       flex-direction: row;
       position: relative;
       @include mobile-only {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       @include tablet {
         // margin: 1.5rem 2rem; THIS IS TO MINIMISE SIZE SO SCREEN SPACE IS ENLARGED
@@ -219,7 +219,7 @@
     }
     @include mobile-only {
       position: relative;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
 
       // &::before {
       // content: " ";

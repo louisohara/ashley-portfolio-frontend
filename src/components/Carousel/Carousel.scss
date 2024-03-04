@@ -127,7 +127,7 @@
   }
   //   controls placement of dots
   &-dots {
-    bottom: 1rem;
+    bottom: 0.5rem;
     @include tablet {
       bottom: -0.5rem;
     }
