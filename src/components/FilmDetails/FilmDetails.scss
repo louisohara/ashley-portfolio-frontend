@@ -63,9 +63,11 @@
     align-items: center;
     gap: 0.25rem;
     margin: 0;
+
     & li {
       text-decoration: none;
       margin: 0;
+      color: $black;
     }
   }
   &__role {

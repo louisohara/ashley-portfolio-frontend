@@ -105,6 +105,7 @@
       }
     }
     &--extra-long--2 {
+      display: block;
       @include mobile-only {
         font-size: 8vw;
       }
@@ -189,6 +190,7 @@
   }
 
   &__is {
+    display: block;
     @include mobile-only {
       font-size: 9.5vw;
     }
@@ -198,10 +200,10 @@
   }
   &__Real {
     @include mobile-only {
-      font-size: 15.5vw;
+      font-size: 16vw;
 
       & .title__longword {
-        font-size: 50%;
+        font-size: 44%;
         display: flex;
       }
       & .title__firstWord--film {
@@ -227,8 +229,9 @@
     }
   }
   &__Not {
+    display: block;
     @include mobile-only {
-      font-size: 10vw;
+      font-size: 9vw;
     }
     @include desktop {
       font-size: 6.25vw;
