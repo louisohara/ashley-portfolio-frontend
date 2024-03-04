@@ -42,12 +42,12 @@ export default function Poster({ film, image }: PosterProps) {
         </div>
       ) : "video" in film && film.video ? (
         <div className="poster__wrapper">
-          <div
+          {/* <div
             className="poster__button poster__button--alt"
             onClick={handleClose}
           >
             <XMarkIcon className="poster__icon poster__icon--alt" />
-          </div>
+          </div> */}
           <iframe
             src={`${film.video}&badge=0`}
             width="100%"

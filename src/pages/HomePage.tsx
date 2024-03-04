@@ -1,10 +1,10 @@
 import Films from "../components/Films/Films";
-import { filmObject } from "../types/interfaces/interfaces";
+import { FilmObject } from "../types/interfaces/interfaces";
 
 interface HomePageProps {
   isLoggedIn: boolean;
   setLoginFalse: () => void;
-  films: filmObject[];
+  films: FilmObject[];
 }
 
 export default function HomePage({

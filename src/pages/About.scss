@@ -19,6 +19,14 @@
       .about__top {
         @include fadeBottom;
       }
+      .about__hero {
+        top: -17.5%;
+        height: 130%;
+        //   height: 110%;
+        //   top: 0%;
+        //   right: 0;
+        width: 65%;
+      }
       .about__below {
         // display: block;
         display: flex;
@@ -226,14 +234,14 @@
       width: 80%;
     }
     // transition: all 0.5s;
-    &.active {
-      top: -17.5%;
-      height: 130%;
-      //   height: 110%;
-      //   top: 0%;
-      //   right: 0;
-      width: 65%;
-    }
+    // &.active {
+    //   top: -17.5%;
+    //   height: 130%;
+    //   //   height: 110%;
+    //   //   top: 0%;
+    //   //   right: 0;
+    //   width: 65%;
+    // }
     // overflow: hidden;
   }
   &__background-container {

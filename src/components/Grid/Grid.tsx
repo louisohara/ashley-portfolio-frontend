@@ -13,8 +13,8 @@ import {
   ImageObject,
   NominationsObject,
   ReviewObject,
-  filmObject,
-  userObject,
+  FilmObject,
+  UserObject,
 } from "../../types/interfaces/interfaces";
 
 interface GridProps {
@@ -23,10 +23,10 @@ interface GridProps {
   alt3?: string;
   alt4?: string;
   nominations?: NominationsObject[];
-  film?: filmObject;
+  film?: FilmObject;
   reviews?: ReviewObject[];
   collaborators?: CollaboratorsObject[];
-  user?: userObject;
+  user?: UserObject;
   clients?: ClientObject[];
   images?: ImageObject[] | null;
 }

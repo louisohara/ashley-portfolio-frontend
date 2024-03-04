@@ -9,12 +9,12 @@ import Footer from "./components/Footer/Footer";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import FilmPage from "./pages/FilmPage";
-import { filmObject } from "./types/interfaces/interfaces";
+import { backendUrl, FilmObject } from "./types/interfaces/interfaces";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
-  const [films, setFilms] = useState<filmObject[] | null>(null);
+  const [films, setFilms] = useState<FilmObject[] | null>(null);
 
   const setLoginTrue = () => {
     setIsLoggedIn(true);
@@ -37,7 +37,7 @@ function App() {
 
   const getFilms = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/films/");
+      const response = await axios.get(`${backendUrl}/api/films`);
       if (response) {
         setFilms(response.data);
       }
@@ -78,7 +78,7 @@ function App() {
     };
   }, [prevScrollPos]);
   if (!films) {
-    return "";
+    return <div className="loading"></div>;
   }
 
   return (

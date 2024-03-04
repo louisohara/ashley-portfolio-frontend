@@ -1,12 +1,12 @@
 import "./Header.scss";
 import Hamburger from "../Hamburger/Hamburger";
 import { useEffect } from "react";
-import { filmObject } from "../../types/interfaces/interfaces";
+import { FilmObject } from "../../types/interfaces/interfaces";
 
 interface HeaderProps {
   closeMenu: () => void;
   menuClosed: boolean;
-  films: Array<filmObject>;
+  films: Array<FilmObject>;
 }
 
 export default function Header({ closeMenu, menuClosed, films }: HeaderProps) {

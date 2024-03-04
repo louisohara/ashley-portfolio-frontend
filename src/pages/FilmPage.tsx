@@ -4,45 +4,44 @@ import { useParams } from "react-router-dom";
 import Grid from "../components/Grid/Grid";
 import "./Film.scss";
 import Scroll from "../components/Scroll/Scroll";
+import { backendUrl } from "../types/interfaces/interfaces";
 
 interface FilmPageProps {
   isLoggedIn: boolean;
 }
 
 export default function FilmPage({ isLoggedIn }: FilmPageProps) {
-  const [film, setFilm] = useState(null);
-  const [collaborators, setCollaborators] = useState(null);
-  const [reviews, setReviews] = useState(null);
-  const [nominations, setNominations] = useState(null);
   const [show, setShow] = useState(false);
   const { id } = useParams();
+  const [data, setData] = useState({
+    film: null,
+    collaborators: null,
+    reviews: null,
+    nominations: null,
+  });
+
+  const { film, collaborators, reviews, nominations } = data;
 
   const getFilmDetails = async () => {
     try {
-      const filmResponse = await axios.get(
-        `http://localhost:8080/api/films/${id}`
-      );
-      const collaboratorResponse = await axios.get(
-        `http://localhost:8080/api/films/${id}/collaborators`
-      );
-      const reviewResponse = await axios.get(
-        `http://localhost:8080/api/films/${id}/reviews`
-      );
-      const nominationResponse = await axios.get(
-        `http://localhost:8080/api/films/${id}/nominations`
-      );
-      if (filmResponse) {
-        setFilm(filmResponse.data);
-      }
-      if (collaboratorResponse) {
-        setCollaborators(collaboratorResponse.data);
-      }
-      if (reviewResponse) {
-        setReviews(reviewResponse.data);
-      }
-      if (nominationResponse) {
-        setNominations(nominationResponse.data);
-      }
+      const [
+        filmResponse,
+        collaboratorResponse,
+        reviewResponse,
+        nominationResponse,
+      ] = await Promise.all([
+        axios.get(`${backendUrl}/api/films/${id}`),
+        axios.get(`${backendUrl}/api/films/${id}/collaborators`),
+        axios.get(`${backendUrl}/api/films/${id}/reviews`),
+        axios.get(`${backendUrl}/api/films/${id}/nominations`),
+      ]);
+
+      setData({
+        film: filmResponse.data,
+        collaborators: collaboratorResponse.data,
+        reviews: reviewResponse.data,
+        nominations: nominationResponse.data,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -75,7 +74,7 @@ export default function FilmPage({ isLoggedIn }: FilmPageProps) {
       window.removeEventListener("scroll", fadeInScroll);
     };
   }, []);
-  if (!film || !collaborators || !reviews || !nominations) {
+  if (!data.film || !data.collaborators || !data.reviews || !data.nominations) {
     return <div className="loading"></div>;
   }
   return (
@@ -83,10 +82,10 @@ export default function FilmPage({ isLoggedIn }: FilmPageProps) {
       <Grid
         alt1="film"
         alt2="carousel"
-        nominations={nominations}
-        film={film}
-        collaborators={collaborators}
-        reviews={reviews}
+        nominations={data.nominations}
+        film={data.film}
+        collaborators={data.collaborators}
+        reviews={data.reviews}
         alt4="details"
       />
       {!show ? <Scroll handleScroll={fadeInScroll} alt="film" /> : ""}

@@ -1,4 +1,4 @@
-export interface filmObject {
+export interface FilmObject {
   id: number;
   title: string;
   bio: string;
@@ -12,7 +12,7 @@ export interface filmObject {
   link?: string;
   production?: string;
 }
-export interface userObject {
+export interface UserObject {
   id: number;
   full_name: string;
   bio: string;
@@ -22,7 +22,7 @@ export interface userObject {
   representation?: string;
 }
 
-export type PropsObject = userObject | filmObject;
+export type PropsObject = UserObject | FilmObject;
 
 export interface NominationsObject {
   id: number;
@@ -58,9 +58,12 @@ export interface ClientObject {
 }
 
 export type Params =
-  | userObject
-  | filmObject
+  | UserObject
+  | FilmObject
   | CollaboratorsObject
   | NominationsObject
   | ReviewObject
   | ImageObject;
+
+export const backendUrl: string =
+  "https://ashley-portfolio-backend-9886eb2ea612.herokuapp.com";

@@ -12,7 +12,8 @@ import {
   ClientObject,
   ImageObject,
   NominationsObject,
-  userObject,
+  backendUrl,
+  UserObject,
 } from "../types/interfaces/interfaces";
 import Scroll from "../components/Scroll/Scroll";
 
@@ -27,27 +28,20 @@ interface Image {
   permalink: string;
 }
 export default function AboutPage({ isLoggedIn }: AboutPageProps) {
-  const [user, setUser] = useState<userObject | null>(null);
-  const [clients, setClients] = useState<ClientObject[] | null>(null);
-  const [images, setImages] = useState<ImageObject[] | null>(null);
-  const [nominations, setNominations] = useState<NominationsObject[] | null>(
-    null
-  );
+  const [data, setData] = useState<{
+    user: UserObject | null;
+    clients: ClientObject[] | null;
+    images: ImageObject[] | null;
+    nominations: NominationsObject[] | null;
+  }>({
+    user: null,
+    clients: null,
+    images: null,
+    nominations: null,
+  });
   const [show, setShow] = useState(false);
-  const getImages = async () => {
-    try {
-      const response = await axios.get(
-        "https://feeds.behold.so/yYXOpO4nOkfo6LH0vl7d"
-      );
-      if (response) {
-        const filtered = filteredImage(response.data.posts);
 
-        setImages(filtered);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { user, clients, images, nominations } = data;
 
   const filteredImage = (array: Image[]): ImageObject[] => {
     return array.map((image: Image): ImageObject => {
@@ -68,34 +62,22 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
     });
   };
 
-  const getUser = async () => {
+  const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/users/1");
-      if (response) {
-        setUser(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const getClients = async () => {
-    try {
-      const response = await axios.get("http://localhost:8080/api/clients");
-      if (response) {
-        setClients(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const getNominations = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/api/nominations/unique"
-      );
-      if (response) {
-        setNominations(response.data);
-      }
+      const [userData, clientsData, imagesData, nominationsData] =
+        await Promise.all([
+          axios.get(`${backendUrl}/api/users/1`),
+          axios.get(`${backendUrl}/api/clients`),
+          axios.get("https://feeds.behold.so/yYXOpO4nOkfo6LH0vl7d"),
+          axios.get(`${backendUrl}/api/nominations/unique`),
+        ]);
+
+      setData({
+        user: userData.data,
+        clients: clientsData.data,
+        images: filteredImage(imagesData.data.posts),
+        nominations: nominationsData.data,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -104,7 +86,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   const fadeInScroll = () => {
     if (!show) {
       let element = document.querySelector(".about");
-      let heroEl = document.querySelector(".about__hero");
+
       let gridEl = document.querySelector(".about__grid");
       let descriptionEl = document.querySelector(".about__description");
       let carouselEl = document.querySelector(".grid__item--carousel");
@@ -113,9 +95,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
         element.classList.add("active");
         setShow(true);
       }
-      if (heroEl) {
-        heroEl.classList.add("active");
-      }
+
       if (carouselEl) {
         carouselEl.classList.add("active");
       }
@@ -133,35 +113,8 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
     }
   };
 
-  const handleClose = () => {
-    setShow(false);
-    let element = document.querySelector(".about");
-    let heroEl = document.querySelector(".about__hero");
-    let carousel = document.querySelector(".grid__item--carousel");
-    let gridEl = document.querySelector(".about__grid");
-    let descriptionEl = document.querySelector(".about__description");
-
-    if (gridEl) {
-      gridEl.classList.remove("inView");
-    }
-    if (descriptionEl) {
-      descriptionEl.classList.remove("inView");
-    }
-    if (element) {
-      element.classList.remove("active");
-    }
-    if (heroEl) {
-      heroEl.classList.remove("active");
-    }
-    if (carousel) {
-      carousel.classList.remove("active");
-    }
-  };
   useEffect(() => {
-    getUser();
-    getClients();
-    getImages();
-    getNominations();
+    fetchData();
     window.addEventListener("scroll", fadeInScroll);
 
     return () => {
@@ -185,7 +138,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
     setCurrentImageIndex(newIndex);
   };
 
-  if (!user || !clients || !nominations || !images) {
+  if (!data.user || !data.clients || !data.nominations || !data.images) {
     return <div className="loading"></div>;
   }
   return (
@@ -196,7 +149,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
           <div className="about__background-container">
             <img
               src={hero[currentImageIndex]}
-              alt={user.full_name}
+              alt={data.user.full_name}
               className="about__background"
             />
           </div>
@@ -268,31 +221,31 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
         alt1="about"
         alt2="carousel"
         alt3="insta"
-        user={user}
-        clients={clients}
-        images={images}
+        user={data.user}
+        clients={data.clients}
+        images={data.images}
       />
 
       <div className="about__below">
-        <Marquee array={nominations} />
-        <Marquee array={clients} alt="alt" />
+        <Marquee array={data.nominations} />
+        <Marquee array={data.clients} alt="alt" />
         {show && (
           <div className="about__grid">
             <Grid
               alt1="about"
               alt2="carousel"
               alt3="insta"
-              user={user}
-              clients={clients}
-              images={images}
+              user={data.user}
+              clients={data.clients}
+              images={data.images}
             />
           </div>
         )}
 
         <div className="about__description">
           <Description
-            film={user}
-            part={user.description}
+            film={data.user}
+            part={data.user.description}
             alt="about"
             title="ABOUT"
           />

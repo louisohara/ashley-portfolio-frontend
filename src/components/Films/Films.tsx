@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import "./Films.scss";
-import { filmObject } from "../../types/interfaces/interfaces";
+import { FilmObject } from "../../types/interfaces/interfaces";
 
 interface FilmsProps {
-  films: filmObject[];
+  films: FilmObject[];
 }
 
 export default function Films({ films }: FilmsProps) {
@@ -21,7 +21,7 @@ export default function Films({ films }: FilmsProps) {
       }
     });
   };
-  const handleMouseEnter = (child: filmObject) => {
+  const handleMouseEnter = (child: FilmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
 
     if (image) {
@@ -29,7 +29,7 @@ export default function Films({ films }: FilmsProps) {
     }
   };
 
-  const handleMouseLeave = (child: filmObject) => {
+  const handleMouseLeave = (child: FilmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
 
     if (image) {
