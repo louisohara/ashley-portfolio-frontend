@@ -50,8 +50,10 @@ export default function Films({ films }: FilmsProps) {
         return (
           <li
             className={
-              i <= 5
+              i <= 2
                 ? "films__item films__item--alt"
+                : i < 5
+                ? "films__item films__item--hidden films__item--alt inView"
                 : "films__item films__item--hidden"
             }
             key={child.id}
@@ -63,23 +65,6 @@ export default function Films({ films }: FilmsProps) {
                   alt={`${child.title}`}
                   className={`films__image films__image--${child.id}`}
                 />
-                {/* {"video" in child && child.video && i === 1 ? (
-                  <iframe
-                    src={`${child.video}&controls=0&loop=1&volume=0&mute=1`}
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                    aria-controls="false"
-                  ></iframe>
-                ) : (
-                  <img
-                    src={child.image}
-                    alt={`${child.title}`}
-                    className={`films__image films__image--${child.id}`}
-                  />
-                )} */}
               </div>
               <span
                 className="films__overlay"

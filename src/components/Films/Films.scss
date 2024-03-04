@@ -57,11 +57,14 @@
     }
   }
   &__grid .films__item--hidden {
+    // @include mobile-only {
     visibility: hidden;
     &.inView {
       visibility: visible;
     }
+    // }
   }
+
   &__grid li:nth-child(4n + 1) {
     @include mobile-and-tablet {
       //   border: green 2px solid;
@@ -109,16 +112,16 @@
       animation-delay: 0.75s;
     }
   }
-  &__grid li:nth-child(4).films__item--alt .films__image-container,
-  &__grid li:nth-child(4).films__item--alt .films__overlay {
+  &__grid li:nth-child(4).films__item--alt.inView .films__image-container,
+  &__grid li:nth-child(4).films__item--alt.inView .films__overlay {
     @include tablet {
       animation-delay: 1s;
     }
   }
-  &__grid li:nth-child(5).films__item--alt .films__image-container,
-  &__grid li:nth-child(5).films__item--alt .films__overlay {
+  &__grid li:nth-child(5).films__item--alt.inView .films__image-container,
+  &__grid li:nth-child(5).films__item--alt .inView.films__overlay {
     @include tablet {
-      animation-delay: 1.5s;
+      animation-delay: 1.25s;
     }
     @include desktop {
       @include fadeRight;
@@ -127,7 +130,7 @@
   &__grid li:nth-child(6).films__item--alt .films__image-container,
   &__grid li:nth-child(6).films__item--alt .films__overlay {
     @include tablet {
-      animation-delay: 1.25s;
+      animation-delay: 1.5s;
     }
     // @include desktop {
     //   @include fadeRight;
