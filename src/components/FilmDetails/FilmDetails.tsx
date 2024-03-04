@@ -7,18 +7,28 @@ interface detailsProps {
 }
 
 export default function FilmDetails({ film, alt }: detailsProps) {
-  let bioClass = `details__bio details__bio--${alt}`;
+  let bioClass = `details__bio--${
+    film.bio.split(" ")[0]
+  } details__bio details__bio--${alt}`;
   if (film.bio.length < 100) {
-    bioClass = `details__bio details__bio--extra-short details__bio--${alt} details__bio--extra-short--${alt}`;
+    bioClass = `details__bio--${
+      film.bio.split(" ")[0]
+    } details__bio details__bio--extra-short details__bio--${alt} details__bio--extra-short--${alt}`;
   }
   if (film.bio.length < 150 && film.bio.length > 100) {
-    bioClass = `details__bio details__bio--short details__bio--${alt} details__bio--short--${alt}`;
+    bioClass = `details__bio--${
+      film.bio.split(" ")[0]
+    } details__bio details__bio--short details__bio--${alt} details__bio--short--${alt}`;
   }
   if (film.bio.length > 200) {
-    bioClass = `details__bio details__bio--long details__bio--${alt} details__bio--long--${alt}`;
+    bioClass = `details__bio--${
+      film.bio.split(" ")[0]
+    } details__bio details__bio--long details__bio--${alt} details__bio--long--${alt}`;
   }
   if (film.bio.length > 250) {
-    bioClass = `details__bio details__bio--extra-long details__bio--${alt} details__bio--extra-long--${alt}`;
+    bioClass = `details__bio--${
+      film.bio.split(" ")[0]
+    } details__bio details__bio--extra-long details__bio--${alt} details__bio--extra-long--${alt}`;
   }
   return (
     <section className={`details details--${alt}`}>

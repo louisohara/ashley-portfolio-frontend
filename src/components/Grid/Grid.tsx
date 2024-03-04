@@ -5,7 +5,7 @@ import Poster from "../Poster/Poster";
 import Title from "../Title/Title";
 import "./Grid.scss";
 import Instagram from "../Instagram/Instagram";
-import Nominations from "../Nominations/Nominations";
+import image from "../../assets/images/about3.jpeg";
 import Description from "../Description/Description";
 import {
   ClientObject,
@@ -72,7 +72,7 @@ export default function Grid({
             dimensions.width > 1024 && images ? (
               <Instagram alt="user" images={images[3]} />
             ) : (
-              <Poster film={user} image={user.image2} />
+              <Poster film={user} image={image} />
             )
           ) : (
             ""
@@ -136,10 +136,9 @@ export default function Grid({
           {film ? <Title text={film.title} alt="film" /> : ""}
           {user ? (
             dimensions.width > 1024 && images ? (
-              // <Instagram images={images} alt="user" />
               <Instagram alt="user" images={images[0]} />
             ) : (
-              <Title text="Director Creator Maker" alt="user" />
+              <Title text="Creator Director Filmmaker" alt="user" />
             )
           ) : (
             ""
@@ -149,7 +148,6 @@ export default function Grid({
           {film ? <FilmDetails film={film} alt="film" /> : ""}
           {user ? (
             dimensions.width > 1024 && images ? (
-              // <Nominations nominations={clients} alt="user" />
               <Instagram alt="user" images={images[1]} />
             ) : (
               <FilmDetails film={user} alt="user" />

@@ -142,7 +142,6 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   }
   return (
     <section className="app__section--about about">
-      {/* {!show && ( */}
       <div className="about__top">
         <div className="about__hero">
           <div className="about__background-container">
@@ -153,58 +152,39 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
             />
           </div>
         </div>
-        {/* )} */}
+
         <div className="about__container">
           <div className="about__left">
-            {/* {!show && ( */}
-            <>
-              <div className="about__carousel--outer">
-                <div className="about__carousel">
-                  <h1 className="about__inner">Director</h1>
-                  <h1 className="about__inner">Filmmaker</h1>
-                  <h1 className="about__inner">Creator</h1>
-                </div>
+            <div className="about__carousel--outer">
+              <div className="about__carousel">
+                <h1 className="about__inner">Director</h1>
+                <h1 className="about__inner">Filmmaker</h1>
+                <h1 className="about__inner">Creator</h1>
               </div>
+            </div>
 
-              <div className="about__wrapper">
-                <p className="about__bio ">
-                  Documentary filmmaker Ashley Francis-Roy makes distinctive,
-                  warm and authentic films. His work is emotionally engaging,
-                  intimate, and full of joy and humanity.
-                </p>
-                <p className="about__representation">
-                  <span className="about__representation">
-                    Ashley is represented by{" "}
-                    <a
-                      href="https://www.missinglinkfilms.co.uk/"
-                      className="about__link"
-                    >
-                      Missing Link Films
-                    </a>{" "}
-                    for commercials and branded content.
-                  </span>
-                </p>
-              </div>
-            </>
+            <div className="about__wrapper">
+              <p className="about__bio ">
+                Documentary filmmaker Ashley Francis-Roy makes distinctive, warm
+                and authentic films. His work is emotionally engaging, intimate,
+                and full of joy and humanity.
+              </p>
+              <p className="about__representation">
+                <span className="about__representation">
+                  Ashley is represented by{" "}
+                  <a
+                    href="https://www.missinglinkfilms.co.uk/"
+                    className="about__link"
+                  >
+                    Missing Link Films
+                  </a>{" "}
+                  for commercials and branded content.
+                </span>
+              </p>
+            </div>
           </div>
 
           <div className="about__buttons">
-            {/* <div className="about__button-container"> */}
-            {/* {!show ? (
-                <button className="about__button " onClick={fadeInScroll}>
-                  Read more
-                </button>
-              ) : (
-                <button
-                  className="about__button about__button--alt"
-                  onClick={handleClose}
-                >
-                  Return
-                </button>
-              )} */}
-
-            {/* </div> */}
-
             <div className="about__button-container">
               <a href="/contact" className="about__button">
                 Get in Touch
@@ -213,7 +193,6 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
           </div>
         </div>
         {!show ? <Scroll handleScroll={fadeInScroll} alt="user" /> : ""}
-        {/* )} */}
       </div>
       {/* MOBILE VIEW */}
       <Grid

@@ -33,6 +33,11 @@
     // EDIT
     // text-align: right;
     text-align: left;
+    @include mobile-and-tablet {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
     &--user {
       text-align: right;
     }
@@ -115,11 +120,14 @@
     }
   }
   &--user {
-    @include mobile-only {
-      align-items: center;
-      justify-content: flex-start;
-    }
     @include mobile-and-tablet {
+      align-items: center;
+      justify-content: center;
+
+      .title__longword {
+        font-size: 70%;
+      }
+
       // background-color: none;
       // color: $hover-colour;
       color: $white;
@@ -133,18 +141,22 @@
   }
   &__title--user {
     @include mobile-only {
-      font-size: 10.5vw;
+      font-size: 11vw;
     }
     @include tablet-only {
       font-size: 10vw;
     }
-    @include mobile-and-tablet {
-      // text-align: right;
+  }
+  &__firstWord--user {
+    display: block;
+    // font-size: 80%;
+    + span {
+      font-size: 90%;
     }
   }
   &__longword {
-    @include mobile-only {
-      // font-size: calc(70%);
+    @include mobile-and-tablet {
+      display: flex;
     }
   }
   &__Greatest {
@@ -175,11 +187,7 @@
       font-size: 9.5vw;
     }
   }
-  &__Guthrie {
-    @include mobile-only {
-      font-size: 6.5vw;
-    }
-  }
+
   &__is {
     @include mobile-only {
       font-size: 9.5vw;
@@ -190,9 +198,11 @@
   }
   &__Real {
     @include mobile-only {
-      font-size: 9.15vw;
+      font-size: 15.5vw;
+
       & .title__longword {
-        font-size: 85%;
+        font-size: 50%;
+        display: flex;
       }
       & .title__firstWord--film {
         display: block;
@@ -201,18 +211,16 @@
   }
   &__A {
     @include mobile-only {
-      font-size: 10.1vw;
+      font-size: 13.5vw;
       .title__firstWord--film {
-        font-size: 75%;
+        font-size: 50%;
         & + span {
           display: block;
         }
       }
     }
   }
-  &__firstWord--user {
-    display: block;
-  }
+
   &__undefined {
     @include desktop {
       font-size: 6.5vw;
