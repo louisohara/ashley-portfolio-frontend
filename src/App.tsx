@@ -7,8 +7,8 @@ import HomePage from "./pages/HomePage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ContactPage from "./pages/ContactPage";
-import AboutPage from "./pages/AboutPage";
-import FilmPage from "./pages/FilmPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import FilmPage from "./pages/FilmPage/FilmPage";
 import { backendUrl, FilmObject } from "./types/interfaces/interfaces";
 
 function App() {

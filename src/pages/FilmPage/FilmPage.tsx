@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Grid from "../components/Grid/Grid";
-import "./Film.scss";
-import Scroll from "../components/Scroll/Scroll";
-import { backendUrl } from "../types/interfaces/interfaces";
+import Grid from "../../components/Grid/Grid";
+import "./FilmPage.scss";
+import Scroll from "../../components/Scroll/Scroll";
+import { backendUrl } from "../../types/interfaces/interfaces";
 
 interface FilmPageProps {
   isLoggedIn: boolean;

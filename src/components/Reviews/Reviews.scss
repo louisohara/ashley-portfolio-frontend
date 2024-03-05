@@ -11,7 +11,7 @@
     @include tablet {
       padding: 1rem;
     }
-    // @include tablet
+
     margin: 0.25rem 0;
 
     &--last {
@@ -95,9 +95,6 @@
       @include tablet-only {
         margin-bottom: 1.5rem;
       }
-      // @include desktop {
-      //   margin-bottom: 0.5rem;
-      // }
     }
   }
   &__image {
@@ -109,9 +106,7 @@
       max-height: 1.5rem;
       width: auto;
     }
-    // &--TV {
-    //   filter: invert(1);
-    // }
+
     @include mobile-only {
       max-height: 1.5rem;
     }
@@ -142,7 +137,7 @@
     }
   }
 }
-// quotation marks
+
 q::before {
   font-family: Georgia, "Times New Roman", Times, serif;
   content: open-quote;

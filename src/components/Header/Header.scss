@@ -2,12 +2,9 @@
 @use "../../styles/variables" as *;
 
 .header {
-  // border-bottom: 3px solid $transparent-colour;
-
   zoom: 0.85;
   z-index: 10;
   position: relative;
-  // transition: position 0.5s ease-in-out, background-color 0.5s ease-in-out;
 
   &.fixedToTop {
     position: fixed;
@@ -22,16 +19,15 @@
   &.active {
     backdrop-filter: none;
   }
-  // fixed scroll animation end
+
   &__container {
-    // padding-top: 1rem;
     @include screenWidth;
   }
   &__navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding: 0 1.5rem;
+
     @include mobile-only {
       padding: 1rem 0.5rem 0 0.5rem;
     }
@@ -87,7 +83,6 @@
         @include fadeTop;
         .header__item--film:nth-child(n) {
           @include fadeRight;
-          // TARGETS THE LIST
         }
         transition: background-color 0.5s;
       }
@@ -153,14 +148,8 @@
         font-size: 1.1rem;
       }
       @include tablet {
-        // margin: 1.5rem 2rem; THIS IS TO MINIMISE SIZE SO SCREEN SPACE IS ENLARGED
         margin: 1.5rem 2rem;
-        // background-color: $white;
       }
-      //   &:hover {
-      //     // cursor: unset;
-      //     // color: unset;
-      //   }
     }
   }
   &__left {
@@ -168,14 +157,9 @@
   }
   &__logo {
     font-size: 3rem;
-    // background-image: url(../../assets/images/background.png);
-    // -webkit-text-stroke-width: 1px;
-    // color: $white;
+
     color: $hover-colour;
-    // -webkit-text-stroke-color: $hover-colour;
-    // @include underline(-0.5rem);
-    // text-shadow: 10px 10px 0 $hover-colour, -10px 10px 0 $hover-colour,
-    //   -10px -10px 0 $hover-colour, 10px -10px 0 $hover-colour;
+
     transition: all 0.25s;
     @include tablet {
       padding: 0.5rem 0 0 0;
@@ -196,8 +180,7 @@
     width: auto;
     position: relative;
     z-index: 6;
-    // @include filterWhiteToColour;
-    // color: $hover-colour;
+
     &:hover {
       text-shadow: none;
       color: $button-colour;
@@ -220,17 +203,6 @@
     @include mobile-only {
       position: relative;
       font-size: 0.9rem;
-
-      // &::before {
-      // content: " ";
-      // width: 150px;
-      // height: 10px;
-      // border-bottom: 2px solid;
-      // position: absolute;
-      // top: -0.2rem;
-      // font-size: 2rem;
-      // left: -155px;
-      // }
     }
   }
   &__inner {
@@ -279,9 +251,7 @@
     display: none;
   }
   position: absolute;
-  //   @include mobile-and-tablet {
-  //     right: -1.5rem;
-  //   }
+
   right: -2rem;
   top: 0.25rem;
   width: 50%;

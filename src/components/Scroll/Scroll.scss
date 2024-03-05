@@ -5,7 +5,6 @@ $total-arrows: 3;
 $arrow-line-length: 31px;
 $arrow-line-width: 4px;
 
-// arrow animtion + choose direction
 @mixin arrow-transitions($rot: 0deg) {
   transform: translate(-50%, -50%) rotateZ($rot);
 }
@@ -23,9 +22,6 @@ $arrow-line-width: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      // color: $button-colour;
-      // font-size: 2.5vw;
       &--user {
         width: 27.5%;
         bottom: -80%;
@@ -37,7 +33,7 @@ $arrow-line-width: 4px;
     display: block;
     width: 50px;
     height: 100px;
-    //   position: absolute;
+
     bottom: 0;
     @include arrow-transitions(0deg);
     &:hover {
@@ -67,7 +63,6 @@ $arrow-line-width: 4px;
       background: $hover-colour;
       width: $arrow-line-width;
       height: $arrow-line-length;
-      // border-radius: 5px;
       transform: translate(-50%, -50%) rotateZ(-55deg);
     }
     &:after {

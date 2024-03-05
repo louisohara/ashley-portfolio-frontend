@@ -83,8 +83,6 @@
     -webkit-text-stroke-width: 0.75px;
     color: $white;
     -webkit-text-stroke-color: $black;
-    // text-shadow: 5px 2px 0 $hover-colour, -5px 2px 0 $hover-colour,
-    //   -5px -2px 0 $hover-colour, 5px -2px 0 $hover-colour;
   }
   &__text {
     justify-content: center;
@@ -92,8 +90,5 @@
     max-width: 95%;
     flex: 1;
     font-size: calc($size-text + 1%);
-    // @include mobile-and-tablet {
-    //   font-size: 0.5rem;
-    // }
   }
 }

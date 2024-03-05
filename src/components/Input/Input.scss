@@ -65,9 +65,8 @@
   input[type="text"],
   input[type="email"],
   textarea {
-    /* Resetting default styles */
     appearance: none;
     border-radius: 0;
-    -webkit-appearance: none; /* Removes iOS border-radius and shadow */
+    -webkit-appearance: none;
   }
 }

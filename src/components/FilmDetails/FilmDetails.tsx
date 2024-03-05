@@ -45,9 +45,6 @@ export default function FilmDetails({ film, alt }: detailsProps) {
           )}
           {("production" in film || "streamingLogo" in film) && (
             <li className="details__wrapper">
-              {/* {"production" in film && film.production && (
-                <span className="details__production">{film.production}</span>
-              )} */}
               {"streamingLogo" in film && film.streamingLogo && (
                 <div className="details__image-container">
                   {film.link ? (

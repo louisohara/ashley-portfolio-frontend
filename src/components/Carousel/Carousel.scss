@@ -4,39 +4,12 @@
 .carousel {
   width: 100%;
   overflow: hidden;
-  // &--film {
-  //   @include desktop {
-  //     width: 100%;
-  //   }
-  // }
-  // @include mobile-only {
-  //   @include logoBackground;
-  //   filter: contrast(1);
-  //   filter: brightness(1);
-  // }
-  // &__slide {
-  //   width: 100%;
-  //   @include mobile-only {
-  //     position: relative;
-  //     transform: scale(0.9);
-  //   }
-  // }
-  // EDIT
   backdrop-filter: blur(16px);
   background-color: $transparent-colour-2;
 
-  @include mobile-and-tablet {
-    // EDIT
-    // border: 1px solid $button-colour;
-    // END EDIT
-    // background-color: $bg-light;
-  }
   &--user {
     position: relative;
     z-index: 2;
-    @include desktop {
-      // background-color: $bg-light;
-    }
   }
   &__slide {
     height: 100%;
@@ -49,14 +22,8 @@
       backdrop-filter: blur(5px);
       padding-top: 1.5rem;
     }
-    // EDIT
-    @include desktop {
-      // background-color: $white;
-    }
   }
-  // &__content--nomination {
-  //   // padding: 2rem 1rem 0rem 1rem;
-  // }
+
   &__content--nomination,
   &__content--collaborators,
   &__content--description,
@@ -70,9 +37,7 @@
     justify-content: center;
     margin: 1rem;
   }
-  // &__content--collaborators {
-  //  //WRITE CODE
-  // }
+
   &__content--review {
     padding: 1rem;
     @include mobile-only {
@@ -99,7 +64,6 @@
       padding: 0;
       margin: 0;
       height: 100%;
-      // border: 3px solid $hover-colour;
     }
   }
 
@@ -125,7 +89,7 @@
     height: 100%;
     display: block !important;
   }
-  //   controls placement of dots
+
   &-dots {
     bottom: 0.5rem;
     @include tablet {
@@ -135,7 +99,6 @@
       bottom: -0.25rem;
     }
     li {
-      // background-color: $white;
       border-radius: 50%;
       padding: 0;
       margin: 0;
@@ -151,7 +114,6 @@
     margin: auto;
   }
 
-  //   CONTROLS THE HEIGHT / (VIEW) OF THE CAROUSEL - RELATED TO THE PADDING OF CAROUSEL__CONTENT
   &-list,
   &-track,
   &-slide.slick-active.slick-current > div:first-child,
@@ -160,12 +122,11 @@
   }
 }
 
-// controls the border movement - .nomination is on the individual article
 .carousel__content--description,
 .carousel__content--review,
 .carousel__content--collaborators {
   position: relative;
-  // @include filterWhiteToColour;
+
   &:hover {
     filter: none;
   }
@@ -274,12 +235,7 @@
     height: calc(50% / 2);
   }
 }
-// .carousel__content--nomination,
-// .carousel__content--insta {
-//   @include desktop {
-//     border: 2px solid $hover-colour;
-//   }
-// }
+
 .grid--alt .carousel--alt .carousel__content {
   border: none;
   &--insta {

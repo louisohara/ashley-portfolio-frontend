@@ -2,8 +2,6 @@
 @use "../../styles/variables" as *;
 
 .marquee {
-  //   @include dottedBackground(3, 50);
-  //   background-color: $white;
   height: 100%;
   overflow: hidden;
   width: 100%;

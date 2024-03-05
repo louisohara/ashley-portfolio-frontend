@@ -3,8 +3,6 @@
 
 .grid {
   @include desktop {
-    // padding-top: 0.5rem; MAXIMISING SPACE
-    // width: 90%;
     zoom: 0.9;
   }
   @include desktop {
@@ -15,13 +13,9 @@
       height: unset;
     }
     &--user {
-      // visibility: hidden;
-      // width: 0;
-      // height: 0;
       display: none;
       .about__grid.inView & {
         @include desktop {
-          // visibility: visible;
           display: flex;
           align-items: flex-end;
           justify-content: center;
@@ -41,30 +35,19 @@
   }
   &--alt {
     margin-top: 2rem;
-    // width: 100%;
+
     width: 40%;
   }
   transition: all 0.5s;
-  @include mobile-and-tablet {
-    // background-color: $white;
-  }
+
   &__undercolour {
     position: fixed;
     z-index: -1;
-    // display: none;
+
     height: 50%;
     width: 49.5%;
-
-    // @include stripedBackground(-45deg);
-    // background: linear-gradient(
-    //     -205deg,
-    //     rgba(255, 255, 255, 0.8),
-    //     rgba(255, 0, 0, 0) 100%
-    //   ),
-    //   linear-gradient(-45deg, rgba(255, 240, 243, 1), rgba(0, 255, 0, 0) 100%),
-    //   linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 255, 0) 100%);
     background-color: $bg-light;
-    // @include logoBackground;
+
     @include mobile-only {
       width: 100%;
       height: 15%;
@@ -72,7 +55,6 @@
       display: none;
     }
     &--user {
-      // @include stripedBackground(45deg);
       top: 0;
       left: 0;
       @include fadeTop;
@@ -80,43 +62,24 @@
       display: none;
     }
     &--film {
-      // EDIT
-      // top: 0;
-      // left: 0;
       bottom: 0;
       right: 0;
       @include fadeRight;
-      // filter: brightness(1);
+
       mask-image: linear-gradient(
         to top left,
         rgba(255, 255, 255, 0.2) 0%,
         transparent 80%
       );
-      // END EDIT
     }
     &--two {
-      // @include dottedBackground(3, 50);
-      // background: linear-gradient(
-      //     205deg,
-      //     rgba(255, 255, 255, 0.8),
-      //     rgba(255, 0, 0, 0) 100%
-      //   ),
-      //   linear-gradient(45deg, rgba(255, 240, 243, 1), rgba(0, 255, 0, 0) 100%),
-      //   linear-gradient(
-      //     -45deg,
-      //     rgba(255, 255, 255, 0.8),
-      //     rgba(0, 0, 255, 0) 100%
-      //   );
       position: fixed;
-      // @include logoBackground;
-      // background-color: $bg-light;
+
       @include fadeLeft;
-      // EDIT
-      // bottom: 0;
-      // right: 0;
+
       top: 0;
       left: 0;
-      // end edit
+
       width: 50%;
       height: 50%;
       z-index: -2;
@@ -131,7 +94,7 @@
         top: 0;
         left: unset;
         @include fade(0.5s);
-        // animation-delay: 1.25s;
+
         width: 100%;
         height: 100%;
         mask-image: linear-gradient(
@@ -141,24 +104,20 @@
           transparent 80%,
           rgba(255, 255, 255, 0.2) 100%
         );
-        // background: $bg-light;
+
         display: none;
       }
-      // &--alt {
-      //   @include stripedBackground(-45deg);
-      // }
+
       @include mobile-only {
         @include fadeBottom;
         height: 15%;
         width: 100%;
         top: -2%;
-        // display: none;
       }
     }
   }
 
   &__list {
-    // border: red 2px solid;
     padding-left: 0;
     display: grid;
     grid-template-columns: repeat(
@@ -171,7 +130,7 @@
   }
   &__list--about {
     grid-template-rows: repeat(auto-fit, minmax(calc((100% / 10) - 15px), 1fr));
-    // background-color: $white;
+
     width: 100%;
   }
   &__list--film {
@@ -179,9 +138,8 @@
     column-gap: 12.5px;
     row-gap: 12.5px;
   }
-  //   padding bottom controls the vertical stretch of the item
+
   &__item {
-    // background-color: $white;
     position: relative;
     display: flex;
 
@@ -204,18 +162,14 @@
   &--user &__item {
     z-index: 1;
     &:before {
-      // @include mobile-and-tablet {
       padding-bottom: calc(12 / 16 * 100%);
-      // }
     }
     &--about:before {
-      // controls the height of everything
       padding-bottom: 65%;
       @include tablet-only {
         padding-bottom: calc(9 / 16 * 100%);
       }
     }
-    // height: 100%;
   }
   &--film &__item {
     @include fadeTop;
@@ -232,8 +186,6 @@
         &.active {
           display: flex;
           @include fadeBottom;
-          // flex-direction: row-reverse;
-          // justify-content: space-between;
         }
       }
     }
@@ -246,45 +198,34 @@
   }
   &__list .grid__item:nth-child(1) {
     grid-column: span 10;
-    // border: green 2px solid;
-    // visibility: hidden;
+
     @include desktop {
-      // @include fadeLeft;
       grid-column: span 6;
 
-      // EDIT
-      // grid-row: span 1;
-      // @include fadeLeft;
       @include fadeLeft;
       grid-row: span 2;
       order: 1;
-      // END EDIT
     }
   }
 
   &__list .grid__item:nth-child(2) {
     grid-column: span 10;
-    // border: pink 2px solid;
+
     @include mobile-and-tablet {
       order: 4;
       @include fadeTop;
     }
     @include desktop {
       grid-row: span 1;
-      // EDIT
-      // grid-column: span 4;
-      // @include fadeTop;
-      // @include fadeBottom;
+
       animation-delay: 0.25s;
       grid-column: span 10;
       order: 4;
-      // END EDIT
     }
   }
   &__list .grid__item:nth-child(3),
   &__list .grid__item:nth-child(4) {
     @include mobile-and-tablet {
-      // width: 80%;
       width: 100%;
       grid-column: span 5;
     }
@@ -299,13 +240,10 @@
     @include desktop {
       grid-column: span 4;
       grid-row: span 1;
-      //EDIT
-      // @include fadeBottom;
-      // animation-delay: 1.25s;
+
       @include fadeRight;
       animation-delay: 0.25s;
       order: 2;
-      // END EDIT
     }
   }
 
@@ -318,19 +256,17 @@
     animation-delay: 1s;
 
     @include desktop {
-      // EDIT
       @include fadeBottom;
       animation-delay: 1.25s;
-      // grid-column: span 6;
+
       order: 3;
       grid-column: span 4;
-      // END EDIT
+
       grid-row: span 1;
       padding-bottom: 0;
     }
   }
   &__list--about .grid__item:nth-child(n) {
-    // background-color: yellow;
     @include desktop {
       grid-column: span 5;
     }
@@ -343,30 +279,22 @@
     }
     z-index: 1;
     @include desktop {
-      // order: 2;
-      // box-shadow: -15px 15px 0px 0px $bg-dark;
-
       @include fadeTop;
-      // animation-delay: 0.5s;
+
       animation-delay: 0.5s;
 
-      // grid-row: span 7;
       grid-row: span 7;
       order: 2;
     }
   }
   &__list--about .grid__item:nth-child(2) {
-    // z-index: 1;
-
     @include desktop {
-      // border: 2px solid $button-colour;
       background-color: $white;
       @include fadeBottom;
       animation-delay: 0.5s;
 
       order: 3;
-      // animation-delay: 0.5s;
-      // grid-row: span 8;
+
       grid-row: span 7;
     }
   }
@@ -382,17 +310,13 @@
     order: 2;
 
     @include desktop {
-      // animation-delay: 1.25s;
       animation-delay: 1s;
       order: 1;
-      // grid-row: span 2;
+
       grid-row: span 3;
     }
   }
   &__list--about .grid__item:nth-child(4) {
-    // @include fadeRight;
-    // animation-delay: 0.75s;
-
     order: 1;
     height: 100%;
     @include desktop {
@@ -400,11 +324,10 @@
 
       border: none;
       order: 4;
-      // grid-row: span 3;
+
       grid-row: span 3;
       @include fadeRight;
       animation-delay: 1s;
-      // animation-delay: 1.25s;
     }
   }
 }

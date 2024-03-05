@@ -8,7 +8,7 @@
   width: 100%;
   padding: 0 0.25rem;
   height: 100%;
-  // overflow: scroll;
+
   overflow-wrap: break-word;
 
   &::-webkit-scrollbar {
@@ -17,21 +17,18 @@
   &--film {
     @include mobile-and-tablet {
       background-color: $hover-colour;
-      // color: $hover-colour;
+
       color: $white;
     }
   }
   @include desktop {
-    color: $black;
     -webkit-text-stroke-width: 1px;
-
     color: $hover-colour;
     -webkit-text-stroke-color: $hover-colour;
   }
   &__title {
     margin: 0;
-    // EDIT
-    // text-align: right;
+
     text-align: left;
     @include mobile-and-tablet {
       display: flex;
@@ -83,7 +80,6 @@
         font-size: 6.5vw;
       }
       @include desktop {
-        // font-size: 4.5rem;
         font-size: 5.2vw;
       }
       @include desktopLarge {
@@ -129,8 +125,6 @@
         font-size: 70%;
       }
 
-      // background-color: none;
-      // color: $hover-colour;
       color: $white;
       background-color: $hover-colour;
       border: 3px solid $hover-colour;
@@ -150,7 +144,7 @@
   }
   &__firstWord--user {
     display: block;
-    // font-size: 80%;
+
     + span {
       font-size: 90%;
     }

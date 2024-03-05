@@ -5,10 +5,9 @@
   z-index: 0;
 
   color: $white;
-  // position: absolute;
-  // bottom: 0;
+
   width: 100%;
-  // padding: 1rem 0;
+
   @include desktop {
     margin-top: 0.75rem;
   }
@@ -49,6 +48,5 @@
     font-size: 0.75rem;
     width: fit-content;
     color: $black;
-    // background-color: $white;
   }
 }

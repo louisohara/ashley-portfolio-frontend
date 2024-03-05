@@ -23,7 +23,7 @@ export default function HomePage({
   return (
     <section className="app__section app__section--home">
       <Films films={films} />
-      {/* <p>This is the homepage</p>
+      {/* 
         {isLoggedIn ? (
           <div className="home__logged-in">
             <p>I'm logged in </p>
