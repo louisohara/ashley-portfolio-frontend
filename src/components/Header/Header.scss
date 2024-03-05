@@ -166,6 +166,7 @@
     }
     @include mobile-only {
       font-size: 8.5vw;
+      margin: 0;
       .header.active & {
         text-shadow: none;
         color: $hover-colour;
