@@ -48,7 +48,7 @@ export default function FilmDetails({ film, alt }: detailsProps) {
               {"streamingLogo" in film && film.streamingLogo && (
                 <div className="details__image-container">
                   {film.link ? (
-                    <a href={film.link} className="film__link">
+                    <a href={film.link} className="details__link">
                       <img
                         src={film.streamingLogo}
                         alt="production company"

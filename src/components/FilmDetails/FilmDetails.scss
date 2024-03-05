@@ -42,9 +42,9 @@
   }
 
   &__top {
-    -webkit-filter: brightness(0) saturate(100%) invert(22%) sepia(98%)
-      saturate(7492%) hue-rotate(321deg) brightness(106%) contrast(104%);
-    @include filterWhiteToColour;
+    // -webkit-filter: brightness(0) saturate(100%) invert(22%) sepia(98%)
+    //   saturate(7492%) hue-rotate(321deg) brightness(106%) contrast(104%);
+    // @include filterWhiteToColour;
     padding-left: 0;
     list-style-type: none;
     display: flex;
@@ -56,12 +56,13 @@
     & li {
       text-decoration: none;
       margin: 0;
-      color: $hover-colour;
     }
   }
   &__role {
     font-weight: 500;
-
+    -webkit-filter: brightness(0) saturate(100%) invert(22%) sepia(98%)
+      saturate(7492%) hue-rotate(321deg) brightness(106%) contrast(104%);
+    @include filterWhiteToColour;
     @include mobile-only {
       max-width: 65%;
     }
@@ -88,6 +89,9 @@
     text-align: right;
   }
   &__length {
+    -webkit-filter: brightness(0) saturate(100%) invert(22%) sepia(98%)
+      saturate(7492%) hue-rotate(321deg) brightness(106%) contrast(104%);
+    @include filterWhiteToColour;
     @include mobile-only {
       display: none;
     }
