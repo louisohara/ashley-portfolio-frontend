@@ -52,8 +52,7 @@
       font-size: 8.5vw;
     }
     @include desktop {
-      // font-size: 4.5rem;
-      font-size: 4.1vw;
+      font-size: 4.6vw;
     }
     @include desktopLarge {
       font-size: 5.5rem;
@@ -80,7 +79,7 @@
         font-size: 6.5vw;
       }
       @include desktop {
-        font-size: 5.2vw;
+        font-size: 5.7vw;
       }
       @include desktopLarge {
         font-size: 4.5rem;
@@ -94,7 +93,7 @@
         font-size: 7.4vw;
       }
       @include desktop {
-        font-size: 4.8vw;
+        font-size: 5.3vw;
       }
       @include desktopLarge {
         font-size: 4.5rem;
@@ -109,7 +108,7 @@
         font-size: 6.9vw;
       }
       @include desktop {
-        font-size: 3.9vw;
+        font-size: 4.4vw;
       }
       @include desktopLarge {
         font-size: 4.5rem;
@@ -156,7 +155,7 @@
   }
   &__Greatest {
     @include desktop {
-      font-size: 4.1vw;
+      font-size: 4.6vw;
     }
   }
   &__in {
@@ -180,6 +179,9 @@
   &__Lee {
     @include mobile-only {
       font-size: 9.5vw;
+    }
+    @include desktop {
+      font-size: 4.1vw;
     }
   }
 
@@ -219,7 +221,7 @@
 
   &__undefined {
     @include desktop {
-      font-size: 6.5vw;
+      font-size: 9vw;
     }
   }
   &__Not {
