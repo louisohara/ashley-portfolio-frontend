@@ -192,7 +192,7 @@
   &__is {
     display: block;
     @include mobile-only {
-      font-size: 9.5vw;
+      font-size: 10.5vw;
     }
     @include desktop {
       font-size: 6vw;
@@ -200,7 +200,7 @@
   }
   &__Real {
     @include mobile-only {
-      font-size: 16vw;
+      font-size: 17.5vw;
 
       & .title__longword {
         font-size: 44%;
@@ -213,7 +213,7 @@
   }
   &__A {
     @include mobile-only {
-      font-size: 13.5vw;
+      font-size: 14.25vw;
       .title__firstWord--film {
         font-size: 50%;
         & + span {

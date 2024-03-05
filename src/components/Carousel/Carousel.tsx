@@ -7,7 +7,7 @@ import Reviews from "../Reviews/Reviews";
 import Description from "../Description/Description";
 import Nominations from "../Nominations/Nominations";
 import Instagram from "../Instagram/Instagram";
-import Poster from "../Poster/Poster";
+
 import {
   ClientObject,
   CollaboratorsObject,
@@ -48,7 +48,7 @@ export default function Carousel({
     // controls slide scroll duration
     speed: 800,
     // controls slide stay duration
-    autoplaySpeed: 5000,
+    autoplaySpeed: 10800,
     pauseOnHover: true,
     cssEase: "linear",
     swipeToSlide: true,

@@ -12,6 +12,7 @@ import {
   ImageObject,
   NominationsObject,
   backendUrl,
+  instagramUrl,
   UserObject,
 } from "../types/interfaces/interfaces";
 import Scroll from "../components/Scroll/Scroll";
@@ -40,8 +41,6 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   });
   const [show, setShow] = useState(false);
 
-  const { user, clients, images, nominations } = data;
-
   const filteredImage = (array: Image[]): ImageObject[] => {
     return array.map((image: Image): ImageObject => {
       if ("thumbnailUrl" in image && image.thumbnailUrl) {
@@ -67,7 +66,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
         await Promise.all([
           axios.get(`${backendUrl}/api/users/1`),
           axios.get(`${backendUrl}/api/clients`),
-          axios.get("https://feeds.behold.so/yYXOpO4nOkfo6LH0vl7d"),
+          axios.get(instagramUrl),
           axios.get(`${backendUrl}/api/nominations/unique`),
         ]);
 
@@ -127,7 +126,7 @@ export default function AboutPage({ isLoggedIn }: AboutPageProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNextSlide();
-    }, 10000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [currentImageIndex]);

@@ -2,12 +2,9 @@
 @use "../../styles/variables" as *;
 
 .details {
-  //   @include filterWhiteToColour;
-  // EDIT
-  // color: $button-colour;
   color: $black;
   background-color: $white;
-  // END EDIT
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,39 +15,29 @@
       display: none;
     }
     @include desktop {
-      // EDIT
       background-color: $white;
       border: 3px solid $hover-colour;
-      // background-color: $white;
+
       color: $black;
 
-      // color: $white;
-      // background-color: $button-colour;
-      // END EDIT
       overflow: hidden;
     }
   }
   &__link {
     text-decoration: none;
     color: unset;
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.5s;
+      color: $button-colour;
+    }
   }
   &--user {
     padding: 0.5rem;
     font-weight: 500;
-    // @include desktop {
-    //   justify-content: flex-start;
-    //   // // background-color: $white;
-    //   // color: $black;
-    //   // // background-color: $hover-colour;
-    //   // // color: $white;
-    //   height: fit-content;
-    // }
 
     @include mobile-and-tablet {
       font-weight: 400;
-      // background-color: $hover-colour;
-      // color: $white;
-      // color: $hover-colour;
     }
   }
 
@@ -67,7 +54,7 @@
     & li {
       text-decoration: none;
       margin: 0;
-      color: $black;
+      color: $hover-colour;
     }
   }
   &__role {
@@ -106,7 +93,7 @@
   &__image {
     max-height: 2rem;
     max-width: calc(5rem + 5%);
-    transition: transform 0.5s;
+
     display: block;
     @include filterWhiteToColour;
 
@@ -117,15 +104,11 @@
     @include mobile-only {
       max-width: 3.25rem;
     }
-    &:hover {
-      transform: scale(1.1);
-    }
   }
   &__bio {
     margin: 0.5rem 0;
     &--user {
       margin: 0;
-      // text-align: right;
     }
     @include mobile-only {
       font-size: 3vw;

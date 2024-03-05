@@ -162,7 +162,6 @@ function Contact() {
                   className={`contact__textarea field__input field__input--textarea ${
                     error && !fields.message ? "field__input--error" : ""
                   }`}
-                  // type="textarea"
                   name="message"
                   id="message"
                   onChange={handleChange}

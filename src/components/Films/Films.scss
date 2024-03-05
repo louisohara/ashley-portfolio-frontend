@@ -2,23 +2,7 @@
 @use "../../styles/variables" as *;
 
 .films {
-  // margin-top: 4.5rem;
-  // background-color: $transparent-colour-2;
-  // @include desktop {
-  // width: 110%;
-  // margin-left: -5%;
-  // backdrop-filter: blur(1px);
-  // @include mobile-only {
-  //   transform: scale(0.9);
-  // }
-  // }
   &__grid {
-    // @include desktop {
-    //   // padding: 1rem;
-    //   // padding-left: 5%;
-    //   width: 90%;
-    //   margin: auto;
-    // }
     padding: 0;
     display: grid;
     grid-template-columns: repeat(
@@ -43,31 +27,25 @@
   &__grid li:nth-child(3n + 2),
   &__grid li:nth-child(3n + 3) {
     @include tablet {
-      //   border: red 2px solid;
       grid-column: span 1;
       grid-row: span 1;
     }
   }
   &__grid li:nth-child(n) {
     @include mobile-only {
-      //   border: green 2px solid;
-
       grid-column: span 3;
       grid-row: span 3;
     }
   }
   &__grid .films__item--hidden {
-    // @include mobile-only {
     visibility: hidden;
     &.inView {
       visibility: visible;
     }
-    // }
   }
 
   &__grid li:nth-child(4n + 1) {
     @include mobile-and-tablet {
-      //   border: green 2px solid;
       grid-column: span 3;
       grid-row: span 3;
     }
@@ -76,7 +54,6 @@
   &__grid li:nth-child(6n + 1),
   &__grid li:nth-child(6n + 5) {
     @include desktop {
-      //   border: blue 2px solid;
       grid-column: span 2;
       grid-row: span 2;
     }
@@ -97,6 +74,9 @@
   }
   &__grid li:nth-child(1).films__item--alt .films__image-container,
   &__grid li:nth-child(1).films__item--alt .films__overlay {
+    @include mobile-only {
+      @include fadeBottom;
+    }
     @include desktop {
       @include fadeLeft;
     }
@@ -104,13 +84,17 @@
 
   &__grid li:nth-child(2).films__item--alt .films__image-container,
   &__grid li:nth-child(2).films__item--alt .films__overlay {
+    @include mobile-only {
+      @include fadeBottom;
+    }
     animation-delay: 0.5s;
   }
   &__grid li:nth-child(3).films__item--alt .films__image-container,
   &__grid li:nth-child(3).films__item--alt .films__overlay {
-    @include tablet {
-      animation-delay: 0.75s;
+    @include mobile-only {
+      @include fadeBottom;
     }
+    animation-delay: 0.75s;
   }
   &__grid li:nth-child(4).films__item--alt.inView .films__image-container,
   &__grid li:nth-child(4).films__item--alt.inView .films__overlay {
@@ -132,11 +116,7 @@
     @include tablet {
       animation-delay: 1.5s;
     }
-    // @include desktop {
-    //   @include fadeRight;
-    // }
   }
-  // fade in delay end
 
   &__grid li:nth-child(n).inView .films__image-container,
   &__grid li:nth-child(n).inView .films__overlay {
@@ -147,7 +127,6 @@
     }
   }
 
-  // fadein on scroll from left animation
   &__grid li:nth-child(6n + 1).inView .films__image-container,
   &__grid li:nth-child(6n + 1).inView .films__overlay {
     @include desktop {

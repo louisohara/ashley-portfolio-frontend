@@ -67,3 +67,6 @@ export type Params =
 
 export const backendUrl: string =
   "https://ashley-portfolio-backend-9886eb2ea612.herokuapp.com";
+
+export const instagramUrl: string =
+  "https://feeds.behold.so/yJrGA0gr3aRuzBX8v8Qp";
