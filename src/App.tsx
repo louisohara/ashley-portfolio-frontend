@@ -81,7 +81,7 @@ function App() {
     } as any;
   };
 
-  const throttledHandleScroll = throttle(handleScroll, 500);
+  const throttledHandleScroll = throttle(handleScroll, 1000);
 
   useEffect(() => {
     getFilms();

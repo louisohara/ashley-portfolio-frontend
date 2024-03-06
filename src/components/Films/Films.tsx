@@ -77,9 +77,11 @@ export default function Films({ films }: FilmsProps) {
                 onMouseEnter={() => {
                   handleMouseEnter(child);
                 }}
+                onTouchStart={() => handleMouseEnter(child)}
                 onMouseLeave={() => {
                   handleMouseLeave(child);
                 }}
+                onTouchEnd={() => handleMouseLeave(child)}
               >
                 <p className={`films__title films__title--${child.id}`}>
                   {child.title}
