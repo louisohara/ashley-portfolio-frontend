@@ -125,7 +125,10 @@
       minmax(calc((100% / 10) - 12.5px), 1fr)
     );
     grid-template-rows: 1fr;
-    column-gap: 12.5px;
+    column-gap: 6.5px;
+    @include desktop {
+      row-gap: 0.5px;
+    }
     row-gap: 6.5px;
     @include desktop {
       row-gap: 12.5px;
@@ -253,6 +256,8 @@
 
   &__list .grid__item:nth-child(4) {
     @include mobile-and-tablet {
+      width: calc(100% - 6px);
+
       border: 3px solid $hover-colour;
     }
 
@@ -304,14 +309,15 @@
   }
   &__list--about .grid__item:nth-child(3),
   &__list--about .grid__item:nth-child(4) {
-    @include mobile-and-tablet {
-      width: 100%;
-    }
+    // @include mobile-and-tablet {
+    //   width: calc(100% - 6px);
+    // }
   }
   &__list--about .grid__item:nth-child(3) {
     @include fadeLeft;
     animation-delay: 0.75s;
     order: 2;
+    // border: 3px solid $hover-colour;
 
     @include desktop {
       animation-delay: 1s;
