@@ -117,7 +117,6 @@
   }
   &--user {
     @include mobile-and-tablet {
-      align-items: center;
       justify-content: center;
 
       .title__longword {
@@ -127,7 +126,7 @@
       color: $white;
       background-color: $hover-colour;
       border-bottom: 6px solid $hover-colour;
-      padding: 0 0rem 0 0.25rem;
+      padding: 0 0rem 0 0.75rem;
     }
     @include desktop {
       justify-content: flex-end;

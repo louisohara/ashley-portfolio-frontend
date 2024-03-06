@@ -307,12 +307,12 @@
       grid-row: span 7;
     }
   }
-  &__list--about .grid__item:nth-child(3),
-  &__list--about .grid__item:nth-child(4) {
-    // @include mobile-and-tablet {
-    //   width: calc(100% - 6px);
-    // }
-  }
+  // &__list--about .grid__item:nth-child(3),
+  // &__list--about .grid__item:nth-child(4) {
+  //   // @include mobile-and-tablet {
+  //   //   width: calc(100% - 6px);
+  //   // }
+  // }
   &__list--about .grid__item:nth-child(3) {
     @include fadeLeft;
     animation-delay: 0.75s;
