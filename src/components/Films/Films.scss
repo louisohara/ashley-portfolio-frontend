@@ -231,9 +231,14 @@
       padding: 0rem 1rem;
       text-align: left;
       -webkit-text-stroke-width: 0.25px;
-      -webkit-text-stroke-color: $hover-colour;
-      text-transform: uppercase;
-      color: $transparent-colour-3;
+      -webkit-text-stroke-color: $white;
+      // text-transform: uppercase;
+      color: $white;
+      &.active {
+        -webkit-text-stroke-color: $hover-colour;
+
+        color: $hover-colour;
+      }
     }
   }
 }

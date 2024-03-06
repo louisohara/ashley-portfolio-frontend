@@ -66,15 +66,32 @@ function App() {
     setPrevScrollPos(currentScrollPos);
   };
 
+  const throttle = <T extends (...args: any[]) => void>(
+    func: T,
+    limit: number
+  ): T => {
+    let inThrottle: boolean;
+    return function (this: any, ...args: any[]) {
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    } as any;
+  };
+
+  const throttledHandleScroll = throttle(handleScroll, 500);
+
   useEffect(() => {
     getFilms();
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", throttledHandleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, [prevScrollPos]);
   if (!films) {

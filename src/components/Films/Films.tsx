@@ -23,17 +23,23 @@ export default function Films({ films }: FilmsProps) {
   };
   const handleMouseEnter = (child: FilmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
-
+    const title = document.querySelector(`.films__title--${child.id}`);
     if (image) {
       image.classList.add("active");
+    }
+    if (title) {
+      title.classList.add("active");
     }
   };
 
   const handleMouseLeave = (child: FilmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
-
+    const title = document.querySelector(`.films__title--${child.id}`);
     if (image) {
       image.classList.remove("active");
+    }
+    if (title) {
+      title.classList.remove("active");
     }
   };
 
@@ -75,7 +81,9 @@ export default function Films({ films }: FilmsProps) {
                   handleMouseLeave(child);
                 }}
               >
-                <p className="films__title">{child.title}</p>
+                <p className={`films__title films__title--${child.id}`}>
+                  {child.title}
+                </p>
               </span>
             </a>
           </li>
