@@ -122,23 +122,35 @@
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(calc((100% / 10) - 12.5px), 1fr)
+      minmax(calc((100% / 10) - 6.5px), 1fr)
     );
+    @include desktop {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(calc((100% / 10) - 16px), 1fr)
+      );
+    }
     grid-template-rows: 1fr;
     column-gap: 6.5px;
     @include desktop {
-      row-gap: 0.5px;
+      column-gap: 16px;
     }
     row-gap: 6.5px;
     @include desktop {
-      row-gap: 12.5px;
+      row-gap: 16px;
     }
   }
   &__list--about {
     grid-template-rows: repeat(
       auto-fit,
-      minmax(calc((100% / 10) - 12.5px), 1fr)
+      minmax(calc((100% / 10) - 6.5px), 1fr)
     );
+    @include desktop {
+      grid-template-rows: repeat(
+        auto-fit,
+        minmax(calc((100% / 10) - 12.5px), 1fr)
+      );
+    }
 
     width: 100%;
   }
