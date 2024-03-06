@@ -183,15 +183,6 @@
     justify-content: center;
     transition: background-color 0.1s ease, color 0.1s ease;
     color: transparent;
-
-    &:hover {
-      z-index: 2;
-
-      background-color: $transparent-colour-2;
-
-      backdrop-filter: blur(3px);
-      color: $hover-colour;
-    }
     @include mobile-only {
       align-items: flex-end;
       justify-content: flex-start;
@@ -233,10 +224,21 @@
       -webkit-text-stroke-width: 0.25px;
       -webkit-text-stroke-color: $white;
       color: $white;
-      &.active {
-        -webkit-text-stroke-color: $hover-colour;
+    }
+  }
+  &__overlay {
+    &:hover {
+      z-index: 2;
 
-        color: $hover-colour;
+      background-color: $transparent-colour-2;
+
+      backdrop-filter: blur(3px);
+      color: $hover-colour;
+      .films__title {
+        @include mobile-only {
+          color: $hover-colour;
+          -webkit-text-stroke-color: $hover-colour;
+        }
       }
     }
   }
