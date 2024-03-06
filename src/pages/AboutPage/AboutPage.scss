@@ -97,10 +97,20 @@
     padding: 0.5rem 0;
   }
   &__carousel--outer {
+    @include mobile-and-tablet {
+      display: none;
+    }
     margin-top: 0;
     overflow: hidden;
     height: 80px;
     width: 100%;
+    &--alt {
+      @include mobile-and-tablet {
+        display: block;
+        position: absolute;
+        bottom: 0;
+      }
+    }
   }
   &__carousel {
     -webkit-animation: scroll 15s ease-in-out infinite;

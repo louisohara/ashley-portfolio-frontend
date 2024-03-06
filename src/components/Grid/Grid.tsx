@@ -138,7 +138,7 @@ export default function Grid({
             dimensions.width > 1024 && images ? (
               <Instagram alt="user" images={images[0]} />
             ) : (
-              <Title text="Creator Director Filmmaker" alt="user" />
+              <Title text="Director Creator Maker" alt="user" />
             )
           ) : (
             ""

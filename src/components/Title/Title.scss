@@ -43,7 +43,7 @@
     // background-color: $white;
     @include mobile-and-tablet {
       text-align: left;
-      padding-left: 0.25rem;
+      // padding-left: 0.25rem;
     }
     @include mobile-only {
       font-size: 9.25vw;
@@ -135,7 +135,7 @@
   }
   &__title--user {
     @include mobile-only {
-      font-size: 11vw;
+      font-size: 10.8vw;
     }
     @include tablet-only {
       font-size: 10vw;
@@ -143,10 +143,10 @@
   }
   &__firstWord--user {
     display: block;
-
-    + span {
-      font-size: 90%;
-    }
+    font-size: 99%;
+    // + span + span {
+    //   font-size: 90%;
+    // }
   }
   &__longword {
     @include mobile-and-tablet {

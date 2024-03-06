@@ -58,6 +58,7 @@ function App() {
           // Scrolling down
           headerDiv.classList.remove("fixedToTop");
           headerDiv.style.top = "-10rem";
+          closeMenu();
         } else {
           // Scrolling up or near the top
           headerDiv.classList.add("fixedToTop");
