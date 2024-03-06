@@ -46,24 +46,27 @@ function App() {
     }
   };
 
+  let lastScrollPos: number = 0;
   // fixedtotop header animation
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
-    const headerDiv: HTMLElement | null = document.querySelector(".header");
+    if (Math.abs(currentScrollPos - lastScrollPos) > 5) {
+      const headerDiv: HTMLElement | null = document.querySelector(".header");
 
-    if (prevScrollPos < currentScrollPos && headerDiv) {
-      headerDiv.classList.remove("fixedToTop");
-      headerDiv.style.top = "-10rem";
-
-      closeMenu();
-    } else {
       if (headerDiv) {
-        headerDiv.classList.add("fixedToTop");
-        headerDiv.style.top = "0";
+        if (currentScrollPos > lastScrollPos && currentScrollPos > 50) {
+          // Scrolling down
+          headerDiv.classList.remove("fixedToTop");
+          headerDiv.style.top = "-10rem";
+        } else {
+          // Scrolling up or near the top
+          headerDiv.classList.add("fixedToTop");
+          headerDiv.style.top = "0";
+        }
       }
-    }
 
-    setPrevScrollPos(currentScrollPos);
+      lastScrollPos = currentScrollPos;
+    }
   };
 
   const throttle = <T extends (...args: any[]) => void>(
@@ -81,7 +84,7 @@ function App() {
     } as any;
   };
 
-  const throttledHandleScroll = throttle(handleScroll, 1000);
+  const throttledHandleScroll = throttle(handleScroll, 250);
 
   useEffect(() => {
     getFilms();

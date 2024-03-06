@@ -77,8 +77,11 @@ export default function Films({ films }: FilmsProps) {
                 onMouseEnter={() => {
                   handleMouseEnter(child);
                 }}
-                onTouchStart={() => handleMouseEnter(child)}
                 onMouseLeave={() => {
+                  handleMouseLeave(child);
+                }}
+                onTouchMove={() => handleMouseEnter(child)}
+                onTouchEnd={() => {
                   handleMouseLeave(child);
                 }}
               >
