@@ -148,7 +148,7 @@
     @include desktop {
       grid-template-rows: repeat(
         auto-fit,
-        minmax(calc((100% / 10) - 12.5px), 1fr)
+        minmax(calc((100% / 10) - 16px), 1fr)
       );
     }
 
