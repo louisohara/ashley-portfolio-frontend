@@ -123,7 +123,7 @@ export default function Grid({
                 film={user}
                 alt="user"
                 nominations={clients}
-                limit="600"
+                limit="500"
                 images={images}
                 slides="1"
               />

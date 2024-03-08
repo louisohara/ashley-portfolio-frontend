@@ -35,7 +35,11 @@
     transition: transform 0.5s;
     display: block;
     @include filterWhiteToColour;
-    @include mobile-and-tablet {
+    @include mobile-only {
+      max-width: calc(5.5rem);
+      max-height: calc(4.5rem);
+    }
+    @include tablet {
       max-width: calc(6rem + 5%);
       max-height: calc(4.5rem + 5%);
     }
@@ -72,17 +76,19 @@
     margin: 0;
     font-weight: 500;
 
-    @include mobile-and-tablet {
+    @include tablet {
       font-size: calc(0.9rem + 5%);
     }
   }
   &__result {
     margin: 0.5rem 0;
     text-transform: capitalize;
-    font-family: "Times New Roman", Times, serif;
-    -webkit-text-stroke-width: 0.75px;
-    color: $white;
-    -webkit-text-stroke-color: $black;
+    font-weight: 300;
+    @include mobile-only {
+      font-size: 1.25rem;
+    }
+
+    color: $hover-colour;
   }
   &__text {
     justify-content: center;

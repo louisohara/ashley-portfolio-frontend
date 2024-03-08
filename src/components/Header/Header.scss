@@ -2,7 +2,7 @@
 @use "../../styles/variables" as *;
 
 .header {
-  zoom: 0.85;
+  zoom: 0.8;
   z-index: 10;
   position: relative;
   transition: all 0.25s;
@@ -12,6 +12,7 @@
     left: 0;
     right: 0;
     background-color: $transparent-colour-2;
+    transition: all 0.25s;
     @include tablet {
       backdrop-filter: blur(8px);
     }
@@ -145,6 +146,7 @@
       flex-direction: row;
       position: relative;
       @include mobile-only {
+        font-weight: 500;
         font-size: 1.1rem;
       }
       @include tablet {

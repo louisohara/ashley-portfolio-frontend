@@ -102,7 +102,7 @@
     &--extra-long--2 {
       display: block;
       @include mobile-only {
-        font-size: 8vw;
+        font-size: 7.75vw;
       }
       @include tablet {
         font-size: 6.9vw;
@@ -126,7 +126,7 @@
       color: $white;
       background-color: $hover-colour;
       border-bottom: 6px solid $hover-colour;
-      padding: 0 0rem 0 0.75rem;
+      // padding: 0 0rem 0 0.75rem;
     }
     @include desktop {
       justify-content: flex-end;
@@ -152,24 +152,18 @@
       display: flex;
     }
   }
+  &__Catch {
+    font-size: 10.5vw;
+  }
   &__Greatest {
+    @include mobile-only {
+      font-size: 7.5vw;
+    }
     @include desktop {
       font-size: 4.6vw;
     }
   }
   &__in {
-    @include mobile-only {
-      font-size: 8.5vw;
-      & .title__firstWord--film {
-        font-size: 90%;
-        & + span {
-          display: block;
-        }
-      }
-      & .title__longword {
-        font-size: 90%;
-      }
-    }
     @include desktop {
       font-size: 5.5vw;
     }
@@ -177,7 +171,7 @@
 
   &__Lee {
     @include mobile-only {
-      font-size: 9.5vw;
+      font-size: 8.15vw;
     }
     @include desktop {
       font-size: 4.1vw;
@@ -193,12 +187,14 @@
       font-size: 6vw;
     }
   }
-  &__Real {
+  &__Real,
+  &__A,
+  &__in {
     @include mobile-only {
-      font-size: 17.5vw;
-
-      & .title__longword {
-        font-size: 44%;
+      font-size: 190%;
+      & .title__longword,
+      & .title__firstWord--film {
+        font-size: 97.5%;
         display: flex;
       }
       & .title__firstWord--film {
@@ -206,21 +202,14 @@
       }
     }
   }
-  &__A {
-    @include mobile-only {
-      font-size: 14.25vw;
-      .title__firstWord--film {
-        font-size: 50%;
-        & + span {
-          display: block;
-        }
-      }
+  &__Real {
+    @include desktop {
+      font-size: 6.7vw;
     }
   }
-
   &__undefined {
     @include desktop {
-      font-size: 9vw;
+      font-size: 9.25vw;
     }
   }
   &__Not {
@@ -235,6 +224,11 @@
   &__Antony {
     @include mobile-only {
       font-size: 9vw;
+    }
+  }
+  &__The {
+    @include mobile-only {
+      // display: inline;
     }
   }
 }

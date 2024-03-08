@@ -44,7 +44,7 @@ export default function Carousel({
     slidesToShow: parseInt(slides),
     slidesToScroll: 1,
     adaptiveHeight: true,
-    autoplay: true,
+    // autoplay: true,
     speed: 800,
     autoplaySpeed: 10800,
     pauseOnHover: true,
@@ -132,6 +132,7 @@ export default function Carousel({
           ) : (
             ""
           )}
+          {images ? <Instagram images={images} alt={alt} /> : ""}
           {nominations && nominations.length > 0 ? (
             <Nominations nominations={nominations} alt={alt} />
           ) : (
@@ -142,8 +143,6 @@ export default function Carousel({
           ) : (
             ""
           )}
-
-          {images ? <Instagram images={images} alt={alt} /> : ""}
         </Slider>
       ) : (
         <>

@@ -17,7 +17,7 @@ export default function Instagram({ images, alt }: InstagramProps) {
         <div className="carousel__slide">
           <article className="carousel__content carousel__content--insta">
             <div className="carousel__nomination insta">
-              {images.map((image) => {
+              {images.slice(0, 4).map((image) => {
                 return (
                   <a
                     href={image.link}

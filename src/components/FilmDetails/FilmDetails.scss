@@ -60,9 +60,9 @@
     font-weight: 500;
 
     @include mobile-only {
-      max-width: 65%;
+      max-width: 67.5%;
     }
-    @include mobile-and-tablet {
+    @include tablet {
       max-width: 60%;
       overflow: scroll;
 
@@ -109,10 +109,10 @@
       margin: 0;
     }
     @include mobile-only {
-      font-size: 3vw;
+      font-size: 3.5vw;
     }
     @include tablet {
-      font-size: 2.5vw;
+      font-size: 3.5vw;
     }
     @include desktop {
       font-size: 1.6vw;
@@ -161,7 +161,7 @@
     }
     &--Woody {
       @include mobile-only {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
       }
     }
   }
