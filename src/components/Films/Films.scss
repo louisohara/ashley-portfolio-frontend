@@ -236,8 +236,7 @@
         color: $hover-colour;
       }
     }
-    &:active,
-    &:visited {
+    &.active {
       @include mobile-only {
         z-index: 2;
         background-color: $transparent-colour-2;

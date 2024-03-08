@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Films.scss";
 import { FilmObject } from "../../types/interfaces/interfaces";
 
@@ -21,6 +21,35 @@ export default function Films({ films }: FilmsProps) {
       }
     });
   };
+
+  const [startX, setStartX] = useState<number | null>(null);
+  const [startY, setStartY] = useState<number | null>(null);
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLSpanElement>) => {
+    setStartX(event.touches[0].clientX);
+    setStartY(event.touches[0].clientY);
+  };
+
+  const handleTouchEnd = (
+    event: React.TouchEvent<HTMLSpanElement>,
+    child: FilmObject
+  ) => {
+    const endX = event.changedTouches[0].clientX;
+    const endY = event.changedTouches[0].clientY;
+    console.log(endX);
+
+    const dx = Math.abs(endX - (startX || 0));
+    const dy = Math.abs(endY - (startY || 0));
+
+    if (dx < 10 && dy < 10) {
+      // Adjust threshold as needed
+      const overlay = document.querySelector(`.films__overlay--${child.id}`);
+      if (overlay) {
+        overlay.classList.add("active");
+      }
+    }
+  };
+
   const handleMouseEnter = (child: FilmObject) => {
     const image = document.querySelector(`.films__image--${child.id}`);
 
@@ -67,12 +96,18 @@ export default function Films({ films }: FilmsProps) {
                 />
               </div>
               <span
-                className="films__overlay"
+                className={`films__overlay films__overlay--${child.id}`}
                 onMouseEnter={() => {
                   handleMouseEnter(child);
                 }}
                 onMouseLeave={() => {
                   handleMouseLeave(child);
+                }}
+                onTouchStart={(event) => {
+                  handleTouchStart(event);
+                }}
+                onTouchEnd={(event) => {
+                  handleTouchEnd(event, child);
                 }}
               >
                 <p className="films__title">{child.title}</p>
