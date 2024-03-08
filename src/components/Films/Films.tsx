@@ -36,13 +36,11 @@ export default function Films({ films }: FilmsProps) {
   ) => {
     const endX = event.changedTouches[0].clientX;
     const endY = event.changedTouches[0].clientY;
-    console.log(endX);
 
     const dx = Math.abs(endX - (startX || 0));
     const dy = Math.abs(endY - (startY || 0));
 
     if (dx < 10 && dy < 10) {
-      // Adjust threshold as needed
       const overlay = document.querySelector(`.films__overlay--${child.id}`);
       if (overlay) {
         overlay.classList.add("active");

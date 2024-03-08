@@ -166,7 +166,7 @@
 
   &__Lee {
     @include mobile-only {
-      font-size: 8.5vw;
+      font-size: 9vw;
     }
     @include desktop {
       font-size: 4.1vw;
@@ -176,7 +176,7 @@
   &__is {
     display: block;
     @include mobile-only {
-      font-size: 10.5vw;
+      font-size: 11.5vw;
     }
     @include desktop {
       font-size: 6vw;
@@ -186,10 +186,10 @@
   &__A,
   &__in {
     @include mobile-only {
-      font-size: 200%;
+      font-size: 205%;
       & .title__longword,
       & .title__firstWord--film {
-        font-size: 97.5%;
+        font-size: 97%;
         display: flex;
       }
       & .title__firstWord--film {
