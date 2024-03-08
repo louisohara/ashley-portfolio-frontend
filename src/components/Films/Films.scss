@@ -237,9 +237,7 @@
       }
     }
     &:active,
-    &:focus,
-    &:visited,
-    &:focus-visible {
+    &:visited {
       @include mobile-only {
         z-index: 2;
         background-color: $transparent-colour-2;

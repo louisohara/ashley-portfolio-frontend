@@ -102,7 +102,7 @@
     &--extra-long--2 {
       display: block;
       @include mobile-only {
-        font-size: 7.75vw;
+        font-size: 8vw;
       }
       @include tablet {
         font-size: 6.9vw;
@@ -152,13 +152,8 @@
       display: flex;
     }
   }
-  &__Catch {
-    font-size: 10.5vw;
-  }
+
   &__Greatest {
-    @include mobile-only {
-      font-size: 7.5vw;
-    }
     @include desktop {
       font-size: 4.6vw;
     }
@@ -171,7 +166,7 @@
 
   &__Lee {
     @include mobile-only {
-      font-size: 8.15vw;
+      font-size: 8.5vw;
     }
     @include desktop {
       font-size: 4.1vw;
@@ -191,7 +186,7 @@
   &__A,
   &__in {
     @include mobile-only {
-      font-size: 190%;
+      font-size: 205%;
       & .title__longword,
       & .title__firstWord--film {
         font-size: 97.5%;
@@ -224,11 +219,6 @@
   &__Antony {
     @include mobile-only {
       font-size: 9vw;
-    }
-  }
-  &__The {
-    @include mobile-only {
-      // display: inline;
     }
   }
 }
