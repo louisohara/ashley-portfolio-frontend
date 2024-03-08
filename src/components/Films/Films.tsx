@@ -79,7 +79,7 @@ export default function Films({ films }: FilmsProps) {
             className={
               i <= 2
                 ? "films__item films__item--alt"
-                : i < 5
+                : i < 6
                 ? "films__item films__item--hidden films__item--alt inView"
                 : "films__item films__item--hidden"
             }

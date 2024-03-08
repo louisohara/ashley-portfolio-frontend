@@ -44,7 +44,7 @@ export default function Carousel({
     slidesToShow: parseInt(slides),
     slidesToScroll: 1,
     adaptiveHeight: true,
-    // autoplay: true,
+    autoplay: true,
     speed: 800,
     autoplaySpeed: 10800,
     pauseOnHover: true,

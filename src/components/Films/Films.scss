@@ -110,8 +110,8 @@
       @include fadeRight;
     }
   }
-  &__grid li:nth-child(6).films__item--alt .films__image-container,
-  &__grid li:nth-child(6).films__item--alt .films__overlay {
+  &__grid li:nth-child(6).films__item--alt.inView .films__image-container,
+  &__grid li:nth-child(6).films__item--alt.inView .films__overlay {
     @include tablet {
       animation-delay: 1.5s;
     }
